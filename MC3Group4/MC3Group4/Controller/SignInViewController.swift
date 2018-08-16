@@ -10,6 +10,7 @@ import UIKit
 
 class SignInViewController: UIViewController {
 
+    var x: Int = 10
     
     @IBOutlet var secondSignInButton: UIButton!
     
