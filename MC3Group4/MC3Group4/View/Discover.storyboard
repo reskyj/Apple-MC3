@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="McC-zn-5tX">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Discover-->
+        <scene sceneID="qb9-to-2kN">
+            <objects>
+                <viewController id="Ln0-Cx-wq8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yyz-Vg-Wsz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCa-Y7-2xF">
+                                <rect key="frame" x="164" y="636" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="H8Y-Jq-YkH" kind="show" id="ihJ-Ty-Fn3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ic6-jf-uad"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Discover" id="tgt-CR-za1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gs1-78-Rwd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="948" y="159.60591133004928"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="BU5-o9-bBC">
+            <objects>
+                <viewController id="H8Y-Jq-YkH" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bb2-0H-XoU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KXA-eJ-ZmC">
+                                <rect key="frame" x="0.0" y="88" width="375" height="219"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="mYK-6C-qPW" kind="embed" id="Yhs-0d-dTD"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="g7t-dB-ZjX"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XKc-8a-BaU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1648.8" y="159.60591133004928"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="wRQ-ww-Lyu">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="mYK-6C-qPW" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Uy-z9-mFm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2476" y="160"/>
+        </scene>
+        <!--Discover Image View Controller-->
+        <scene sceneID="fOd-rM-ldP">
+            <objects>
+                <viewController storyboardIdentifier="DiscoverImageViewController" id="2Uu-E9-SLS" customClass="DiscoverImageViewController" customModule="MC3Group4" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eaY-z7-dQT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="fFY-kB-1gd">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="8Ve-zr-G2c"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="fFY-kB-1gd" id="BOo-9L-QTb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xyp-gm-AtW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3156" y="159.60591133004928"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="aIp-Fg-Isu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="McC-zn-5tX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="Discover-1" id="bX8-Yt-kr7"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hot-1B-4Ab">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ln0-Cx-wq8" kind="relationship" relationship="rootViewController" id="TE7-2v-reh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E7Y-75-WrU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5.5999999999999996" y="159.60591133004928"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="1" width="4000" height="2598"/>
+        <image name="Discover-1" width="25" height="25"/>
+    </resources>
+</document>
