@@ -14,8 +14,7 @@
 		2F5F26C22122BC4E00E02EE9 /* Draft.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F5F26C12122BC4E00E02EE9 /* Draft.storyboard */; };
 		2F5F26C42122BD2100E02EE9 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F5F26C32122BD2100E02EE9 /* Profile.storyboard */; };
 		2F5F26C62122C32900E02EE9 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F5F26C52122C32900E02EE9 /* Discover.storyboard */; };
-		2F5F26C82122D5B600E02EE9 /* DiscoverImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5F26C72122D5B600E02EE9 /* DiscoverImageViewController.swift */; };
-		2F5F26CB2122DA9600E02EE9 /* DiscoverImagePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5F26CA2122DA9600E02EE9 /* DiscoverImagePageViewController.swift */; };
+		2F7852C82126CB8D00944E61 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7852C72126CB8D00944E61 /* OnBoardingViewController.swift */; };
 		2FE25CD02125292D00B899E3 /* DraftDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE25CCF2125292D00B899E3 /* DraftDetailViewController.swift */; };
 		2FE25CD221252AC800B899E3 /* DraftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE25CD121252AC800B899E3 /* DraftViewController.swift */; };
 		2FE25CD4212569AD00B899E3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE25CD3212569AD00B899E3 /* ProfileViewController.swift */; };
@@ -35,8 +34,7 @@
 		2F5F26C12122BC4E00E02EE9 /* Draft.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Draft.storyboard; sourceTree = "<group>"; };
 		2F5F26C32122BD2100E02EE9 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		2F5F26C52122C32900E02EE9 /* Discover.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
-		2F5F26C72122D5B600E02EE9 /* DiscoverImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverImageViewController.swift; sourceTree = "<group>"; };
-		2F5F26CA2122DA9600E02EE9 /* DiscoverImagePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverImagePageViewController.swift; sourceTree = "<group>"; };
+		2F7852C72126CB8D00944E61 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		2FE25CCF2125292D00B899E3 /* DraftDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftDetailViewController.swift; sourceTree = "<group>"; };
 		2FE25CD121252AC800B899E3 /* DraftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftViewController.swift; sourceTree = "<group>"; };
 		2FE25CD3212569AD00B899E3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -79,13 +77,13 @@
 		2F5F26A92122B59200E02EE9 /* MC3Group4 */ = {
 			isa = PBXGroup;
 			children = (
-				2FE25CD5212574DC00B899E3 /* Model */,
-				2F5F26BE2122B97100E02EE9 /* View */,
-				2F5F26AA2122B59200E02EE9 /* AppDelegate.swift */,
-				2F5F26C92122D5CC00E02EE9 /* Controller */,
 				2F5F26B12122B59300E02EE9 /* Assets.xcassets */,
 				2F5F26B32122B59300E02EE9 /* LaunchScreen.storyboard */,
 				2F5F26B62122B59300E02EE9 /* Info.plist */,
+				2F5F26AA2122B59200E02EE9 /* AppDelegate.swift */,
+				2FE25CD5212574DC00B899E3 /* Model */,
+				2F5F26BE2122B97100E02EE9 /* View */,
+				2F5F26C92122D5CC00E02EE9 /* Controller */,
 			);
 			path = MC3Group4;
 			sourceTree = "<group>";
@@ -104,15 +102,38 @@
 		2F5F26C92122D5CC00E02EE9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2F7852C72126CB8D00944E61 /* OnBoardingViewController.swift */,
+				2F7852CB21271B1F00944E61 /* Discover */,
+				2F7852CA21271B0F00944E61 /* Draft */,
+				2F7852C921271B0600944E61 /* Profile */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2F7852C921271B0600944E61 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
 				2FE25CD621257FE700B899E3 /* SignInViewController.swift */,
 				2FE25CD821258AE100B899E3 /* RegisterViewController.swift */,
 				2FE25CD3212569AD00B899E3 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		2F7852CA21271B0F00944E61 /* Draft */ = {
+			isa = PBXGroup;
+			children = (
 				2FE25CD121252AC800B899E3 /* DraftViewController.swift */,
 				2FE25CCF2125292D00B899E3 /* DraftDetailViewController.swift */,
-				2F5F26C72122D5B600E02EE9 /* DiscoverImageViewController.swift */,
-				2F5F26CA2122DA9600E02EE9 /* DiscoverImagePageViewController.swift */,
 			);
-			path = Controller;
+			path = Draft;
+			sourceTree = "<group>";
+		};
+		2F7852CB21271B1F00944E61 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Discover;
 			sourceTree = "<group>";
 		};
 		2FE25CD5212574DC00B899E3 /* Model */ = {
@@ -266,8 +287,7 @@
 				2FE25CD921258AE100B899E3 /* RegisterViewController.swift in Sources */,
 				2FE25CD221252AC800B899E3 /* DraftViewController.swift in Sources */,
 				2F5F26AB2122B59200E02EE9 /* AppDelegate.swift in Sources */,
-				2F5F26CB2122DA9600E02EE9 /* DiscoverImagePageViewController.swift in Sources */,
-				2F5F26C82122D5B600E02EE9 /* DiscoverImageViewController.swift in Sources */,
+				2F7852C82126CB8D00944E61 /* OnBoardingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

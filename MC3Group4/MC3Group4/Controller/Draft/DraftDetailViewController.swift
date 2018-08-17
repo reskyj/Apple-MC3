@@ -11,13 +11,31 @@ import UIKit
 class DraftDetailViewController: UIViewController {
 
     @IBOutlet var schoolNameLabel: UILabel!
+    @IBOutlet var aboutTextView: UITextView!
+    @IBOutlet var accessTextView: UITextView!
+    @IBOutlet var needsTextView: UITextView!
     
     var schoolName: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
+        
+        
+        
         schoolNameLabel.text = schoolName
+        
+        aboutTextView.text = "Placeholder"
+        aboutTextView.textColor = UIColor.lightGray
+        needsTextView.text = "Placeholder"
+        needsTextView.textColor = UIColor.lightGray
+        accessTextView.text = "Placeholder"
+        accessTextView.textColor = UIColor.lightGray
+        
+        
+        
+        
 
     }
 
@@ -25,6 +43,9 @@ class DraftDetailViewController: UIViewController {
         self.schoolName = schoolName
     }
     
+   
+    
+  
 
 
 }
