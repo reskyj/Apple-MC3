@@ -13,7 +13,7 @@
         <!--Discover-->
         <scene sceneID="qb9-to-2kN">
             <objects>
-                <viewController storyboardIdentifier="DiscoverID" id="Ln0-Cx-wq8" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiscoverID" id="Ln0-Cx-wq8" customClass="DiscoverViewController" customModule="MC3Group4" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yyz-Vg-Wsz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
