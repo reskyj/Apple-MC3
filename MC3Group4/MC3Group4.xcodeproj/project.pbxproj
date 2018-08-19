@@ -20,6 +20,7 @@
 		2FE25CD4212569AD00B899E3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE25CD3212569AD00B899E3 /* ProfileViewController.swift */; };
 		2FE25CD721257FE700B899E3 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE25CD621257FE700B899E3 /* SignInViewController.swift */; };
 		2FE25CD921258AE100B899E3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE25CD821258AE100B899E3 /* RegisterViewController.swift */; };
+		85A2C7FB2129AB8E0008B143 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85A2C7FA2129AB8E0008B143 /* GoogleService-Info.plist */; };
 		E76009CFD2B9133F99926EED /* Pods_MC3Group4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE664E08B7862F40900D2805 /* Pods_MC3Group4.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		2FE25CD3212569AD00B899E3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2FE25CD621257FE700B899E3 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		2FE25CD821258AE100B899E3 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		85A2C7FA2129AB8E0008B143 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AE664E08B7862F40900D2805 /* Pods_MC3Group4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MC3Group4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6A211EED95F6534D9748184 /* Pods-MC3Group4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MC3Group4.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MC3Group4/Pods-MC3Group4.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +82,7 @@
 				2F5F26B12122B59300E02EE9 /* Assets.xcassets */,
 				2F5F26B32122B59300E02EE9 /* LaunchScreen.storyboard */,
 				2F5F26B62122B59300E02EE9 /* Info.plist */,
+				85A2C7FA2129AB8E0008B143 /* GoogleService-Info.plist */,
 				2F5F26AA2122B59200E02EE9 /* AppDelegate.swift */,
 				2FE25CD5212574DC00B899E3 /* Model */,
 				2F5F26BE2122B97100E02EE9 /* View */,
@@ -226,6 +229,7 @@
 				2F5F26B52122B59300E02EE9 /* LaunchScreen.storyboard in Resources */,
 				2F5F26B22122B59300E02EE9 /* Assets.xcassets in Resources */,
 				2F5F26C62122C32900E02EE9 /* Discover.storyboard in Resources */,
+				85A2C7FB2129AB8E0008B143 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,7 +429,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TZ3HWHN35P;
+				DEVELOPMENT_TEAM = 98R673PJSG;
 				INFOPLIST_FILE = MC3Group4/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -444,7 +448,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TZ3HWHN35P;
+				DEVELOPMENT_TEAM = 98R673PJSG;
 				INFOPLIST_FILE = MC3Group4/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
