@@ -26,6 +26,16 @@ class ProfileViewController: UIViewController {
         
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.title = ""
+        self.navigationItem.hidesBackButton = true
+    
+        if (LoggedInUser.isLoggedIn == true){
+            self.navigationController?.popViewController(animated: false)
+        }
+    }
 
     
     @IBAction func signInButtonTapped(_ sender: Any) {
