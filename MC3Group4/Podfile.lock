@@ -66,6 +66,7 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - paper-onboarding (4.1.0)
 
 DEPENDENCIES:
   - Firebase/Core
@@ -73,6 +74,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - GoogleMaps
   - GooglePlaces
+  - paper-onboarding
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -89,6 +91,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - paper-onboarding
 
 SPEC CHECKSUMS:
   Firebase: 8c957f9cb3852b519180fb378801b7eeeba4d288
@@ -104,7 +107,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  paper-onboarding: 344780cbb0bfc229cd1862f5b9bba446b23c5185
 
-PODFILE CHECKSUM: 2e1694239a56a76597b3c876f968d37fd317d63a
+PODFILE CHECKSUM: 077bd25da9a2a2d7b955516dd142ba76fede7005
 
 COCOAPODS: 1.5.3

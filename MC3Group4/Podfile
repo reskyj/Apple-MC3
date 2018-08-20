@@ -11,5 +11,6 @@ target 'MC3Group4' do
   pod 'Firebase/Storage'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'paper-onboarding'
   
 end
