@@ -65,6 +65,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="12"/>
                                 <state key="normal" title="SIGN IN"/>
+                                <connections>
+                                    <action selector="signInButtonClicked" destination="GtK-MT-PDh" eventType="touchUpInside" id="acK-Ud-YCM"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="bottom" placeholder="At least 6 characters" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L6r-nx-44F" customClass="DesignTextField" customModule="MC3Group4" customModuleProvider="target">
                                 <rect key="frame" x="16" y="223" width="343" height="55"/>
@@ -104,8 +107,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Sign In" id="dGE-pa-pME"/>
                     <connections>
-                        <outlet property="emailTextField" destination="hGt-fy-f7Z" id="eCq-ty-JBq"/>
-                        <outlet property="passwordTextField" destination="rCh-fw-S7R" id="U80-J1-f7V"/>
+                        <outlet property="emailTextField" destination="IR1-tY-7Zw" id="GRL-18-JZq"/>
+                        <outlet property="passwordTextField" destination="L6r-nx-44F" id="iXO-C6-4nh"/>
                         <outlet property="secondSignInButton" destination="6bg-Ai-abl" id="zwx-z3-xlI"/>
                     </connections>
                 </viewController>
@@ -126,6 +129,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="12"/>
                                 <state key="normal" title="REGISTER"/>
+                                <connections>
+                                    <action selector="registerButtonClicked" destination="841-eq-SlQ" eventType="touchUpInside" id="VnC-iJ-NgV"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="bottom" placeholder="Enter your full name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VdK-50-Jvn" customClass="DesignTextField" customModule="MC3Group4" customModuleProvider="target">
                                 <rect key="frame" x="16" y="99" width="343" height="55"/>
@@ -213,11 +219,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Register" id="DXB-kV-Eso"/>
                     <connections>
-                        <outlet property="confirmPasswordTextField" destination="RV8-ZS-U6O" id="qHX-Qv-2US"/>
-                        <outlet property="emailTextField" destination="Lwb-T0-chx" id="5nu-pt-mtn"/>
-                        <outlet property="fullNameTextField" destination="zoh-ip-Til" id="tv4-pW-j1v"/>
-                        <outlet property="passwordTextField" destination="1MV-Gb-gTj" id="A2a-gw-51e"/>
-                        <outlet property="phoneTextField" destination="Szl-3V-b6v" id="ygY-sX-nWI"/>
+                        <outlet property="confirmPasswordTextField" destination="IAO-xH-BYu" id="hAi-rw-tfV"/>
+                        <outlet property="emailTextField" destination="NN6-fo-GN9" id="hsk-RJ-TWO"/>
+                        <outlet property="fullNameTextField" destination="VdK-50-Jvn" id="Bul-st-uxN"/>
+                        <outlet property="passwordTextField" destination="c0w-WL-udD" id="Xho-8k-Axq"/>
+                        <outlet property="phoneTextField" destination="pHg-qd-BJG" id="xgF-QD-E49"/>
                         <outlet property="secondRegisterButton" destination="Pdz-J2-28Y" id="ewF-Bd-lat"/>
                     </connections>
                 </viewController>
