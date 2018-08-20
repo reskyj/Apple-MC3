@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F04152621290EEF00A0356B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F04152521290EEF00A0356B /* Extension.swift */; };
 		2F5F26AB2122B59200E02EE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5F26AA2122B59200E02EE9 /* AppDelegate.swift */; };
 		2F5F26B22122B59300E02EE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F5F26B12122B59300E02EE9 /* Assets.xcassets */; };
 		2F5F26B52122B59300E02EE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F5F26B32122B59300E02EE9 /* LaunchScreen.storyboard */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		13A189412A90A08B03A2CC69 /* Pods-MC3Group4.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MC3Group4.release.xcconfig"; path = "Pods/Target Support Files/Pods-MC3Group4/Pods-MC3Group4.release.xcconfig"; sourceTree = "<group>"; };
+		2F04152521290EEF00A0356B /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		2F5F26A72122B59200E02EE9 /* MC3Group4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC3Group4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F5F26AA2122B59200E02EE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F5F26B12122B59300E02EE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				2F7852C72126CB8D00944E61 /* OnBoardingViewController.swift */,
+				2F04152521290EEF00A0356B /* Extension.swift */,
 				2F7852CB21271B1F00944E61 /* Discover */,
 				2F7852CA21271B0F00944E61 /* Draft */,
 				2F7852C921271B0600944E61 /* Profile */,
@@ -281,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F04152621290EEF00A0356B /* Extension.swift in Sources */,
 				2FE25CD721257FE700B899E3 /* SignInViewController.swift in Sources */,
 				2FE25CD4212569AD00B899E3 /* ProfileViewController.swift in Sources */,
 				2FE25CD02125292D00B899E3 /* DraftDetailViewController.swift in Sources */,

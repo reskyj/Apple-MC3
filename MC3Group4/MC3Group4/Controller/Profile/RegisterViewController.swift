@@ -14,7 +14,9 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.secondRegisterButton.buttonDesignTwo()
+        self.secondRegisterButton.buttonDesignOne()
+        
+        
 
        
     }
