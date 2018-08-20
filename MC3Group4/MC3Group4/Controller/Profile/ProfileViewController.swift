@@ -22,7 +22,11 @@ class ProfileViewController: UIViewController {
         self.signInButton.buttonDesignOne()
         self.registerButton.buttonDesignTwo()
         
-//        self.navigationController?.isNavigationBarHidden = true
+        print("test")
+        
+        
+        
+        
 //        self.navigationController?.hidesBarsOnSwipe = true
         
         
@@ -30,6 +34,12 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
+        self.title = ""
+        self.navigationItem.hidesBackButton = true
+    
+        if (LoggedInUser.isLoggedIn == true){
+            self.navigationController?.popViewController(animated: false)
+        }
     }
 
     

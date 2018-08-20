@@ -13,7 +13,7 @@
         <!--Profile-->
         <scene sceneID="eq8-xN-QHk">
             <objects>
-                <viewController id="Xpn-ER-ipE" customClass="ProfileViewController" customModule="MC3Group4" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profileVC" id="Xpn-ER-ipE" customClass="ProfileViewController" customModule="MC3Group4" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Zf-o2-bOW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -50,9 +50,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GaB-Ny-MTO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1015" y="83"/>
+            <point key="canvasLocation" x="983" y="470"/>
         </scene>
-        <!--Sign In View Controller-->
+        <!--Sign In-->
         <scene sceneID="iZa-d3-i0Y">
             <objects>
                 <viewController id="GtK-MT-PDh" customClass="SignInViewController" customModule="MC3Group4" customModuleProvider="target" sceneMemberID="viewController">
@@ -101,6 +101,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="g4P-Jt-3Tx"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Sign In" id="dGE-pa-pME"/>
                     <connections>
                         <outlet property="emailTextField" destination="hGt-fy-f7Z" id="eCq-ty-JBq"/>
                         <outlet property="passwordTextField" destination="rCh-fw-S7R" id="U80-J1-f7V"/>
@@ -201,7 +202,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Wa7-BW-yEL"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Register" id="lez-8s-csA"/>
+                    <navigationItem key="navigationItem" title="Register" id="DXB-kV-Eso"/>
                     <connections>
                         <outlet property="confirmPasswordTextField" destination="RV8-ZS-U6O" id="qHX-Qv-2US"/>
                         <outlet property="emailTextField" destination="Lwb-T0-chx" id="5nu-pt-mtn"/>
@@ -215,10 +216,10 @@
             </objects>
             <point key="canvasLocation" x="1832.8" y="-208.37438423645321"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile-->
         <scene sceneID="HnZ-K2-GMY">
             <objects>
-                <viewController id="XSk-M2-d50" sceneMemberID="viewController">
+                <viewController id="XSk-M2-d50" customClass="LoggedInViewController" customModule="MC3Group4" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5vr-If-zw0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -227,8 +228,8 @@
                                 <rect key="frame" x="123" y="117" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Full name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pph-js-lEN">
-                                <rect key="frame" x="149" y="269" width="74" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Full name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pph-js-lEN">
+                                <rect key="frame" x="16" y="269" width="343" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -238,10 +239,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="sNS-2r-SQp"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Profile" id="y8d-15-7f2"/>
+                    <connections>
+                        <outlet property="fullNameLabel" destination="Pph-js-lEN" id="dT9-Bf-NES"/>
+                        <segue destination="Xpn-ER-ipE" kind="show" identifier="LoggedInToProfile" animates="NO" id="1Tk-NW-vyL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W9Y-dr-u8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="161" y="808"/>
+            <point key="canvasLocation" x="160.80000000000001" y="868.9655172413793"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vZw-eu-sOh">
@@ -256,7 +262,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Xpn-ER-ipE" kind="relationship" relationship="rootViewController" id="8db-T1-fR1"/>
+                        <segue destination="XSk-M2-d50" kind="relationship" relationship="rootViewController" id="55H-d4-cOi"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nNB-mV-RBG" userLabel="First Responder" sceneMemberID="firstResponder"/>

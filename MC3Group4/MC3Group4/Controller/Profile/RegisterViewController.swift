@@ -29,6 +29,8 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         
         self.secondRegisterButton.buttonDesignTwo()
+        
+        
     }
     
     

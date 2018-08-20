@@ -24,7 +24,6 @@ class SignInViewController: UIViewController {
         
         self.secondSignInButton.buttonDesignOne()
         
-        
     }
     
     @IBAction func signInButtonClicked() {
@@ -89,7 +88,7 @@ class SignInViewController: UIViewController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
             if (LoggedInUser.isLoggedIn == true){
-                self.navigationController?.popViewController(animated: true)
+                self.navigationController?.popViewController(animated: false)
             }
         }
         alert.addAction(okAction)
