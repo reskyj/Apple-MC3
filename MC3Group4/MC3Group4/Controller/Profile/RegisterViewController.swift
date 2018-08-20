@@ -102,6 +102,7 @@ class RegisterViewController: UIViewController {
         
         let alert = UIAlertController(title: "Success", message: "You have successfully registered to _____!", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
+            self.dismiss(animated: true, completion: nil)
         }
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)

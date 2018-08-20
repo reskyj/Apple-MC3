@@ -93,12 +93,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Sign in"/>
+                                <connections>
+                                    <action selector="signInButtonClicked" destination="GtK-MT-PDh" eventType="touchUpInside" id="jb4-MQ-D3P"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="g4P-Jt-3Tx"/>
                     </view>
                     <connections>
+                        <outlet property="emailTextField" destination="hGt-fy-f7Z" id="eCq-ty-JBq"/>
+                        <outlet property="passwordTextField" destination="rCh-fw-S7R" id="U80-J1-f7V"/>
                         <outlet property="secondSignInButton" destination="6bg-Ai-abl" id="zwx-z3-xlI"/>
                     </connections>
                 </viewController>
