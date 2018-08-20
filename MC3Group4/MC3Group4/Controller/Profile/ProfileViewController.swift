@@ -22,14 +22,13 @@ class ProfileViewController: UIViewController {
         self.signInButton.buttonDesignOne()
         self.registerButton.buttonDesignTwo()
         
-
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
-        self.title = ""
         self.navigationItem.hidesBackButton = true
     
         if (LoggedInUser.isLoggedIn == true){
