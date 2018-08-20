@@ -17,7 +17,7 @@ class DesignTextField: UITextField {
         
         //        self.layer.borderColor = UIColor(white: 213/255, alpha: 1).cgColor
         //        self.layer.borderWidth = 1
-        self.layer.shadowColor = UIColor.init(red: 100/255, green: 171/255, blue: 255/255, alpha: 1).cgColor
+        self.layer.shadowColor = UIColor.init(red: 45/255, green: 122/255, blue: 143/255, alpha: 1).cgColor
         self.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
         self.layer.shadowOpacity = 1.0
         self.layer.shadowRadius = 0.0

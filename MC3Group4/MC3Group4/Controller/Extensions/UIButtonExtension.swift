@@ -11,15 +11,15 @@ import UIKit
 
 extension UIButton {
     func buttonDesignOne(){
-        self.backgroundColor = UIColor.init(red: 100/255, green: 171/255, blue: 255/255, alpha: 1)
+        self.backgroundColor = UIColor.init(red: 45/255, green: 122/255, blue: 143/255, alpha: 1)
         self.layer.cornerRadius = self.frame.height / 2
         self.setTitleColor(UIColor.white, for: .normal)
     }
     
     func buttonDesignTwo(){
         self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.init(red: 100/255, green: 171/255, blue: 255/255, alpha: 1).cgColor
+        self.layer.borderColor = UIColor.init(red: 45/255, green: 122/255, blue: 143/255, alpha: 1).cgColor
         self.layer.cornerRadius = self.frame.height / 2
-        self.setTitleColor(UIColor.init(red: 100/255, green: 171/255, blue: 255/255, alpha: 1), for: .normal)
+        self.setTitleColor(UIColor.init(red: 45/255, green: 122/255, blue: 143/255, alpha: 1), for: .normal)
     }
 }

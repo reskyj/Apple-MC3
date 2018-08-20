@@ -9,5 +9,7 @@ target 'MC3Group4' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
   
 end
