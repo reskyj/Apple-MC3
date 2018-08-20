@@ -104,14 +104,16 @@ class RegisterViewController: UIViewController {
         FirebaseReferences.databaseRef.child("Users/\(uuid)/password").setValue(hashedPassword)
         FirebaseReferences.databaseRef.child("Users/\(uuid)/posts").setValue("")
         
+        
+        LoggedInUser.isLoggedIn = true
+        LoggedInUser.user = UserModel(email: self.email, fullName: self.fullName, phone: self.phone, userUUID: uuid, posts: [])
+        
         let alert = UIAlertController(title: "Success", message: "You have successfully registered to _____!", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
-            self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popViewController(animated: false)
         }
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
-        
-//        self.dismiss(animated: true, completion: nil)
     }
     
 }
