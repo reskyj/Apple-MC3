@@ -32,7 +32,6 @@ class RegisterViewController: UIViewController {
     }
     
     
-    
     @IBAction func registerButtonClicked() {
         self.email = self.emailTextField.text!
         self.fullName = self.fullNameTextField.text!
@@ -99,13 +98,16 @@ class RegisterViewController: UIViewController {
         FirebaseReferences.databaseRef.child("Users/\(uuid)/fullName").setValue(self.fullName)
         FirebaseReferences.databaseRef.child("Users/\(uuid)/phone").setValue(self.phone)
         FirebaseReferences.databaseRef.child("Users/\(uuid)/password").setValue(hashedPassword)
+        FirebaseReferences.databaseRef.child("Users/\(uuid)/posts").setValue("")
         
         let alert = UIAlertController(title: "Success", message: "You have successfully registered to _____!", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
-            self.dismiss(animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
         }
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
+        
+//        self.dismiss(animated: true, completion: nil)
     }
     
 }

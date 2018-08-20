@@ -27,6 +27,10 @@ class ProfileViewController: UIViewController {
         
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
 
     
     @IBAction func signInButtonTapped(_ sender: Any) {

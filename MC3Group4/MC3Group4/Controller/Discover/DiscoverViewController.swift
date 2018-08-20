@@ -12,6 +12,11 @@ struct FirebaseReferences {
     static let storageRef: StorageReference = Storage.storage().reference()
 }
 
+struct LoggedInUser {
+    static var isLoggedIn: Bool = false
+    static var user: UserModel!
+}
+
 import UIKit
 import Firebase
 

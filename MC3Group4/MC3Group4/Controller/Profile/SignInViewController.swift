@@ -58,6 +58,20 @@ class SignInViewController: UIViewController {
                                 return
                             }
                             else{
+                                let tempEmail: String = tempUser!["email"] as! String
+                                let tempFullName: String = tempUser!["fullName"] as! String
+                                let tempPhone: String = tempUser!["phone"] as! String
+                                var tempPosts: [String] = []
+                                if let tempGetPosts: [String:String] = tempUser!["posts"] as? [String:String]{
+                                    for (tempKey, _) in tempGetPosts{
+                                        tempPosts.append(tempKey)
+                                    }
+                                }
+                                
+                                LoggedInUser.user = UserModel(email: tempEmail, fullName: tempFullName, phone: tempPhone, userUUID: key, posts: tempPosts)
+                                
+                                print(tempPosts)
+                                LoggedInUser.isLoggedIn = true
                                 self.callAlert(title: "Success", message: "You are now logged in!")
                                 return
                             }
@@ -74,6 +88,9 @@ class SignInViewController: UIViewController {
     func callAlert(title: String, message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
+            if (LoggedInUser.isLoggedIn == true){
+                self.navigationController?.popViewController(animated: true)
+            }
         }
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
