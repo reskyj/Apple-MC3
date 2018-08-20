@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import paper_onboarding
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
