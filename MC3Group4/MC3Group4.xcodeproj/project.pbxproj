@@ -27,6 +27,8 @@
 		85A2C8062129E0550008B143 /* SHA1Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2C8052129E0550008B143 /* SHA1Extension.swift */; };
 		85AEBB9F212A8E8900997195 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AEBB9E212A8E8900997195 /* UserModel.swift */; };
 		85AEBBA1212A9DC700997195 /* LoggedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AEBBA0212A9DC700997195 /* LoggedInViewController.swift */; };
+		85AEBBA3212AD3CD00997195 /* OnBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AEBBA2212AD3CD00997195 /* OnBoardViewController.swift */; };
+		85AEBBA5212AD50C00997195 /* OnBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AEBBA4212AD50C00997195 /* OnBoardView.swift */; };
 		E76009CFD2B9133F99926EED /* Pods_MC3Group4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE664E08B7862F40900D2805 /* Pods_MC3Group4.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,8 @@
 		85A2C8052129E0550008B143 /* SHA1Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHA1Extension.swift; sourceTree = "<group>"; };
 		85AEBB9E212A8E8900997195 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		85AEBBA0212A9DC700997195 /* LoggedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInViewController.swift; sourceTree = "<group>"; };
+		85AEBBA2212AD3CD00997195 /* OnBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardViewController.swift; sourceTree = "<group>"; };
+		85AEBBA4212AD50C00997195 /* OnBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardView.swift; sourceTree = "<group>"; };
 		AE664E08B7862F40900D2805 /* Pods_MC3Group4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MC3Group4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6A211EED95F6534D9748184 /* Pods-MC3Group4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MC3Group4.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MC3Group4/Pods-MC3Group4.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +103,7 @@
 				2FE25CD5212574DC00B899E3 /* Model */,
 				2F5F26BE2122B97100E02EE9 /* View */,
 				2F5F26C92122D5CC00E02EE9 /* Controller */,
+				85AEBBA4212AD50C00997195 /* OnBoardView.swift */,
 			);
 			path = MC3Group4;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				2F7852C72126CB8D00944E61 /* OnBoardingViewController.swift */,
+				85AEBBA2212AD3CD00997195 /* OnBoardViewController.swift */,
 				2F7852CB21271B1F00944E61 /* Discover */,
 				2F7852CA21271B0F00944E61 /* Draft */,
 				2F7852C921271B0600944E61 /* Profile */,
@@ -340,10 +346,12 @@
 				85AEBBA1212A9DC700997195 /* LoggedInViewController.swift in Sources */,
 				2FE25CD02125292D00B899E3 /* DraftDetailViewController.swift in Sources */,
 				2FE25CD921258AE100B899E3 /* RegisterViewController.swift in Sources */,
+				85AEBBA3212AD3CD00997195 /* OnBoardViewController.swift in Sources */,
 				2FE25CD221252AC800B899E3 /* DraftViewController.swift in Sources */,
 				85A2C8042129DDBF0008B143 /* UIButtonExtension.swift in Sources */,
 				2F931468212AADFB0001C14C /* UITextFieldExtension.swift in Sources */,
 				85A2C8012129BFA70008B143 /* DiscoverViewController.swift in Sources */,
+				85AEBBA5212AD50C00997195 /* OnBoardView.swift in Sources */,
 				2F5F26AB2122B59200E02EE9 /* AppDelegate.swift in Sources */,
 				2F7852C82126CB8D00944E61 /* OnBoardingViewController.swift in Sources */,
 				85AEBB9F212A8E8900997195 /* UserModel.swift in Sources */,
