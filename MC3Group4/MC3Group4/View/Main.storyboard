@@ -13,7 +13,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="uK1-mZ-KX6">
             <objects>
-                <tabBarController id="aRk-ZL-dpd" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="App" id="aRk-ZL-dpd" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Fg6-KJ-nQP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -32,7 +32,7 @@
         <!--Data Source-->
         <scene sceneID="ZPP-G9-na6">
             <objects>
-                <viewController id="7Aw-sP-dFe" customClass="OnBoardViewController" customModule="MC3Group4" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnboardingID" id="7Aw-sP-dFe" customClass="OnBoardViewController" customModule="MC3Group4" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w4z-mX-y56">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

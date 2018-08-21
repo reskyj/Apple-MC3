@@ -8,7 +8,34 @@
 
 import UIKit
 
-class LoggedInViewController: UIViewController {
+class LoggedInViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+
+    @IBOutlet weak var profilePictureView: UIImageView!
+    
+    @IBAction func importProfilePicture(_ sender: Any) {
+        
+        let profilePicture = UIImagePickerController()
+        profilePicture.delegate = self
+        profilePicture.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        profilePicture.allowsEditing = false
+        
+        self.present(profilePicture, animated: true) {
+            
+        }
+
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let profilePicture = info[UIImagePickerControllerOriginalImage] as? UIImage   {
+            profilePictureView.image = profilePicture
+        } else {
+            
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+        
+    }
+    
 
     @IBOutlet weak var fullNameLabel: UILabel!
     

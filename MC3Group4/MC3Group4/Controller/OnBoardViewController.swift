@@ -13,8 +13,25 @@ class OnBoardViewController: UIViewController, PaperOnboardingDelegate, PaperOnb
 
     @IBOutlet weak var myOnBoardView: OnBoardView!
     
+//    var nextButton = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        //Create button
+//        let nextButtonWidth: CGFloat = 200.0
+//        let nextButtonHeight: CGFloat = 50.0
+//
+//        nextButton = UIButton(frame: CGRect(x: (self.view.frame.width / 2) - (nextButtonWidth/2), y: self.view.frame.height, width: nextButtonWidth, height: nextButtonHeight))
+//        nextButton.buttonDesignOne()
+//
+//        nextButton.setTitle("Lanjutkan", for: .normal)
+//        nextButton.isUserInteractionEnabled = true
+//
+//        nextButton.addTarget(self, action: #selector(OnBoardViewController.showApp(sender:)), for: .touchUpInside)
+//
+//        self.view.addSubview(nextButton)
+//        self.view.bringSubview(toFront: nextButton)
         
         for attribute: NSLayoutAttribute in [.left, .right, .top, .bottom] {
             let constraint = NSLayoutConstraint(item: self.myOnBoardView,
@@ -68,6 +85,19 @@ class OnBoardViewController: UIViewController, PaperOnboardingDelegate, PaperOnb
                                descriptionFont: titleFont)
             ][index]
     }
+    
+    
+//    @objc func showApp(sender: UIButton) {
+//
+//        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "App")
+//        present(initialViewController, animated: true, completion: nil)
+//
+//        let userDefaults = UserDefaults.standard
+//        userDefaults.set(true, forKey: "onBoardingComplete")
+//        userDefaults.synchronize()
+//
+//    }
     
     
     func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int) {

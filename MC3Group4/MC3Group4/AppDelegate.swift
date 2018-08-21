@@ -17,8 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
+        
+        
+        // Override point for customization after application launch.
         UINavigationBar.appearance().barTintColor = UIColor.init(red: 45/255, green: 122/255, blue: 143/255, alpha: 1)
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
@@ -27,6 +29,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
+//        //Onboarding
+//        window = UIWindow(frame: UIScreen.main.bounds)
+//        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        var initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "OnboardingID")
+//        
+//        //Condition to change initialViewController
+//        
+//        let userDefaults = UserDefaults.standard
+//        if userDefaults.bool(forKey: "onBoardingComplete") {
+//            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "App")
+//            
+//        }
+//        
+//        window?.rootViewController = initialViewController
+//        window?.makeKeyAndVisible()
         
         
         return true
