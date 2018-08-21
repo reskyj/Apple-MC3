@@ -262,7 +262,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="sNS-2r-SQp"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="y8d-15-7f2"/>
+                    <navigationItem key="navigationItem" title="Profile" id="y8d-15-7f2">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="Setting-1" style="plain" id="bTN-4d-F2i"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="fullNameLabel" destination="Pph-js-lEN" id="dT9-Bf-NES"/>
                         <outlet property="profilePictureView" destination="J8J-7e-a4O" id="SYV-hU-hUN"/>
@@ -296,5 +298,6 @@
     </scenes>
     <resources>
         <image name="Profile-1" width="25" height="25"/>
+        <image name="Setting-1" width="25" height="25"/>
     </resources>
 </document>

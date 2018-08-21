@@ -42,6 +42,9 @@ class LoggedInViewController: UIViewController, UINavigationControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.profilePictureView.layer.cornerRadius = profilePictureView.frame.size.width / 2
+        self.profilePictureView.clipsToBounds = true
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
