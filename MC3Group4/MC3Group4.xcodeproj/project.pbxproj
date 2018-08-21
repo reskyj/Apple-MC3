@@ -29,6 +29,7 @@
 		85AEBBA1212A9DC700997195 /* LoggedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AEBBA0212A9DC700997195 /* LoggedInViewController.swift */; };
 		85AEBBA3212AD3CD00997195 /* OnBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AEBBA2212AD3CD00997195 /* OnBoardViewController.swift */; };
 		85AEBBA5212AD50C00997195 /* OnBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AEBBA4212AD50C00997195 /* OnBoardView.swift */; };
+		85FC9A43212BF04E0009D362 /* DraftModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 85FC9A41212BF04E0009D362 /* DraftModel.xcdatamodeld */; };
 		E76009CFD2B9133F99926EED /* Pods_MC3Group4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE664E08B7862F40900D2805 /* Pods_MC3Group4.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		85AEBBA0212A9DC700997195 /* LoggedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInViewController.swift; sourceTree = "<group>"; };
 		85AEBBA2212AD3CD00997195 /* OnBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardViewController.swift; sourceTree = "<group>"; };
 		85AEBBA4212AD50C00997195 /* OnBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardView.swift; sourceTree = "<group>"; };
+		85FC9A42212BF04E0009D362 /* DraftModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DraftModel.xcdatamodel; sourceTree = "<group>"; };
 		AE664E08B7862F40900D2805 /* Pods_MC3Group4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MC3Group4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6A211EED95F6534D9748184 /* Pods-MC3Group4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MC3Group4.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MC3Group4/Pods-MC3Group4.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,7 +105,7 @@
 				2FE25CD5212574DC00B899E3 /* Model */,
 				2F5F26BE2122B97100E02EE9 /* View */,
 				2F5F26C92122D5CC00E02EE9 /* Controller */,
-				85AEBBA4212AD50C00997195 /* OnBoardView.swift */,
+				85FC9A44212BF29A0009D362 /* CoreData */,
 			);
 			path = MC3Group4;
 			sourceTree = "<group>";
@@ -122,8 +124,7 @@
 		2F5F26C92122D5CC00E02EE9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2F7852C72126CB8D00944E61 /* OnBoardingViewController.swift */,
-				85AEBBA2212AD3CD00997195 /* OnBoardViewController.swift */,
+				85FC9A46212BF31A0009D362 /* Onboarding */,
 				2F7852CB21271B1F00944E61 /* Discover */,
 				2F7852CA21271B0F00944E61 /* Draft */,
 				2F7852C921271B0600944E61 /* Profile */,
@@ -163,6 +164,7 @@
 		2FE25CD5212574DC00B899E3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				85FC9A45212BF2C20009D362 /* Onboarding */,
 				85AEBB9E212A8E8900997195 /* UserModel.swift */,
 			);
 			path = Model;
@@ -176,6 +178,31 @@
 				2F931467212AADFB0001C14C /* UITextFieldExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		85FC9A44212BF29A0009D362 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				85FC9A41212BF04E0009D362 /* DraftModel.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		85FC9A45212BF2C20009D362 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				85AEBBA4212AD50C00997195 /* OnBoardView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		85FC9A46212BF31A0009D362 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				2F7852C72126CB8D00944E61 /* OnBoardingViewController.swift */,
+				85AEBBA2212AD3CD00997195 /* OnBoardViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		89CE11DF341C92D69A9EA392 /* Pods */ = {
@@ -343,6 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FE25CD721257FE700B899E3 /* SignInViewController.swift in Sources */,
+				85FC9A43212BF04E0009D362 /* DraftModel.xcdatamodeld in Sources */,
 				2FE25CD4212569AD00B899E3 /* ProfileViewController.swift in Sources */,
 				85A2C8062129E0550008B143 /* SHA1Extension.swift in Sources */,
 				85AEBBA1212A9DC700997195 /* LoggedInViewController.swift in Sources */,
@@ -548,6 +576,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		85FC9A41212BF04E0009D362 /* DraftModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				85FC9A42212BF04E0009D362 /* DraftModel.xcdatamodel */,
+			);
+			currentVersion = 85FC9A42212BF04E0009D362 /* DraftModel.xcdatamodel */;
+			path = DraftModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2F5F269F2122B59200E02EE9 /* Project object */;
 }
