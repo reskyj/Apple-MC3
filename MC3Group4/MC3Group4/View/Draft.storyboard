@@ -27,9 +27,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="n73-Up-X0A" kind="show" identifier="draftToDraftDetail" id="bJB-nt-0Ch"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2un-pf-GTH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -44,7 +41,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MK0-Ql-xLG">
-                                <rect key="frame" x="0.0" y="88" width="375" height="829"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="922"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MZQ-AD-Px7">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
@@ -140,12 +137,11 @@
                         <outlet property="accessTextView" destination="qEe-ep-Zw0" id="IGW-Tj-6w2"/>
                         <outlet property="needsTextView" destination="UrP-zl-4Rf" id="XG4-kl-VZr"/>
                         <outlet property="schoolNameLabel" destination="Cs0-Jy-oeq" id="ZvK-sl-Ofw"/>
-                        <segue destination="2yX-wl-Ifb" kind="show" id="Jp7-c7-pcz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LRR-qP-wIy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2084" y="-229.06403940886702"/>
+            <point key="canvasLocation" x="3150" y="-163"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Xk2-be-pp9">
@@ -208,7 +204,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbH-HT-94q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2884" y="-229"/>
+            <point key="canvasLocation" x="2284" y="-232"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JHo-Nv-1mX">

@@ -12,5 +12,6 @@ target 'MC3Group4' do
   pod 'GoogleMaps'
   pod 'GooglePlaces'
   pod 'paper-onboarding'
+  pod 'ImageSlideshow', '~> 1.6'
   
 end
