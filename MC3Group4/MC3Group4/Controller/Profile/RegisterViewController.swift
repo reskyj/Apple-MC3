@@ -30,9 +30,6 @@ class RegisterViewController: UIViewController {
         
         self.secondRegisterButton.buttonDesignOne()
         
-        
-
-       
     }
     
     
