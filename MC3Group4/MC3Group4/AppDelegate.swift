@@ -29,10 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
-//        //Onboarding
-//        window = UIWindow(frame: UIScreen.main.bounds)
-//        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        var initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "OnboardingID")
+        //Onboarding
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        var initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "OnboardingID")
 //        
 //        //Condition to change initialViewController
 //        

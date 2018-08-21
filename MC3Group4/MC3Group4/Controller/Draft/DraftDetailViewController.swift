@@ -9,43 +9,19 @@
 import UIKit
 
 class DraftDetailViewController: UIViewController {
-
-    @IBOutlet var schoolNameLabel: UILabel!
-    @IBOutlet var aboutTextView: UITextView!
-    @IBOutlet var accessTextView: UITextView!
-    @IBOutlet var needsTextView: UITextView!
     
-    var schoolName: String!
+    @IBOutlet weak var aboutTextView: UITextView!
+    @IBOutlet weak var needsTextView: UITextView!
+    @IBOutlet weak var accessTextView: UITextView!
+    @IBOutlet weak var notesTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        aboutTextView.textViewDesign()
+        needsTextView.textViewDesign()
+        accessTextView.textViewDesign()
+        notesTextView.textViewDesign()
         
-        
-        
-        schoolNameLabel.text = schoolName
-        
-        aboutTextView.text = "Placeholder"
-        aboutTextView.textColor = UIColor.lightGray
-        needsTextView.text = "Placeholder"
-        needsTextView.textColor = UIColor.lightGray
-        accessTextView.text = "Placeholder"
-        accessTextView.textColor = UIColor.lightGray
-        
-        
-        
-        
-
     }
-
-    func customInit(schoolName: String) {
-        self.schoolName = schoolName
-    }
-    
-   
-    
-  
-
-
 }

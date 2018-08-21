@@ -44,7 +44,7 @@ class DraftViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "draftToDraftDetail"{
-            let destination = segue.destination as! DraftDetailViewController
+            let destination = segue.destination as! DraftAddedViewController
             destination.schoolName = self.schoolName
         }
     }
