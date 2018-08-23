@@ -1,15 +1,7 @@
-//
-//  DraftDetailViewController.swift
-//  MC3Group4
-//
-//  Created by Resky Javieri on 21/08/18.
-//  Copyright © 2018 Resky Javieri. All rights reserved.
-//
-
 import UIKit
 
 class DraftDetailViewController: UIViewController {
-
+    
     
     @IBOutlet weak var schoolNameLabel: UILabel!
     @IBOutlet weak var aboutLabel: UILabel!

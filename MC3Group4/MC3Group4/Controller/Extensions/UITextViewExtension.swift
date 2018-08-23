@@ -9,9 +9,10 @@
 import Foundation
 import UIKit
 
-extension UITextView {
+@IBDesignable
+extension UITextView{
+    
     func textViewDesign() {
-        
         self.textColor = UIColor.black
         self.isSelectable = true
         self.isEditable = true
@@ -20,5 +21,5 @@ extension UITextView {
         self.layer.borderColor = UIColor.init(red: 45/255, green: 122/255, blue: 143/255, alpha: 1).cgColor
         self.layer.borderWidth = 1
     }
-        
 }
+

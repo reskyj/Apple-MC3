@@ -400,10 +400,10 @@
                     </navigationItem>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
-                        <outlet property="aboutTextView" destination="JWa-vz-3eM" id="BP8-Tz-NFy"/>
-                        <outlet property="accessTextView" destination="iSw-T5-1eT" id="hVm-wa-wMO"/>
-                        <outlet property="needsTextView" destination="1l4-o3-Tks" id="VYp-Xe-qqc"/>
-                        <outlet property="notesTextView" destination="qmY-WI-V00" id="1qG-RM-YhO"/>
+                        <outlet property="aboutTextView" destination="JWa-vz-3eM" id="ADg-L0-SjY"/>
+                        <outlet property="accessTextView" destination="iSw-T5-1eT" id="A7T-zY-rnU"/>
+                        <outlet property="addressTextView" destination="qmY-WI-V00" id="ja1-BY-dIg"/>
+                        <outlet property="needsTextView" destination="1l4-o3-Tks" id="YTX-HX-Ijn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qR1-Au-2kb" userLabel="First Responder" sceneMemberID="firstResponder"/>
