@@ -91,7 +91,6 @@
 		2F5F269E2122B59200E02EE9 = {
 			isa = PBXGroup;
 			children = (
-				8536F211212E7258004B3315 /* PostModel.swift */,
 				2F5F26A92122B59200E02EE9 /* MC3Group4 */,
 				2F5F26A82122B59200E02EE9 /* Products */,
 				89CE11DF341C92D69A9EA392 /* Pods */,
@@ -188,6 +187,7 @@
 		8536F202212E6DD3004B3315 /* Post */ = {
 			isa = PBXGroup;
 			children = (
+				8536F211212E7258004B3315 /* PostModel.swift */,
 				8536F1FD212E6752004B3315 /* PostCell.swift */,
 			);
 			path = Post;
