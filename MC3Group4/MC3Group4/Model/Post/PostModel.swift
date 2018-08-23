@@ -13,18 +13,18 @@ class PostModel {
     
     var schoolImages: [UIImage] = []
     var roadImages: [UIImage] = []
-    var schoolName: String
-    var aboutPost: String
-    var needsPost: String
-    var addressPost: String
-    var accessPost: String
-    var notesPost: String
-    var locationName: String
-    var locationAdminArea: String
-    var locationLocality: String
-    var locationAOI: String
-    var locationLatitude: Double
-    var locationLongitude: Double
+    var schoolName: String!
+    var aboutPost: String!
+    var needsPost: String!
+    var addressPost: String!
+    var accessPost: String!
+    var notesPost: String!
+    var locationName: String!
+    var locationAdminArea: String!
+    var locationLocality: String!
+    var locationAOI: String!
+    var locationLatitude: Double!
+    var locationLongitude: Double!
     
     
     init() {
