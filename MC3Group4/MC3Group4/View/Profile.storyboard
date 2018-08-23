@@ -69,7 +69,7 @@
                                     <action selector="signInButtonClicked" destination="GtK-MT-PDh" eventType="touchUpInside" id="acK-Ud-YCM"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="bottom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L6r-nx-44F" customClass="DesignTextField" customModule="MC3Group4" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="bottom" placeholder="Masukkan kata sandi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L6r-nx-44F" customClass="DesignTextField" customModule="MC3Group4" customModuleProvider="target">
                                 <rect key="frame" x="16" y="223" width="343" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -114,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kwR-73-Vwc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1889" y="869"/>
+            <point key="canvasLocation" x="1888.8" y="868.9655172413793"/>
         </scene>
         <!--Daftar-->
         <scene sceneID="GwN-MN-0Zv">
