@@ -11,6 +11,8 @@ import UIKit
 class DraftViewController: UIViewController {
     
     var schoolName: String = ""
+    var isNewDraft: Bool = false
+    var currentDraft: PostModel!
     
     @IBAction func addDraftButton(_ sender: Any) {
         let draftAlert = UIAlertController(title: "Draft Baru", message: nil, preferredStyle: .alert)
@@ -39,13 +41,16 @@ class DraftViewController: UIViewController {
     }
     
     func createNewDraft(){
+        self.isNewDraft = true
         performSegue(withIdentifier: "draftToDraftDetail", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "draftToDraftDetail"{
-            let destination = segue.destination as! DraftAddedViewController
-            destination.schoolName = self.schoolName
+            let destination = segue.destination as! DraftDetailViewController
+            destination.isNewDraft = self.isNewDraft
+            
+            
         }
     }
     
@@ -53,6 +58,10 @@ class DraftViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.isNewDraft = false
     }
 
    
