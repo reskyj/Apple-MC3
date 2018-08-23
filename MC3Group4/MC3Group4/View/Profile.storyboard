@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Profile-->
+        <!--Profil-->
         <scene sceneID="eq8-xN-QHk">
             <objects>
                 <viewController storyboardIdentifier="profileVC" id="Xpn-ER-ipE" customClass="ProfileViewController" customModule="MC3Group4" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,7 +22,7 @@
                                 <rect key="frame" x="16" y="611" width="343" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="12"/>
-                                <state key="normal" title="REGISTER"/>
+                                <state key="normal" title="DAFTAR"/>
                                 <connections>
                                     <action selector="registerButtonTapped:" destination="Xpn-ER-ipE" eventType="touchUpInside" id="TOx-N7-tf3"/>
                                 </connections>
@@ -31,7 +31,7 @@
                                 <rect key="frame" x="16" y="665" width="343" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="12"/>
-                                <state key="normal" title="SIGN IN"/>
+                                <state key="normal" title="MASUK"/>
                                 <connections>
                                     <action selector="signInButtonTapped:" destination="Xpn-ER-ipE" eventType="touchUpInside" id="Fdr-zr-tLd"/>
                                 </connections>
@@ -40,7 +40,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="vNy-mL-lnv"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="Zxp-zz-rSg"/>
+                    <navigationItem key="navigationItem" title="Profil" id="Zxp-zz-rSg"/>
                     <connections>
                         <outlet property="registerButton" destination="dsB-bX-sgE" id="UfQ-bP-fWG"/>
                         <outlet property="signInButton" destination="xT9-mm-CWN" id="u87-ge-Rsl"/>
@@ -52,7 +52,7 @@
             </objects>
             <point key="canvasLocation" x="983" y="869"/>
         </scene>
-        <!--Sign In-->
+        <!--Masuk-->
         <scene sceneID="iZa-d3-i0Y">
             <objects>
                 <viewController id="GtK-MT-PDh" customClass="SignInViewController" customModule="MC3Group4" customModuleProvider="target" sceneMemberID="viewController">
@@ -64,7 +64,7 @@
                                 <rect key="frame" x="16" y="301" width="343" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="12"/>
-                                <state key="normal" title="SIGN IN"/>
+                                <state key="normal" title="MASUK"/>
                                 <connections>
                                     <action selector="signInButtonClicked" destination="GtK-MT-PDh" eventType="touchUpInside" id="acK-Ud-YCM"/>
                                 </connections>
@@ -105,7 +105,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="g4P-Jt-3Tx"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Sign In" id="dGE-pa-pME"/>
+                    <navigationItem key="navigationItem" title="Masuk" id="dGE-pa-pME"/>
                     <connections>
                         <outlet property="emailTextField" destination="IR1-tY-7Zw" id="GRL-18-JZq"/>
                         <outlet property="passwordTextField" destination="L6r-nx-44F" id="iXO-C6-4nh"/>
@@ -116,7 +116,7 @@
             </objects>
             <point key="canvasLocation" x="1889" y="869"/>
         </scene>
-        <!--Register-->
+        <!--Daftar-->
         <scene sceneID="GwN-MN-0Zv">
             <objects>
                 <viewController id="841-eq-SlQ" customClass="RegisterViewController" customModule="MC3Group4" customModuleProvider="target" sceneMemberID="viewController">
@@ -128,7 +128,7 @@
                                 <rect key="frame" x="16" y="457" width="343" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="12"/>
-                                <state key="normal" title="REGISTER"/>
+                                <state key="normal" title="DAFTAR"/>
                                 <connections>
                                     <action selector="registerButtonClicked" destination="841-eq-SlQ" eventType="touchUpInside" id="VnC-iJ-NgV"/>
                                 </connections>
@@ -178,15 +178,15 @@
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FULL NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eT-kt-ACH">
-                                <rect key="frame" x="16" y="112" width="67" height="14"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NAMA LENGKAP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eT-kt-ACH">
+                                <rect key="frame" x="16" y="112" width="95" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                 <color key="textColor" red="0.1764705882" green="0.47843137250000001" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PHONE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yKQ-FL-Po5">
-                                <rect key="frame" x="16" y="172" width="43" height="14"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NO TELEPON" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yKQ-FL-Po5">
+                                <rect key="frame" x="16" y="172" width="78" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                 <color key="textColor" red="0.1764705882" green="0.47843137250000001" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -199,15 +199,15 @@
                                 <color key="textColor" red="0.1764705882" green="0.47843137250000001" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PASSWORD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5J-XT-UFQ">
-                                <rect key="frame" x="16" y="316" width="70" height="14"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="KATA SANDI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5J-XT-UFQ">
+                                <rect key="frame" x="16" y="316" width="69" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                 <color key="textColor" red="0.1764705882" green="0.47843137250000001" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="RE-TYPE PASSWORD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBJ-xq-JEd">
-                                <rect key="frame" x="16" y="388" width="125" height="14"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="KONFIRMASI KATA SANDI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBJ-xq-JEd">
+                                <rect key="frame" x="16" y="388" width="147" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                 <color key="textColor" red="0.1764705882" green="0.47843137250000001" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -217,7 +217,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Wa7-BW-yEL"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Register" id="DXB-kV-Eso"/>
+                    <navigationItem key="navigationItem" title="Daftar" id="DXB-kV-Eso"/>
                     <connections>
                         <outlet property="confirmPasswordTextField" destination="IAO-xH-BYu" id="hAi-rw-tfV"/>
                         <outlet property="emailTextField" destination="NN6-fo-GN9" id="hsk-RJ-TWO"/>
@@ -238,15 +238,36 @@
                     <view key="view" contentMode="scaleToFill" id="pgT-6T-B5u">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7y-Mi-CY3">
+                                <rect key="frame" x="16" y="106" width="48" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaa-LP-Rxa">
+                                <rect key="frame" x="15" y="128" width="60" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                <state key="normal" title="Ubah Profil"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMV-M3-JpC">
+                                <rect key="frame" x="16" y="158" width="35" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                <state key="normal" title="Keluar"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6pc-ED-Smy"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S9Q-Pw-v4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-575" y="869"/>
+            <point key="canvasLocation" x="161" y="1553"/>
         </scene>
-        <!--Profile-->
+        <!--Profil-->
         <scene sceneID="HnZ-K2-GMY">
             <objects>
                 <viewController id="XSk-M2-d50" customClass="LoggedInViewController" customModule="MC3Group4" customModuleProvider="target" sceneMemberID="viewController">
@@ -259,7 +280,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Full name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pph-js-lEN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nama Lengkap" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pph-js-lEN">
                                 <rect key="frame" x="16" y="269" width="343" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -281,8 +302,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="sNS-2r-SQp"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="y8d-15-7f2">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="Setting-1" style="plain" id="bTN-4d-F2i"/>
+                    <navigationItem key="navigationItem" title="Profil" id="y8d-15-7f2">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="Setting-1" style="plain" id="bTN-4d-F2i">
+                            <connections>
+                                <segue destination="hZY-dY-z35" kind="show" id="f4W-kT-o5d"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="fullNameLabel" destination="Pph-js-lEN" id="dT9-Bf-NES"/>
