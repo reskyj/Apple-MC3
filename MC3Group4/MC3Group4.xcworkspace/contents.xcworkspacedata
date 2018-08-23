@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/stevenmuliamin/Desktop/Apple-MC3/MC3Group4/MC3Group4/Model/Post/DraftEntity+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/stevenmuliamin/Desktop/Apple-MC3/MC3Group4/MC3Group4/Model/Post/DraftEntity+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:MC3Group4.xcodeproj">
    </FileRef>
    <FileRef
