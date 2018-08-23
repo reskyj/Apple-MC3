@@ -42,22 +42,16 @@ class DraftViewController: UIViewController {
     
     func createNewDraft(){
         self.isNewDraft = true
-        performSegue(withIdentifier: "draftToDraftDetail", sender: self)
+        performSegue(withIdentifier: "draftToEditDraft", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "draftToDraftDetail"{
-            let destination = segue.destination as! DraftDetailViewController
+        if segue.identifier == "draftToEditDraft"{
+            let destination = segue.destination as! EditDraftViewController
             destination.isNewDraft = self.isNewDraft
-            
-            if (self.isNewDraft == true){
-                let tempUUID = UUID().uuidString
-                destination.currentDraft = PostModel(schoolImages: [], roadImages: [], schoolName: self.schoolName, aboutPost: "", needsPost: "", addressPost: "", accessPost: "", notesPost: "", locationName: "", locationAdminArea: "", locationLocality: "", locationAOI: "", locationLatitude: 0, locationLongitude: 0, postUUID: tempUUID)
-            }
-            else{
-                
-            }
-            
+        
+            let tempUUID = UUID().uuidString
+            destination.currentDraft = PostModel(schoolImages: [], roadImages: [], schoolName: self.schoolName, aboutPost: "", needsPost: "", addressPost: "", accessPost: "", notesPost: "", locationName: "", locationAdminArea: "", locationLocality: "", locationAOI: "", locationLatitude: 0, locationLongitude: 0, postUUID: tempUUID)
         }
     }
     

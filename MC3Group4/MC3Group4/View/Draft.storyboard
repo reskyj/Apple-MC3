@@ -83,6 +83,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="2yX-wl-Ifb" kind="show" identifier="draftToDraftDetail" id="Qwq-vU-eYe"/>
+                        <segue destination="2BP-2C-dT8" kind="show" identifier="draftToEditDraft" id="HXS-JM-vbL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2un-pf-GTH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -408,7 +409,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qR1-Au-2kb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3072.8000000000002" y="-232.01970443349754"/>
+            <point key="canvasLocation" x="2284" y="875"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JHo-Nv-1mX">
@@ -435,4 +436,7 @@
         <image name="In Progress-1" width="25" height="25"/>
         <image name="locationIcon" width="244" height="308"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="HXS-JM-vbL"/>
+    </inferredMetricsTieBreakers>
 </document>
