@@ -16,6 +16,7 @@
 		2F5F26C62122C32900E02EE9 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F5F26C52122C32900E02EE9 /* Discover.storyboard */; };
 		2F7852C82126CB8D00944E61 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7852C72126CB8D00944E61 /* OnBoardingViewController.swift */; };
 		2F931468212AADFB0001C14C /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F931467212AADFB0001C14C /* UITextFieldExtension.swift */; };
+		2FBE61C6212EAF8100635FAA /* DiscoverDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBE61C5212EAF8100635FAA /* DiscoverDetailViewController.swift */; };
 		2FE25CD02125292D00B899E3 /* DraftDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE25CCF2125292D00B899E3 /* DraftDetailViewController.swift */; };
 		2FE25CD221252AC800B899E3 /* DraftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE25CD121252AC800B899E3 /* DraftViewController.swift */; };
 		2FE25CD4212569AD00B899E3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE25CD3212569AD00B899E3 /* ProfileViewController.swift */; };
@@ -52,6 +53,7 @@
 		2F5F26C52122C32900E02EE9 /* Discover.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
 		2F7852C72126CB8D00944E61 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		2F931467212AADFB0001C14C /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		2FBE61C5212EAF8100635FAA /* DiscoverDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverDetailViewController.swift; sourceTree = "<group>"; };
 		2FE25CCF2125292D00B899E3 /* DraftDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftDetailViewController.swift; sourceTree = "<group>"; };
 		2FE25CD121252AC800B899E3 /* DraftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftViewController.swift; sourceTree = "<group>"; };
 		2FE25CD3212569AD00B899E3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				85A2C8002129BFA70008B143 /* DiscoverViewController.swift */,
+				2FBE61C5212EAF8100635FAA /* DiscoverDetailViewController.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				8536F1FE212E6752004B3315 /* PostCell.swift in Sources */,
 				2FE25CD4212569AD00B899E3 /* ProfileViewController.swift in Sources */,
 				8536F201212E69B0004B3315 /* LocalModel.xcdatamodeld in Sources */,
+				2FBE61C6212EAF8100635FAA /* DiscoverDetailViewController.swift in Sources */,
 				85A2C8062129E0550008B143 /* SHA1Extension.swift in Sources */,
 				85AEBBA1212A9DC700997195 /* LoggedInViewController.swift in Sources */,
 				8536F215212E94B1004B3315 /* DraftEntity+CoreDataClass.swift in Sources */,
