@@ -50,6 +50,13 @@ class DraftViewController: UIViewController {
             let destination = segue.destination as! DraftDetailViewController
             destination.isNewDraft = self.isNewDraft
             
+            if (self.isNewDraft == true){
+                let tempUUID = UUID().uuidString
+                destination.currentDraft = PostModel(schoolImages: [], roadImages: [], schoolName: self.schoolName, aboutPost: "", needsPost: "", addressPost: "", accessPost: "", notesPost: "", locationName: "", locationAdminArea: "", locationLocality: "", locationAOI: "", locationLatitude: 0, locationLongitude: 0, postUUID: tempUUID)
+            }
+            else{
+                
+            }
             
         }
     }

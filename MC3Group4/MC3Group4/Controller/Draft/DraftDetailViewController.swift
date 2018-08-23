@@ -37,6 +37,7 @@ class DraftDetailViewController: UIViewController {
         if segue.identifier == "DraftDetailToEditDraft"{
             let destination = segue.destination as! EditDraftViewController
             destination.isNewDraft = self.isNewDraft
+            destination.currentDraft = self.currentDraft
         }
     }
     

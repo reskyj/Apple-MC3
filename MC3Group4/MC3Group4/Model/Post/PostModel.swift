@@ -25,8 +25,9 @@ class PostModel {
     var locationAOI: String = ""
     var locationLatitude: Double?
     var locationLongitude: Double?
+    var postUUID: String = ""
     
-    init(schoolImages: [UIImage], roadImages: [UIImage], schoolName: String, aboutPost: String, needsPost: String, addressPost: String, accessPost: String, notesPost: String, locationName: String, locationAdminArea: String, locationLocality: String, locationAOI: String, locationLatitude: Double, locationLongitude: Double) {
+    init(schoolImages: [UIImage], roadImages: [UIImage], schoolName: String, aboutPost: String, needsPost: String, addressPost: String, accessPost: String, notesPost: String, locationName: String, locationAdminArea: String, locationLocality: String, locationAOI: String, locationLatitude: Double, locationLongitude: Double, postUUID: String) {
         
         self.schoolImages = schoolImages
         self.roadImages = roadImages
@@ -42,5 +43,6 @@ class PostModel {
         self.locationAOI = locationAOI
         self.locationLatitude = locationLatitude
         self.locationLongitude = locationLongitude
+        self.postUUID = postUUID
     }
 }

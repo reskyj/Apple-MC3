@@ -17,6 +17,7 @@ class EditDraftViewController: UIViewController {
     @IBOutlet weak var notesTextView: UITextView!
     
     var isNewDraft: Bool!
+    var currentDraft: PostModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
