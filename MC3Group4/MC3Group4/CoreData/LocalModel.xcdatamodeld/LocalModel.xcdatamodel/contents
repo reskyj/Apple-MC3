@@ -12,11 +12,12 @@
         <attribute name="locationName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="needsPost" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="notesPost" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postUUID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="roadImages" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="schoolImages" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="schoolName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DraftEntity" positionX="-54" positionY="-9" width="128" height="255"/>
+        <element name="DraftEntity" positionX="-54" positionY="-9" width="128" height="270"/>
     </elements>
 </model>

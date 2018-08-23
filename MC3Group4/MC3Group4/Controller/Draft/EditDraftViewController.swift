@@ -8,12 +8,15 @@
 
 import UIKit
 
+@IBDesignable
 class EditDraftViewController: UIViewController {
     
     @IBOutlet weak var aboutTextView: UITextView!
     @IBOutlet weak var needsTextView: UITextView!
     @IBOutlet weak var accessTextView: UITextView!
     @IBOutlet weak var notesTextView: UITextView!
+    
+    var isNewDraft: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +25,5 @@ class EditDraftViewController: UIViewController {
         needsTextView.textViewDesign()
         accessTextView.textViewDesign()
         notesTextView.textViewDesign()
-        
     }
 }
