@@ -11,6 +11,7 @@ import UIKit
 class DraftViewController: UIViewController {
     
     var schoolName: String = ""
+    var goToEdit: Bool = false
     
     @IBAction func addDraftButton(_ sender: Any) {
         let draftAlert = UIAlertController(title: "Draft Baru", message: nil, preferredStyle: .alert)
@@ -39,12 +40,13 @@ class DraftViewController: UIViewController {
     }
     
     func createNewDraft(){
+        self.goToEdit = true
         performSegue(withIdentifier: "draftToDraftDetail", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "draftToDraftDetail"{
-            let destination = segue.destination as! DraftAddedViewController
+            let destination = segue.destination as! DraftDetailViewController
             destination.schoolName = self.schoolName
         }
     }
@@ -53,6 +55,10 @@ class DraftViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.goToEdit = false
     }
 
    

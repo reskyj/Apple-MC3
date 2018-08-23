@@ -92,7 +92,7 @@
         <!--Detail Draft-->
         <scene sceneID="Xk2-be-pp9">
             <objects>
-                <viewController id="2yX-wl-Ifb" customClass="DraftAddedViewController" customModule="MC3Group4" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2yX-wl-Ifb" customClass="DraftDetailViewController" customModule="MC3Group4" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Owr-58-W21">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -217,7 +217,7 @@
         <!--Title-->
         <scene sceneID="hEt-as-O9X">
             <objects>
-                <viewController id="2BP-2C-dT8" customClass="DraftDetailViewController" customModule="MC3Group4" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2BP-2C-dT8" customClass="EditDraftViewController" customModule="MC3Group4" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mbz-fb-SLM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

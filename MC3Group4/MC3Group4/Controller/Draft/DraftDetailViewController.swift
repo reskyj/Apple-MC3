@@ -2,26 +2,28 @@
 //  DraftDetailViewController.swift
 //  MC3Group4
 //
-//  Created by Resky Javieri on 16/08/18.
+//  Created by Resky Javieri on 21/08/18.
 //  Copyright © 2018 Resky Javieri. All rights reserved.
 //
 
 import UIKit
 
+@IBDesignable
 class DraftDetailViewController: UIViewController {
+
     
-    @IBOutlet weak var aboutTextView: UITextView!
-    @IBOutlet weak var needsTextView: UITextView!
-    @IBOutlet weak var accessTextView: UITextView!
-    @IBOutlet weak var notesTextView: UITextView!
+    @IBOutlet weak var schoolNameLabel: UILabel!
+    var schoolName: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        schoolNameLabel.text = schoolName
         
-        aboutTextView.textViewDesign()
-        needsTextView.textViewDesign()
-        accessTextView.textViewDesign()
-        notesTextView.textViewDesign()
         
     }
+    
+    func customInit(schoolName: String) {
+        self.schoolName = schoolName
+    }
+
 }
