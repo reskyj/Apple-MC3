@@ -11,6 +11,8 @@ import UIKit
 class LoggedInViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     @IBOutlet weak var profilePictureView: UIImageView!
+    @IBOutlet weak var addedProfileView: UIImageView!
+    
     
     @IBAction func importProfilePicture(_ sender: Any) {
         
@@ -44,6 +46,8 @@ class LoggedInViewController: UIViewController, UINavigationControllerDelegate, 
         
         self.profilePictureView.layer.cornerRadius = profilePictureView.frame.size.width / 2
         self.profilePictureView.clipsToBounds = true
+        
+        self.addedProfileView.layer.cornerRadius = addedProfileView.frame.size.width / 2
         
     }
     
