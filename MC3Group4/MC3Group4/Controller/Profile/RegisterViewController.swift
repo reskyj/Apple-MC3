@@ -105,6 +105,11 @@ class RegisterViewController: UIViewController {
         LoggedInUser.isLoggedIn = true
         LoggedInUser.user = UserModel(email: self.email, fullName: self.fullName, phone: self.phone, userUUID: uuid, posts: [])
         
+        UserDefaultReference.udRef.set(true, forKey: "udLoggedIn")
+        UserDefaultReference.udRef.set(self.email, forKey: "udEmail")
+        UserDefaultReference.udRef.set(hashedPassword, forKey: "udHashedPassword")
+        UserDefaultReference.udRef.set(uuid, forKey: "udUserUUID")
+        
         let alert = UIAlertController(title: "Success", message: "You have successfully registered to _____!", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
             self.navigationController?.popViewController(animated: false)

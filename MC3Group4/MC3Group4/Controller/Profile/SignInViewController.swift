@@ -71,6 +71,12 @@ class SignInViewController: UIViewController {
                                 
                                 print(tempPosts)
                                 LoggedInUser.isLoggedIn = true
+                                
+                                UserDefaultReference.udRef.set(true, forKey: "udLoggedIn")
+                                UserDefaultReference.udRef.set(tempEmail, forKey: "udEmail")
+                                UserDefaultReference.udRef.set(hashedPassword, forKey: "udHashedPassword")
+                                UserDefaultReference.udRef.set(key, forKey: "udUserUUID")
+                                
                                 self.callAlert(title: "Success", message: "You are now logged in!")
                                 return
                             }

@@ -234,7 +234,7 @@
         <!--Pengaturan-->
         <scene sceneID="w0a-49-c8v">
             <objects>
-                <viewController id="hZY-dY-z35" sceneMemberID="viewController">
+                <viewController id="hZY-dY-z35" customClass="ProfileSettingsViewController" customModule="MC3Group4" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pgT-6T-B5u">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -251,6 +251,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                 <state key="normal" title="Keluar"/>
+                                <connections>
+                                    <action selector="signOutButtonClicked" destination="hZY-dY-z35" eventType="touchUpInside" id="VG3-Pm-ScD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaa-LP-Rxa">
                                 <rect key="frame" x="15" y="128" width="60" height="26"/>

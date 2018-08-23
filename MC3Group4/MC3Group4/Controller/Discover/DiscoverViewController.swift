@@ -33,11 +33,12 @@ class DiscoverViewController: UIViewController {
     }
     
     func checkIsLoggedIn(){
-        let udLoggedIn = UserDefaultReference.udRef.bool(forKey: "udLoggedIn")
+        let udLoggedIn: Bool = UserDefaultReference.udRef.bool(forKey: "udLoggedIn")
+        print(udLoggedIn)
         if (udLoggedIn){
-            let udEmail = UserDefaultReference.udRef.string(forKey: "udEmail")
-            let udHashedPassword = UserDefaultReference.udRef.string(forKey: "udHashedPassword")
-            let udUserUUID = UserDefaultReference.udRef.string(forKey: "udUserUUID")
+            let udEmail: String = UserDefaultReference.udRef.string(forKey: "udEmail")!
+            let udHashedPassword: String = UserDefaultReference.udRef.string(forKey: "udHashedPassword")!
+            let udUserUUID: String = UserDefaultReference.udRef.string(forKey: "udUserUUID")!
             
             FirebaseReferences.databaseRef.child("Users/\(udUserUUID)").observeSingleEvent(of: .value) { (snap) in
                 let tempUser = snap.value as! [String:AnyObject]
@@ -54,7 +55,7 @@ class DiscoverViewController: UIViewController {
                         }
                     }
                     
-                    LoggedInUser.user = UserModel(email: tempUserEmail, fullName: tempUserFullName, phone: tempUserPhone, userUUID: udUserUUID!, posts: tempUserPosts)
+                    LoggedInUser.user = UserModel(email: tempUserEmail, fullName: tempUserFullName, phone: tempUserPhone, userUUID: udUserUUID, posts: tempUserPosts)
                     
                     print(tempUserPosts)
                     LoggedInUser.isLoggedIn = true

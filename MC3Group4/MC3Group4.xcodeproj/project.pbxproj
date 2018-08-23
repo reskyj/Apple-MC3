@@ -21,6 +21,7 @@
 		2FE25CD4212569AD00B899E3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE25CD3212569AD00B899E3 /* ProfileViewController.swift */; };
 		2FE25CD721257FE700B899E3 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE25CD621257FE700B899E3 /* SignInViewController.swift */; };
 		2FE25CD921258AE100B899E3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE25CD821258AE100B899E3 /* RegisterViewController.swift */; };
+		8535B837212F187900AADAA0 /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535B836212F187900AADAA0 /* ProfileSettingsViewController.swift */; };
 		8536F1FE212E6752004B3315 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8536F1FD212E6752004B3315 /* PostCell.swift */; };
 		8536F201212E69B0004B3315 /* LocalModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8536F1FF212E69B0004B3315 /* LocalModel.xcdatamodeld */; };
 		8536F210212E6F31004B3315 /* LocalServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8536F20F212E6F31004B3315 /* LocalServices.swift */; };
@@ -59,6 +60,7 @@
 		2FE25CD3212569AD00B899E3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2FE25CD621257FE700B899E3 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		2FE25CD821258AE100B899E3 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		8535B836212F187900AADAA0 /* ProfileSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewController.swift; sourceTree = "<group>"; };
 		8536F1FD212E6752004B3315 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		8536F200212E69B0004B3315 /* LocalModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalModel.xcdatamodel; sourceTree = "<group>"; };
 		8536F20F212E6F31004B3315 /* LocalServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalServices.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				2FE25CD821258AE100B899E3 /* RegisterViewController.swift */,
 				2FE25CD3212569AD00B899E3 /* ProfileViewController.swift */,
 				85AEBBA0212A9DC700997195 /* LoggedInViewController.swift */,
+				8535B836212F187900AADAA0 /* ProfileSettingsViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				2F931468212AADFB0001C14C /* UITextFieldExtension.swift in Sources */,
 				854692D3212ED23B003BCCB0 /* UITextViewExtension.swift in Sources */,
 				85A2C8012129BFA70008B143 /* DiscoverViewController.swift in Sources */,
+				8535B837212F187900AADAA0 /* ProfileSettingsViewController.swift in Sources */,
 				8536F21B212ECB4A004B3315 /* DraftEntity+CoreDataClass.swift in Sources */,
 				85AEBBA5212AD50C00997195 /* OnBoardView.swift in Sources */,
 				2F5F26AB2122B59200E02EE9 /* AppDelegate.swift in Sources */,
