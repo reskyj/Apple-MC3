@@ -26,8 +26,7 @@ class PostModel {
     var locationLatitude: Double!
     var locationLongitude: Double!
     
-    
-    init() {
+    init(schoolImages: [UIImage], roadImages: [UIImage], schoolName: String, aboutPost: String, needsPost: String, addressPost: String, accessPost: String) {
         
     }
 }
