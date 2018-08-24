@@ -55,9 +55,7 @@ class DraftViewController: UIViewController {
                 let tempUUID = UUID().uuidString
                 self.currentDraft = PostModel(schoolImages: [], roadImages: [], schoolName: "", aboutPost: "", needsPost: "", addressPost: "", accessPost: "", notesPost: "", locationName: "", locationAdminArea: "", locationLocality: "", locationAOI: "", locationLatitude: 0, locationLongitude: 0, postUUID: tempUUID)
             }
-            else{
-                destination.currentDraft = self.currentDraft
-            }
+            destination.currentDraft = self.currentDraft
         }
     }
     
