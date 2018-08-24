@@ -28,7 +28,8 @@ class DraftDetailViewController: UIViewController {
     var isPickingRoad: Bool = false
     var isCurrentlyEditing: Bool = false
     
-    
+    let locationManager = CLLocationManager()
+    var locationUpdateCounter: Int = 0
     // temp variables for PostModel
 //    var schoolName: String!
 //    var about: String!
@@ -43,6 +44,13 @@ class DraftDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    func setUpMap(){
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
     }
     
     @IBAction func editButtonClicked(_ sender: Any) {
@@ -89,10 +97,6 @@ class DraftDetailViewController: UIViewController {
         
     }
     
-    
-    
-    
-    
     @IBAction func schoolAddButtonClicked(_ sender: Any) {
         self.isPickingSchool = true
         
@@ -112,7 +116,7 @@ class DraftDetailViewController: UIViewController {
     }
     
     @IBAction func tapToShareButtonClicked(_ sender: Any) {
-        
+        self.setUpMap()
     }
 }
 
@@ -179,6 +183,52 @@ extension DraftDetailViewController: UIImagePickerControllerDelegate, UINavigati
                 self.isPickingRoad = false
                 self.currentDraft.roadImages.append(image)
             }
+        }
+    }
+}
+
+
+extension DraftDetailViewController: CLLocationManagerDelegate{
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation = locations[0]
+        let span: MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
+        let myLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude)
+        let region: MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
+        self.myMapView.setRegion(region, animated: true)
+        self.myMapView.showsUserLocation = true
+        
+        CLGeocoder().reverseGeocodeLocation(userLocation) { (placemark, error) in
+            if self.locationUpdateCounter == 0
+            {
+                if error != nil
+                {
+                    // Kalo offline
+                }
+                else
+                {
+                    // Kalo online
+                    if let place = placemark?[0]
+                    {
+                        print(userLocation.coordinate.latitude)
+                        print(userLocation.coordinate.longitude)
+                        print(place.locality!)
+                        print(place.administrativeArea!)
+                        print(place.name!)
+                        print(place.areasOfInterest![0])
+                        print(place.country!)
+                    }
+                    else
+                    {
+                        // Gagal Pinpoint location
+                    }
+                }
+                self.locationUpdateCounter += 1
+            }
+            else
+            {
+                self.locationManager.stopUpdatingLocation()
+            }
+            
         }
     }
 }
