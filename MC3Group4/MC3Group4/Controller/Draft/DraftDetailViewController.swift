@@ -17,20 +17,9 @@ class DraftDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (self.isNewDraft == true){
-            performSegue(withIdentifier: "DraftDetailToEditDraft", sender: self)
-        }
-        else{
-            // masukin info2 draft detail
-        }
+        
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "DraftDetailToEditDraft"{
-            let destination = segue.destination as! EditDraftViewController
-            destination.isNewDraft = self.isNewDraft
-            destination.currentDraft = self.currentDraft
-        }
-    }
+    
     
 }
