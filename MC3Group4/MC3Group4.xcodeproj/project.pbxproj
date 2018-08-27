@@ -21,6 +21,7 @@
 		2FE25CD4212569AD00B899E3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE25CD3212569AD00B899E3 /* ProfileViewController.swift */; };
 		2FE25CD721257FE700B899E3 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE25CD621257FE700B899E3 /* SignInViewController.swift */; };
 		2FE25CD921258AE100B899E3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE25CD821258AE100B899E3 /* RegisterViewController.swift */; };
+		8535B837212F187900AADAA0 /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535B836212F187900AADAA0 /* ProfileSettingsViewController.swift */; };
 		8536F1FE212E6752004B3315 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8536F1FD212E6752004B3315 /* PostCell.swift */; };
 		8536F201212E69B0004B3315 /* LocalModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8536F1FF212E69B0004B3315 /* LocalModel.xcdatamodeld */; };
 		8536F210212E6F31004B3315 /* LocalServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8536F20F212E6F31004B3315 /* LocalServices.swift */; };
@@ -30,6 +31,8 @@
 		854692CF212ECE1B003BCCB0 /* EditDraftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854692CE212ECE1B003BCCB0 /* EditDraftViewController.swift */; };
 		854692D1212ECF09003BCCB0 /* DraftDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854692D0212ECF09003BCCB0 /* DraftDetailViewController.swift */; };
 		854692D3212ED23B003BCCB0 /* UITextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854692D2212ED23B003BCCB0 /* UITextViewExtension.swift */; };
+		858278C3212FE5E00030BE5F /* imagesCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858278C2212FE5E00030BE5F /* imagesCollectionCell.swift */; };
+		858278C5213010BF0030BE5F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 858278C4213010BF0030BE5F /* CoreLocation.framework */; };
 		85A2C7FB2129AB8E0008B143 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85A2C7FA2129AB8E0008B143 /* GoogleService-Info.plist */; };
 		85A2C8012129BFA70008B143 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2C8002129BFA70008B143 /* DiscoverViewController.swift */; };
 		85A2C8042129DDBF0008B143 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2C8032129DDBF0008B143 /* UIButtonExtension.swift */; };
@@ -59,6 +62,7 @@
 		2FE25CD3212569AD00B899E3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2FE25CD621257FE700B899E3 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		2FE25CD821258AE100B899E3 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		8535B836212F187900AADAA0 /* ProfileSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewController.swift; sourceTree = "<group>"; };
 		8536F1FD212E6752004B3315 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		8536F200212E69B0004B3315 /* LocalModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalModel.xcdatamodel; sourceTree = "<group>"; };
 		8536F20F212E6F31004B3315 /* LocalServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalServices.swift; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 		854692CE212ECE1B003BCCB0 /* EditDraftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDraftViewController.swift; sourceTree = "<group>"; };
 		854692D0212ECF09003BCCB0 /* DraftDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftDetailViewController.swift; sourceTree = "<group>"; };
 		854692D2212ED23B003BCCB0 /* UITextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtension.swift; sourceTree = "<group>"; };
+		858278C2212FE5E00030BE5F /* imagesCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imagesCollectionCell.swift; sourceTree = "<group>"; };
+		858278C4213010BF0030BE5F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		85A2C7FA2129AB8E0008B143 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		85A2C8002129BFA70008B143 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		85A2C8032129DDBF0008B143 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
@@ -85,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				858278C5213010BF0030BE5F /* CoreLocation.framework in Frameworks */,
 				E76009CFD2B9133F99926EED /* Pods_MC3Group4.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,6 +163,7 @@
 				2FE25CD821258AE100B899E3 /* RegisterViewController.swift */,
 				2FE25CD3212569AD00B899E3 /* ProfileViewController.swift */,
 				85AEBBA0212A9DC700997195 /* LoggedInViewController.swift */,
+				8535B836212F187900AADAA0 /* ProfileSettingsViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -185,6 +193,7 @@
 				8536F202212E6DD3004B3315 /* Post */,
 				85FC9A45212BF2C20009D362 /* Onboarding */,
 				85AEBB9E212A8E8900997195 /* UserModel.swift */,
+				858278C2212FE5E00030BE5F /* imagesCollectionCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -249,6 +258,7 @@
 		BB55DB56F1A39BCF6A134773 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				858278C4213010BF0030BE5F /* CoreLocation.framework */,
 				AE664E08B7862F40900D2805 /* Pods_MC3Group4.framework */,
 			);
 			name = Frameworks;
@@ -412,12 +422,14 @@
 				85AEBBA1212A9DC700997195 /* LoggedInViewController.swift in Sources */,
 				2FE25CD921258AE100B899E3 /* RegisterViewController.swift in Sources */,
 				854692D1212ECF09003BCCB0 /* DraftDetailViewController.swift in Sources */,
+				858278C3212FE5E00030BE5F /* imagesCollectionCell.swift in Sources */,
 				85AEBBA3212AD3CD00997195 /* OnBoardViewController.swift in Sources */,
 				2FE25CD221252AC800B899E3 /* DraftViewController.swift in Sources */,
 				85A2C8042129DDBF0008B143 /* UIButtonExtension.swift in Sources */,
 				2F931468212AADFB0001C14C /* UITextFieldExtension.swift in Sources */,
 				854692D3212ED23B003BCCB0 /* UITextViewExtension.swift in Sources */,
 				85A2C8012129BFA70008B143 /* DiscoverViewController.swift in Sources */,
+				8535B837212F187900AADAA0 /* ProfileSettingsViewController.swift in Sources */,
 				8536F21B212ECB4A004B3315 /* DraftEntity+CoreDataClass.swift in Sources */,
 				85AEBBA5212AD50C00997195 /* OnBoardView.swift in Sources */,
 				2F5F26AB2122B59200E02EE9 /* AppDelegate.swift in Sources */,
@@ -562,7 +574,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TZ3HWHN35P;
+				DEVELOPMENT_TEAM = 98R673PJSG;
 				INFOPLIST_FILE = MC3Group4/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -581,7 +593,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TZ3HWHN35P;
+				DEVELOPMENT_TEAM = 98R673PJSG;
 				INFOPLIST_FILE = MC3Group4/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

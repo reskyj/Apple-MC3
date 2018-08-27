@@ -12,6 +12,8 @@ class LoggedInViewController: UIViewController, UINavigationControllerDelegate, 
 
     @IBOutlet weak var profilePictureView: UIImageView!
     @IBOutlet weak var addedProfileView: UIImageView!
+    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
     
     
     @IBAction func importProfilePicture(_ sender: Any) {
@@ -58,6 +60,8 @@ class LoggedInViewController: UIViewController, UINavigationControllerDelegate, 
         }
         else{
             self.fullNameLabel.text = LoggedInUser.user.fullName
+            self.phoneLabel.text = LoggedInUser.user.phone
+            self.emailLabel.text = LoggedInUser.user.email
         }
     }
 

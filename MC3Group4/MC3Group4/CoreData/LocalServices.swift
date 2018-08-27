@@ -41,7 +41,7 @@ class LocalServices{
             }
             catch{
                 let nserror = error as NSError
-                fatalError("Error has occured")
+                fatalError("Error has occured: \(nserror)")
             }
         }
         

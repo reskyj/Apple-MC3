@@ -15,20 +15,21 @@ class DraftViewController: UIViewController {
     var currentDraft: PostModel!
     
     @IBAction func addDraftButton(_ sender: Any) {
-        let draftAlert = UIAlertController(title: "Draft Baru", message: nil, preferredStyle: .alert)
-        draftAlert.addTextField {
-            $0.placeholder = "Nama sekolah"
-            $0.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
-        }
-        let submitAction = UIAlertAction(title: "Tambah", style: .default) { (UIAlertAction) in
-            self.createNewDraft()
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (UIAlertAction) in
-        }
-        submitAction.isEnabled = false
-        draftAlert.addAction(submitAction)
-        draftAlert.addAction(cancelAction)
-        present(draftAlert, animated: true, completion: nil)
+//        let draftAlert = UIAlertController(title: "Draft Baru", message: nil, preferredStyle: .alert)
+//        draftAlert.addTextField {
+//            $0.placeholder = "Nama sekolah"
+//            $0.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+//        }
+//        let submitAction = UIAlertAction(title: "Tambah", style: .default) { (UIAlertAction) in
+//            self.createNewDraft()
+//        }
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (UIAlertAction) in
+//        }
+//        submitAction.isEnabled = false
+//        draftAlert.addAction(submitAction)
+//        draftAlert.addAction(cancelAction)
+//        present(draftAlert, animated: true, completion: nil)
+        self.createNewDraft()
     }
     
     @objc func textFieldDidChange(_ textField: UITextField){
@@ -42,16 +43,19 @@ class DraftViewController: UIViewController {
     
     func createNewDraft(){
         self.isNewDraft = true
-        performSegue(withIdentifier: "draftToEditDraft", sender: self)
+        performSegue(withIdentifier: "draftToDraftDetail", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "draftToEditDraft"{
-            let destination = segue.destination as! EditDraftViewController
+        if segue.identifier == "draftToDraftDetail"{
+            let destination = segue.destination as! DraftDetailViewController
             destination.isNewDraft = self.isNewDraft
-        
-            let tempUUID = UUID().uuidString
-            destination.currentDraft = PostModel(schoolImages: [], roadImages: [], schoolName: self.schoolName, aboutPost: "", needsPost: "", addressPost: "", accessPost: "", notesPost: "", locationName: "", locationAdminArea: "", locationLocality: "", locationAOI: "", locationLatitude: 0, locationLongitude: 0, postUUID: tempUUID)
+            
+            if (self.isNewDraft == true){
+                let tempUUID = UUID().uuidString
+                self.currentDraft = PostModel(schoolImages: [], roadImages: [], schoolName: "", aboutPost: "", needsPost: "", addressPost: "", accessPost: "", notesPost: "", locationName: "", locationAdminArea: "", locationLocality: "", locationAOI: "", locationLatitude: 0, locationLongitude: 0, postUUID: tempUUID)
+            }
+            destination.currentDraft = self.currentDraft
         }
     }
     
