@@ -140,6 +140,7 @@ extension DraftViewController: UITableViewDelegate, UITableViewDataSource{
         }
         
         cell.fillLocation(desc: locationDesc)
+        cell.selectionStyle = .none
         
         return cell
     }

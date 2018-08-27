@@ -318,6 +318,14 @@
                                                     <action selector="tapToShareButtonClicked:" destination="2yX-wl-Ifb" eventType="touchUpInside" id="R7R-zw-dbw"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0W-aA-rPN">
+                                                <rect key="frame" x="131" y="1332" width="113" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Submit to Public"/>
+                                                <connections>
+                                                    <action selector="submitButtonClicked:" destination="2yX-wl-Ifb" eventType="touchUpInside" id="Rz1-r9-Paa"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -517,6 +525,6 @@
         <image name="plusButton" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HXS-JM-vbL"/>
+        <segue reference="S7b-Dw-a3a"/>
     </inferredMetricsTieBreakers>
 </document>
