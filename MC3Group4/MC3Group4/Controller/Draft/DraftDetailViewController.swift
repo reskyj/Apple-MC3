@@ -1,6 +1,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import CoreData
 
 class DraftDetailViewController: UIViewController {
     
@@ -30,6 +31,13 @@ class DraftDetailViewController: UIViewController {
     
     let locationManager = CLLocationManager()
     var locationUpdateCounter: Int = 0
+    
+    var tempLocLongitude: Double = 0
+    var tempLocLatitude: Double = 0
+    var tempLocAOI: String = ""
+    var tempLocAdminArea: String = ""
+    var tempLocLocality: String = ""
+    var tempLocName: String = ""
     // temp variables for PostModel
 //    var schoolName: String!
 //    var about: String!
@@ -44,8 +52,67 @@ class DraftDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setTextViews()
     }
     
+    func setTextViews(){
+        self.schoolNameTextView.text = self.currentDraft.schoolName
+        self.aboutTextView.text = self.currentDraft.aboutPost
+        self.needsTextView.text = self.currentDraft.needsPost
+        self.accessTextView.text = self.currentDraft.accessPost
+        self.addressTextView.text = self.currentDraft.addressPost
+        self.notesTextView.text = self.currentDraft.notesPost
+    }
+    
+    func saveNewDraftToCoreData(){
+        let tempPost = DraftEntity(context: LocalServices.context)
+        tempPost.schoolName = self.currentDraft.schoolName
+        tempPost.aboutPost = self.currentDraft.aboutPost
+        tempPost.needsPost = self.currentDraft.needsPost
+        tempPost.accessPost = self.currentDraft.accessPost
+        tempPost.addressPost = self.currentDraft.addressPost
+        tempPost.notesPost = self.currentDraft.notesPost
+        tempPost.locationLongitude = self.currentDraft.locationLongitude
+        tempPost.locationLatitude = self.currentDraft.locationLatitude
+        tempPost.postUUID = self.currentDraft.postUUID
+        
+        tempPost.locationAOI = self.currentDraft.locationAOI
+        tempPost.locationName = self.currentDraft.locationName
+        tempPost.locationLocality = self.currentDraft.locationLocality
+        tempPost.locationAdminArea = self.currentDraft.locationAdminArea
+        
+        var CDataArraySchool = NSMutableArray()
+        var CDataArrayRoad = NSMutableArray()
+        
+        for img in self.currentDraft.schoolImages{
+            let data : NSData = NSData(data: UIImagePNGRepresentation(img)!)
+            CDataArraySchool.add(data)
+        }
+        
+        for img in self.currentDraft.roadImages{
+            let data : NSData = NSData(data: UIImagePNGRepresentation(img)!)
+            CDataArrayRoad.add(data)
+        }
+        
+        //convert the Array to NSData
+        //you can save this in core data
+        let coreDataObjectSchool = NSKeyedArchiver.archivedData(withRootObject: CDataArraySchool)
+        let coreDataObjectRoad = NSKeyedArchiver.archivedData(withRootObject: CDataArrayRoad)
+
+        tempPost.schoolImages = coreDataObjectSchool as NSData
+        tempPost.roadImages = coreDataObjectRoad as NSData
+        
+        LocalServices.saveContext()
+    }
+    
+    func updateToCoreData(){
+        
+    }
+    
+    func updateLocationToCoreData(){
+        
+    }
+
     func setUpMap(){
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -67,9 +134,26 @@ class DraftDetailViewController: UIViewController {
             self.tapToShareButton.isHidden = true
             self.detailDraftNavBar.rightBarButtonItem?.title = "Edit"
             
+            self.currentDraft.schoolName = self.schoolNameTextView.text
+            self.currentDraft.aboutPost = self.aboutTextView.text
+            self.currentDraft.needsPost = self.needsTextView.text
+            self.currentDraft.accessPost = self.accessTextView.text
+            self.currentDraft.addressPost = self.addressTextView.text
+            self.currentDraft.notesPost = self.notesTextView.text
+            
+            self.currentDraft.locationLongitude = self.tempLocLongitude
+            self.currentDraft.locationLatitude = self.tempLocLatitude
+            
+            self.currentDraft.locationAdminArea = self.tempLocAdminArea
+            self.currentDraft.locationAOI = self.tempLocAOI
+            self.currentDraft.locationName = self.tempLocName
+            self.currentDraft.locationLocality = self.tempLocLocality
+            
+            
             if (self.isNewDraft == true){
                 self.isNewDraft = false
                 
+                self.saveNewDraftToCoreData()
                 // save new draft to core data
             }
             else{
@@ -197,6 +281,13 @@ extension DraftDetailViewController: CLLocationManagerDelegate{
         self.myMapView.setRegion(region, animated: true)
         self.myMapView.showsUserLocation = true
         
+        print(userLocation.coordinate.longitude)
+        print(userLocation.coordinate.latitude)
+        print("Coordinates saved")
+        
+        self.tempLocLongitude = userLocation.coordinate.longitude
+        self.tempLocLatitude = userLocation.coordinate.latitude
+        
         CLGeocoder().reverseGeocodeLocation(userLocation) { (placemark, error) in
             if self.locationUpdateCounter == 0
             {
@@ -216,6 +307,11 @@ extension DraftDetailViewController: CLLocationManagerDelegate{
                         print(place.name!)
                         print(place.areasOfInterest![0])
                         print(place.country!)
+                        
+                        self.tempLocLocality = place.locality!
+                        self.tempLocAOI = place.areasOfInterest![0]
+                        self.tempLocName = place.name!
+                        self.tempLocAdminArea = place.administrativeArea!
                     }
                     else
                     {
@@ -227,6 +323,7 @@ extension DraftDetailViewController: CLLocationManagerDelegate{
             else
             {
                 self.locationManager.stopUpdatingLocation()
+                self.locationUpdateCounter = 0
             }
             
         }
