@@ -275,7 +275,7 @@ class DraftDetailViewController: UIViewController {
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
         }
-        else if (self.tempLocLongitude == 0 || self.tempLocLatitude == 0 ){
+        else if (self.currentDraft.locationLongitude == 0 || self.currentDraft.locationLatitude == 0 ){
             let alert = UIAlertController(title: "Unable to Submit", message: "Location not set!", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
             }
@@ -303,6 +303,102 @@ class DraftDetailViewController: UIViewController {
     
     func submitToFirebase(){
 //        FirebaseReferences.databaseRef.child("Users/\(LoggedInUser.user.userUUID)/posts/\(self.currentDraft.postUUID)").setValue("")
+//        var image = UIImage(named: "family")
+//        var data = UIImageJPEGRepresentation(image!, 0.1)
+//
+//        // Create a reference to the file you want to upload
+//        let riversRef = storageRef.child("images/rivers.jpg")
+//
+//        // Upload the file to the path "images/rivers.jpg"
+//        let uploadTask = riversRef.putData(data!, metadata: nil) { (metadata, error) in
+//            if error != nil{
+//                print("ERRORRRRRR - \(error?.localizedDescription)")
+//                return
+//            }
+//            print("success")
+//            // You can also access to download URL after upload.
+//            riversRef.downloadURL { (url, error) in
+//                guard let downloadURL = url else {
+//                    // Uh-oh, an error occurred!
+//                    return
+//                }
+//                self.imageURL = downloadURL.absoluteString
+//                self.uploadedIndicator.backgroundColor = UIColor.green
+//                self.errorLabel.text = "Image Uploaded!"
+//            }
+//        }
+        let currDate = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd-HH:mm"
+        let dateString = formatter.string(from: currDate)
+        let postDateID: String = "\(dateString)-\(self.currentDraft.postUUID)"
+        
+//        var tempSchoolPicIds: [String:String] = [:]
+//        var tempRoadPicIds: [String:String] = [:]
+        
+        FirebaseReferences.databaseRef.child("Users/\(LoggedInUser.user.userUUID)/posts/\(postDateID)").setValue("")
+        
+        for pic in self.currentDraft.schoolImages{
+            let tempPicId = "pic-\(UUID().uuidString)"
+            
+            let data = UIImageJPEGRepresentation(pic, 0.1)
+            let tempRef = FirebaseReferences.storageRef.child("Posts/\(postDateID)/schoolImages/\(tempPicId).jpeg")
+            
+            let _ = tempRef.putData(data!, metadata: nil) { (metadata, error) in
+                if error != nil{
+                    print("ERROR - \(error?.localizedDescription)")
+                    return
+                }
+                print("success upload to storage")
+                            // You can also access to download URL after upload.
+                tempRef.downloadURL { (url, error) in
+                    guard let downloadURL = url else {
+                        // Uh-oh, an error occurred!
+                        return
+                    }
+//                    tempSchoolPicIds[tempPicId] = downloadURL.absoluteString
+                    FirebaseReferences.databaseRef.child("Posts/\(postDateID)/schoolImages/\(tempPicId)").setValue(downloadURL.absoluteString)
+                }
+            }
+        }
+        for pic in self.currentDraft.roadImages{
+            let tempPicId = "pic-\(UUID().uuidString)"
+            
+            let data = UIImageJPEGRepresentation(pic, 0.1)
+            let tempRef = FirebaseReferences.storageRef.child("Posts/\(postDateID)/roadImages/\(tempPicId).jpeg")
+            
+            let _ = tempRef.putData(data!, metadata: nil) { (metadata, error) in
+                if error != nil{
+                    print("ERROR - \(error?.localizedDescription)")
+                    return
+                }
+                print("success upload to storage")
+                // You can also access to download URL after upload.
+                tempRef.downloadURL { (url, error) in
+                    guard let downloadURL = url else {
+                        // Uh-oh, an error occurred!
+                        return
+                    }
+//                    tempRoadPicIds[tempPicId] = downloadURL.absoluteString
+                    FirebaseReferences.databaseRef.child("Posts/\(postDateID)/roadImages/\(tempPicId)").setValue(downloadURL.absoluteString)
+                }
+            }
+        }
+        
+        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/schoolName").setValue(self.currentDraft.schoolName)
+        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/about").setValue(self.currentDraft.aboutPost)
+        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/needs").setValue(self.currentDraft.needsPost)
+        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/access").setValue(self.currentDraft.accessPost)
+        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/address").setValue(self.currentDraft.addressPost)
+        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/notes").setValue(self.currentDraft.notesPost)
+        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/locationLongitude").setValue(self.currentDraft.locationLongitude)
+        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/locationLatitude").setValue(self.currentDraft.locationLatitude)
+        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/locationAOI").setValue(self.currentDraft.locationAOI)
+        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/locationAdminArea").setValue(self.currentDraft.locationAdminArea)
+        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/locationName").setValue(self.currentDraft.locationName)
+        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/locationLocality").setValue(self.currentDraft.locationLocality)
+        
+        print("submitted draft to public")
         
     }
     
