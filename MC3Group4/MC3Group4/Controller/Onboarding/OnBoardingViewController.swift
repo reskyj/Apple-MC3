@@ -1,11 +1,11 @@
 //
-//  OnBoardingViewController.swift
-//  MC3Group4
+////  OnBoardingViewController.swift
+////  MC3Group4
+////
+////  Created by Resky Javieri on 17/08/18.
+////  Copyright © 2018 Resky Javieri. All rights reserved.
 //
-//  Created by Resky Javieri on 17/08/18.
-//  Copyright © 2018 Resky Javieri. All rights reserved.
 //
-
 //import UIKit
 //
 //class OnBoardingViewController: UIViewController, UIScrollViewDelegate {
