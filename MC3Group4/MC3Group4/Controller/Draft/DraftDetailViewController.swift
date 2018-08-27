@@ -40,16 +40,7 @@ class DraftDetailViewController: UIViewController {
     var tempLocAdminArea: String = ""
     var tempLocLocality: String = ""
     var tempLocName: String = ""
-    // temp variables for PostModel
-//    var schoolName: String!
-//    var about: String!
-//    var needs: String!
-//    var access: String!
-//    var address: String!
-//    var notes: String!
     
-    
-    // -----------------------------
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,7 +104,63 @@ class DraftDetailViewController: UIViewController {
     }
     
     func updateToCoreData(){
+        let context = LocalServices.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<DraftEntity> = DraftEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "postUUID = %@", self.currentDraft.postUUID)
         
+        do {
+            let results = try context.fetch(fetchRequest)
+            fetchRequest.returnsObjectsAsFaults = false
+            print("Results Count :", results.count)
+            
+            if(results.count > 0 ){
+                
+                var CDataArraySchool = NSMutableArray()
+                var CDataArrayRoad = NSMutableArray()
+                
+                for img in self.currentDraft.schoolImages{
+                    let data : NSData = NSData(data: UIImageJPEGRepresentation(img, 1)!)
+                    CDataArraySchool.add(data)
+                }
+                
+                for img in self.currentDraft.roadImages{
+                    let data : NSData = NSData(data: UIImageJPEGRepresentation(img, 1)!)
+                    CDataArrayRoad.add(data)
+                }
+                
+                //convert the Array to NSData
+                //you can save this in core data
+                let coreDataObjectSchool = NSKeyedArchiver.archivedData(withRootObject: CDataArraySchool)
+                let coreDataObjectRoad = NSKeyedArchiver.archivedData(withRootObject: CDataArrayRoad)
+                
+                
+                results[0].setValue(coreDataObjectSchool, forKey: "schoolImages")
+                results[0].setValue(coreDataObjectRoad, forKey: "roadImages")
+                
+                results[0].setValue(self.currentDraft.schoolName, forKey: "schoolName")
+                results[0].setValue(self.currentDraft.aboutPost, forKey: "aboutPost")
+                results[0].setValue(self.currentDraft.needsPost, forKey: "needsPost")
+                results[0].setValue(self.currentDraft.accessPost, forKey: "accessPost")
+                results[0].setValue(self.currentDraft.addressPost, forKey: "addressPost")
+                results[0].setValue(self.currentDraft.notesPost, forKey: "notesPost")
+                results[0].setValue(self.currentDraft.locationLongitude, forKey: "locationLongitude")
+                results[0].setValue(self.currentDraft.locationLatitude, forKey: "locationLatitude")
+                
+                results[0].setValue(self.currentDraft.locationAOI, forKey: "locationAOI")
+                results[0].setValue(self.currentDraft.locationName, forKey: "locationName")
+                results[0].setValue(self.currentDraft.locationLocality, forKey: "locationLocality")
+                results[0].setValue(self.currentDraft.locationAdminArea, forKey: "locationAdminArea")
+                
+                try context.save();
+                print("Saved.....")
+                //                } endfor
+            } else {
+                print("No Audios to save")
+            }
+        } catch{
+            print("There was an error")
+        }
+    
     }
 
     func setUpMap(){
@@ -217,6 +264,48 @@ class DraftDetailViewController: UIViewController {
     @IBAction func tapToShareButtonClicked(_ sender: Any) {
         self.setUpMap()
     }
+    
+    
+    @IBAction func submitButtonClicked(_ sender: Any) {
+        if (self.schoolNameTextView.text == "" || self.aboutTextView.text == "" || self.needsTextView.text == "" || self.accessTextView.text == "" || self.addressTextView.text == "" || self.notesTextView.text == ""){
+            
+            let alert = UIAlertController(title: "Unable to Submit", message: "Please fill in the fields!", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
+            }
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+        }
+        else if (self.tempLocLongitude == 0 || self.tempLocLatitude == 0 ){
+            let alert = UIAlertController(title: "Unable to Submit", message: "Location not set!", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
+            }
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+        }
+        else if (self.currentDraft.schoolImages.count < 1){
+            let alert = UIAlertController(title: "Unable to Submit", message: "Please include at least 1 school and road image!", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
+            }
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+        }
+        else if (LoggedInUser.isLoggedIn == false){
+            let alert = UIAlertController(title: "Unable to Submit", message: "You must be logged in to submit!", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
+            }
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+        }
+        else{
+            self.submitToFirebase()
+        }
+    }
+    
+    func submitToFirebase(){
+//        FirebaseReferences.databaseRef.child("Users/\(LoggedInUser.user.userUUID)/posts/\(self.currentDraft.postUUID)").setValue("")
+        
+    }
+    
 }
 
 
