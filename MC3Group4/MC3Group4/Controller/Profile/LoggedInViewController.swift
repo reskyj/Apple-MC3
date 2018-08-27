@@ -46,11 +46,13 @@ class LoggedInViewController: UIViewController, UINavigationControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         self.profilePictureView.layer.cornerRadius = profilePictureView.frame.size.width / 2
         self.profilePictureView.clipsToBounds = true
 //        self.profilePictureView.layer.borderWidth = 5
 //        self.profilePictureView.layer.borderColor = UIColor.white.cgColor
         self.addedProfileView.layer.cornerRadius = addedProfileView.frame.size.width / 2
+        
         
     }
     
