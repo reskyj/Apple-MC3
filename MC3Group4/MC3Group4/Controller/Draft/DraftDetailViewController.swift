@@ -397,6 +397,7 @@ class DraftDetailViewController: UIViewController {
         FirebaseReferences.databaseRef.child("Posts/\(postDateID)/locationAdminArea").setValue(self.currentDraft.locationAdminArea)
         FirebaseReferences.databaseRef.child("Posts/\(postDateID)/locationName").setValue(self.currentDraft.locationName)
         FirebaseReferences.databaseRef.child("Posts/\(postDateID)/locationLocality").setValue(self.currentDraft.locationLocality)
+        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/posterID").setValue(LoggedInUser.user.userUUID)
         
         print("submitted draft to public")
         
