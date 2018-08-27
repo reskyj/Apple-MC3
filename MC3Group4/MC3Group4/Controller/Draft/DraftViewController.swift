@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import CoreData
 
 class DraftViewController: UIViewController {
+    
+    @IBOutlet weak var draftTableView: UITableView!
     
     var schoolName: String = ""
     var isNewDraft: Bool = false
     var currentDraft: PostModel!
+    
+    var draftArray: [PostModel] = []
+    var tempResult: [DraftEntity] = []
     
     @IBAction func addDraftButton(_ sender: Any) {
 //        let draftAlert = UIAlertController(title: "Draft Baru", message: nil, preferredStyle: .alert)
@@ -67,8 +73,43 @@ class DraftViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.isNewDraft = false
+        
+        self.fetchFromCoreData()
+    }
+    
+    func fetchFromCoreData(){
+        let fetchRequest: NSFetchRequest<DraftEntity> = DraftEntity.fetchRequest()
+        do{
+            let fetchData = try LocalServices.context.fetch(fetchRequest)
+            self.tempResult = fetchData
+        
+            // x as each row in entity
+            for x in self.tempResult{
+                var tempSchool: [UIImage] = []
+                var tempRoad: [UIImage] = []
+                
+                //get school images
+                if let mySavedData = NSKeyedUnarchiver.unarchiveObject(with: x.schoolImages! as Data) as? NSArray{
+                    for i in 0..<mySavedData.count{
+                        let image = UIImage(data: mySavedData[i] as! Data)
+                        tempSchool.append(image!)
+                    }
+                }
+                //get road images
+                if let mySavedData = NSKeyedUnarchiver.unarchiveObject(with: x.roadImages! as Data) as? NSArray{
+                    for i in 0..<mySavedData.count{
+                        let image = UIImage(data: mySavedData[i] as! Data)
+                        tempRoad.append(image!)
+                    }
+                }
+                
+                self.draftArray.append(PostModel(schoolImages: tempSchool, roadImages: tempRoad, schoolName: x.schoolName!, aboutPost: x.aboutPost!, needsPost: x.needsPost!, addressPost: x.addressPost!, accessPost: x.accessPost!, notesPost: x.notesPost!, locationName: x.locationName!, locationAdminArea: x.locationAdminArea!, locationLocality: x.locationLocality!, locationAOI: x.locationAOI!, locationLatitude: x.locationLatitude, locationLongitude: x.locationLongitude, postUUID: x.postUUID!))
+        
+            }
+        } catch {}
     }
 
+}
    
 
-}
+
