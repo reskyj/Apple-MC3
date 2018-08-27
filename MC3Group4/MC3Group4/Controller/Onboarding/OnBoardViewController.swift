@@ -12,26 +12,12 @@ import paper_onboarding
 class OnBoardViewController: UIViewController, PaperOnboardingDelegate, PaperOnboardingDataSource {
 
     @IBOutlet weak var myOnBoardView: OnBoardView!
+    @IBOutlet weak var continueButton: UIButton!
     
-//    var nextButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        //Create button
-//        let nextButtonWidth: CGFloat = 200.0
-//        let nextButtonHeight: CGFloat = 50.0
-//
-//        nextButton = UIButton(frame: CGRect(x: (self.view.frame.width / 2) - (nextButtonWidth/2), y: self.view.frame.height, width: nextButtonWidth, height: nextButtonHeight))
-//        nextButton.buttonDesignOne()
-//
-//        nextButton.setTitle("Lanjutkan", for: .normal)
-//        nextButton.isUserInteractionEnabled = true
-//
-//        nextButton.addTarget(self, action: #selector(OnBoardViewController.showApp(sender:)), for: .touchUpInside)
-//
-//        self.view.addSubview(nextButton)
-//        self.view.bringSubview(toFront: nextButton)
+        continueButton.buttonDesignOne()
         
         for attribute: NSLayoutAttribute in [.left, .right, .top, .bottom] {
             let constraint = NSLayoutConstraint(item: self.myOnBoardView,
@@ -51,92 +37,65 @@ class OnBoardViewController: UIViewController, PaperOnboardingDelegate, PaperOnb
         return 3
     }
     
+    func onboardingDidTransitonToIndex(_: Int) {
+        if (myOnBoardView.currentIndex == 2) {
+            continueButton.isHidden = false
+        }
+        else {
+            continueButton.isHidden = true
+        }
+    }
+    
+    func onboardingWillTransitonToIndex(_: Int) {
+        if (myOnBoardView.currentIndex != 2) {
+            continueButton.isHidden = true
+        }
+        else {
+            continueButton.isHidden = false
+        }
+    }
+    
+    @IBAction func continuePressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "onBoardingToDiscover", sender: self)
+    }
     func onboardingItem(at index: Int) -> OnboardingItemInfo {
-        let titleFont = UIFont(name: "AvenirNext-Bold", size: 24)!
+        let titleFont = UIFont(name: "Helvetica", size: 16)!
         return [
-            OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "Onboarding-1"),
-                               title: "title",
-                               description: "description",
+            OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "Walk-1"),
+                               title: "Discover places",
+                               description: "Buat setiap perjalanan anda menjadi lebih berarti dengan membantu mereka yang membutuhkan di dalam sepanjang perjalanan anda",
                                pageIcon: #imageLiteral(resourceName: "EmptyPic"),
-                               color: UIColor.yellow,
-                               titleColor: UIColor.blue,
-                               descriptionColor: UIColor.red,
+                               color: UIColor.white,
+                               titleColor: UIColor.black,
+                               descriptionColor: UIColor.black,
                                titleFont: titleFont,
                                descriptionFont: titleFont),
             
-            OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "Onboarding-1"),
-                               title: "title",
-                               description: "description",
+            OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "Sketch-1"),
+                               title: "Collect the information needed",
+                               description: "Isilah draft anda dengan informasi yang lengkap dan anda membantu komunitas 100 guru memberikan informasi tepat yang mereka butuhkan",
                                pageIcon: #imageLiteral(resourceName: "EmptyPic"),
-                               color: UIColor.green,
-                               titleColor: UIColor.blue,
-                               descriptionColor: UIColor.red,
+                               color: UIColor.white,
+                               titleColor: UIColor.black,
+                               descriptionColor: UIColor.black,
                                titleFont: titleFont,
                                descriptionFont: titleFont),
             
-            OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "Onboarding-1"),
-                               title: "title",
-                               description: "description",
+            OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "Give-1"),
+                               title: "Share experience and help them",
+                               description: "Sentuh dan sebarkan kebaikan kepada sesama tinggalkan kebaikan untuk mereka yang benar membutuhkan",
                                pageIcon: #imageLiteral(resourceName: "EmptyPic"),
-                               color: UIColor.gray,
-                               titleColor: UIColor.blue,
-                               descriptionColor: UIColor.red,
+                               color: UIColor.white,
+                               titleColor: UIColor.black,
+                               descriptionColor: UIColor.black,
                                titleFont: titleFont,
                                descriptionFont: titleFont)
             ][index]
     }
     
-    
-//    @objc func showApp(sender: UIButton) {
-//
-//        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "App")
-//        present(initialViewController, animated: true, completion: nil)
-//
-//        let userDefaults = UserDefaults.standard
-//        userDefaults.set(true, forKey: "onBoardingComplete")
-//        userDefaults.synchronize()
-//
-//    }
-    
+
     
     func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int) {
-        // add custom background image
-//        let tmp: Int = 500
-        
-        // assume you have an array of uiimages
-//        if item.viewWithTag(tmp + 1) == nil {
-//            let imgView = UIImageView(image: #imageLiteral(resourceName: "Onboarding-6"))
-////            imgView.tag = tmp + 1
-//            imgView.contentMode = .scaleToFill
-//
-//            item.insertSubview(imgView, at: 0)
-//
-//            // for instance I like to have blur effect on my background images
-////            let blurEffect = UIBlurEffect(style: .dark)
-////            let blurOverlay = UIVisualEffectView(effect: blurEffect)
-////            blurOverlay.alpha = 0.90
-////            blurOverlay.frame = view.bounds
-////            blurOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-////
-////            imgView.addSubview(blurOverlay)
-//
-//            // I use SnapKit for auyolayout engine
-//            // you can use whatever you want
-//            // important thing is you must give full screen size as imageview frame size.
-////            imgView.snp.remakeConstraints({ (make) in
-////                make.size.equalTo(view.bounds.size)
-////            })
-////
-////            blurOverlay.snp.remakeConstraints({ (make) in
-////                make.edges.equalToSuperview()
-////            })
-//            let screenSize: CGRect = UIScreen.main.bounds
-//            imgView.frame = CGRect(x: 0, y: (0-(imgView.superview?.frame.origin.y)!), width: screenSize.width, height: screenSize.height)
-        
-//            imgView.frame.origin.x = 100
-//            imgView.frame.origin.y = 100
-//        }
     }
     
 
