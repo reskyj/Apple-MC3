@@ -572,9 +572,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E6A211EED95F6534D9748184 /* Pods-MC3Group4.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = Bantu;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 98R673PJSG;
+				DEVELOPMENT_TEAM = TZ3HWHN35P;
 				INFOPLIST_FILE = MC3Group4/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -592,9 +592,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13A189412A90A08B03A2CC69 /* Pods-MC3Group4.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = Bantu;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 98R673PJSG;
+				DEVELOPMENT_TEAM = TZ3HWHN35P;
 				INFOPLIST_FILE = MC3Group4/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
