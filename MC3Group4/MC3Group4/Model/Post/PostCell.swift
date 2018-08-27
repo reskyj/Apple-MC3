@@ -21,8 +21,17 @@ class PostCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func fillCell(){
-        
+    func fillCell(schoolName: String, about: String){
+        self.schoolNameLabel.text = schoolName
+        self.aboutLabel.text = about
+    }
+    
+    func fillThumbnail(thumbnail: UIImage){
+        self.thumbnailImage.image = thumbnail
+    }
+    
+    func fillLocation(desc: String){
+        self.locationLabel.text = desc
     }
 
 }

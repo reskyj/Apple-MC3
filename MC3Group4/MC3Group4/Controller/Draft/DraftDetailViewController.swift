@@ -23,6 +23,8 @@ class DraftDetailViewController: UIViewController {
     @IBOutlet weak var tapToShareButton: UIButton!
     @IBOutlet weak var myMapView: MKMapView!
     
+    
+    
     var isNewDraft: Bool!
     var currentDraft: PostModel!
     var isPickingSchool: Bool = false
@@ -52,16 +54,21 @@ class DraftDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setTextViews()
+        self.setInitialLoad()
     }
     
-    func setTextViews(){
+    func setInitialLoad(){
         self.schoolNameTextView.text = self.currentDraft.schoolName
         self.aboutTextView.text = self.currentDraft.aboutPost
         self.needsTextView.text = self.currentDraft.needsPost
         self.accessTextView.text = self.currentDraft.accessPost
         self.addressTextView.text = self.currentDraft.addressPost
         self.notesTextView.text = self.currentDraft.notesPost
+        
+        if (self.currentDraft.locationLatitude != 0 && self.currentDraft.locationLongitude != 0){
+            let tempLoc = CLLocation(latitude: self.currentDraft.locationLatitude, longitude: self.currentDraft.locationLongitude)
+            self.setLocationOnMap(userLocation: tempLoc)
+        }
     }
     
     func saveNewDraftToCoreData(){
@@ -85,12 +92,12 @@ class DraftDetailViewController: UIViewController {
         var CDataArrayRoad = NSMutableArray()
         
         for img in self.currentDraft.schoolImages{
-            let data : NSData = NSData(data: UIImagePNGRepresentation(img)!)
+            let data : NSData = NSData(data: UIImageJPEGRepresentation(img, 1)!)
             CDataArraySchool.add(data)
         }
         
         for img in self.currentDraft.roadImages{
-            let data : NSData = NSData(data: UIImagePNGRepresentation(img)!)
+            let data : NSData = NSData(data: UIImageJPEGRepresentation(img, 1)!)
             CDataArrayRoad.add(data)
         }
         
@@ -108,10 +115,6 @@ class DraftDetailViewController: UIViewController {
     func updateToCoreData(){
         
     }
-    
-    func updateLocationToCoreData(){
-        
-    }
 
     func setUpMap(){
         self.locationManager.delegate = self
@@ -121,6 +124,10 @@ class DraftDetailViewController: UIViewController {
     }
     
     @IBAction func editButtonClicked(_ sender: Any) {
+        self.changeEditState()
+    }
+    
+    func changeEditState(){
         var textViewBG: UIColor!
         if (self.isCurrentlyEditing == false){
             textViewBG = UIColor(cgColor: #colorLiteral(red: 0.9537883997, green: 0.9537883997, blue: 0.9537883997, alpha: 1))
@@ -157,6 +164,7 @@ class DraftDetailViewController: UIViewController {
                 // save new draft to core data
             }
             else{
+                self.updateToCoreData()
                 // update edited draft to core data
             }
         }
@@ -178,7 +186,6 @@ class DraftDetailViewController: UIViewController {
         }) { (finished) in
             // after finish
         }
-        
     }
     
     @IBAction func schoolAddButtonClicked(_ sender: Any) {
@@ -188,6 +195,10 @@ class DraftDetailViewController: UIViewController {
         imagePicker.delegate = self
         imagePicker.sourceType = .camera
         self.present(imagePicker, animated: true, completion: nil)
+        
+        if (self.isCurrentlyEditing == false){
+            self.changeEditState()
+        }
     }
 
     @IBAction func roadAddButtonClicked(_ sender: Any) {
@@ -197,6 +208,10 @@ class DraftDetailViewController: UIViewController {
         imagePicker.delegate = self
         imagePicker.sourceType = .camera
         self.present(imagePicker, animated: true, completion: nil)
+        
+        if (self.isCurrentlyEditing == false){
+            self.changeEditState()
+        }
     }
     
     @IBAction func tapToShareButtonClicked(_ sender: Any) {
@@ -212,18 +227,20 @@ extension DraftDetailViewController: UICollectionViewDelegate, UICollectionViewD
         if (collectionView == self.schoolCollectionView){
             return self.currentDraft.schoolImages.count
         }
-        return self.currentDraft.roadImages.count
+        else{
+            return self.currentDraft.roadImages.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if (collectionView == self.schoolCollectionView){
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "schoolCell", for: indexPath) as! imagesCollectionCell
+            let cell = self.schoolCollectionView.dequeueReusableCell(withReuseIdentifier: "schoolCell", for: indexPath) as! imagesCollectionCell
             cell.setCell(image: self.currentDraft.schoolImages[indexPath.row])
             
             return cell
         }
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "roadCell", for: indexPath) as! imagesCollectionCell
+        let cell = self.roadCollectionView.dequeueReusableCell(withReuseIdentifier: "roadCell", for: indexPath) as! imagesCollectionCell
         cell.setCell(image: self.currentDraft.roadImages[indexPath.row])
         
         return cell
@@ -266,6 +283,8 @@ extension DraftDetailViewController: UIImagePickerControllerDelegate, UINavigati
             else{
                 self.isPickingRoad = false
                 self.currentDraft.roadImages.append(image)
+                let indexPath = IndexPath(row:self.currentDraft.roadImages.count-1, section: 0) //at some index
+                self.roadCollectionView.insertItems(at: [indexPath])
             }
         }
     }
@@ -275,11 +294,7 @@ extension DraftDetailViewController: UIImagePickerControllerDelegate, UINavigati
 extension DraftDetailViewController: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation = locations[0]
-        let span: MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
-        let myLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude)
-        let region: MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
-        self.myMapView.setRegion(region, animated: true)
-        self.myMapView.showsUserLocation = true
+        self.setLocationOnMap(userLocation: userLocation)
         
         print(userLocation.coordinate.longitude)
         print(userLocation.coordinate.latitude)
@@ -327,6 +342,14 @@ extension DraftDetailViewController: CLLocationManagerDelegate{
             }
             
         }
+    }
+    
+    func setLocationOnMap(userLocation: CLLocation){
+        let span: MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
+        let myLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude)
+        let region: MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
+        self.myMapView.setRegion(region, animated: true)
+        self.myMapView.showsUserLocation = true
     }
 }
 
