@@ -18,6 +18,10 @@ class OnBoardViewController: UIViewController, PaperOnboardingDelegate, PaperOnb
     override func viewDidLoad() {
         super.viewDidLoad()
         continueButton.buttonDesignOne()
+        continueButton.layer.shadowColor = UIColor.black.cgColor
+        continueButton.layer.shadowOpacity = 0.3
+        continueButton.layer.shadowRadius = 5
+        continueButton.layer.shadowOffset = CGSize(width: 0, height: 0)
         
         for attribute: NSLayoutAttribute in [.left, .right, .top, .bottom] {
             let constraint = NSLayoutConstraint(item: self.myOnBoardView,
@@ -32,26 +36,41 @@ class OnBoardViewController: UIViewController, PaperOnboardingDelegate, PaperOnb
 
     }
 
-    func onboardingItemsCount() -> Int
-    {
+    func onboardingItemsCount() -> Int {
         return 3
     }
     
     func onboardingDidTransitonToIndex(_: Int) {
         if (myOnBoardView.currentIndex == 2) {
-            continueButton.isHidden = false
+            
+            UIButton.transition(with: continueButton, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                self.continueButton.isHidden = false
+            })
+            
         }
         else {
-            continueButton.isHidden = true
+            
+            UIButton.transition(with: continueButton, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                self.continueButton.isHidden = true
+            })
+    
         }
     }
     
     func onboardingWillTransitonToIndex(_: Int) {
         if (myOnBoardView.currentIndex != 2) {
-            continueButton.isHidden = true
+            
+            UIButton.transition(with: continueButton, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                self.continueButton.isHidden = true
+            })
+            
+
         }
         else {
-            continueButton.isHidden = false
+            
+            UIButton.transition(with: continueButton, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                self.continueButton.isHidden = false
+            })
         }
     }
     
@@ -59,7 +78,8 @@ class OnBoardViewController: UIViewController, PaperOnboardingDelegate, PaperOnb
         performSegue(withIdentifier: "onBoardingToDiscover", sender: self)
     }
     func onboardingItem(at index: Int) -> OnboardingItemInfo {
-        let titleFont = UIFont(name: "Helvetica", size: 16)!
+        let titleFont = UIFont(name: "Helvetica-Bold", size: 18)!
+        let descriptionFont = UIFont(name: "Helvetica", size: 16)!
         return [
             OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "Walk-1"),
                                title: "Discover places",
@@ -67,19 +87,19 @@ class OnBoardViewController: UIViewController, PaperOnboardingDelegate, PaperOnb
                                pageIcon: #imageLiteral(resourceName: "EmptyPic"),
                                color: UIColor.white,
                                titleColor: UIColor.black,
-                               descriptionColor: UIColor.black,
+                               descriptionColor: UIColor.gray,
                                titleFont: titleFont,
-                               descriptionFont: titleFont),
+                               descriptionFont: descriptionFont),
             
             OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "Sketch-1"),
                                title: "Collect the information needed",
-                               description: "Isilah draft anda dengan informasi yang lengkap dan anda membantu komunitas 100 guru memberikan informasi tepat yang mereka butuhkan",
+                               description: "Isilah draft anda dengan informasi yang lengkap dan anda membantu komunitas 1000 Guru memberikan informasi tepat yang mereka butuhkan",
                                pageIcon: #imageLiteral(resourceName: "EmptyPic"),
                                color: UIColor.white,
                                titleColor: UIColor.black,
-                               descriptionColor: UIColor.black,
+                               descriptionColor: UIColor.gray,
                                titleFont: titleFont,
-                               descriptionFont: titleFont),
+                               descriptionFont: descriptionFont),
             
             OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "Give-1"),
                                title: "Share experience and help them",
@@ -87,9 +107,9 @@ class OnBoardViewController: UIViewController, PaperOnboardingDelegate, PaperOnb
                                pageIcon: #imageLiteral(resourceName: "EmptyPic"),
                                color: UIColor.white,
                                titleColor: UIColor.black,
-                               descriptionColor: UIColor.black,
+                               descriptionColor: UIColor.gray,
                                titleFont: titleFont,
-                               descriptionFont: titleFont)
+                               descriptionFont: descriptionFont)
             ][index]
     }
     
