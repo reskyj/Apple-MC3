@@ -38,6 +38,8 @@ class DiscoverViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        newPostButton.buttonDesignOne()
+        
         self.postTableView.delegate = self
         self.postTableView.dataSource = self
         
