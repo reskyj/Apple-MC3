@@ -32,7 +32,7 @@ class FirebasePostModel{
     var postUUID: String = ""
     var posterID: String = ""
     
-    init(schoolName: String, about: String, needs: String, access: String, address: String, notes: String, schoolImages: [String:String], roadImages: [String:String], locationName: String, locationAdminArea: String, locationLocality: String, locationAOI: String, locationLatitude: Double, locationLongitude: Double, postUUID: String, posterID: String) {
+    init(schoolName: String, about: String, needs: String, access: String, address: String, notes: String, schoolImages: [String:String], roadImages: [String:String], locationName: String, locationAdminArea: String, locationLocality: String, locationAOI: String, locationLatitude: Double, locationLongitude: Double, postUUID: String, posterID: String, timeStamp: String) {
         
         self.dataModel["schoolName"] = schoolName
         self.dataModel["about"] = about
@@ -51,6 +51,8 @@ class FirebasePostModel{
         
         self.dataModel["schoolImages"] = schoolImages
         self.dataModel["roadImages"] = roadImages
+        
+        self.dataModel["timeStamp"] = timeStamp
     }
     
     

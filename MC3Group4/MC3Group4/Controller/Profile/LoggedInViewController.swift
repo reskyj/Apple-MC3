@@ -59,6 +59,7 @@ class LoggedInViewController: UIViewController, UINavigationControllerDelegate, 
     override func viewWillAppear(_ animated: Bool) {
         if (LoggedInUser.isLoggedIn == false){
             performSegue(withIdentifier: "LoggedInToProfile", sender: self)
+            print("goto sign in n register")
         }
         else{
             self.fullNameLabel.text = LoggedInUser.user.fullName

@@ -305,14 +305,23 @@ class DraftDetailViewController: UIViewController {
     var tempSchoolPicIds: [String:String] = [:]
     var tempRoadPicIds: [String:String] = [:]
     var postDateID: String = ""
+    var dateString: String = ""
     var FirebaseStorageFlag: Int = 0{
         didSet{
             if (self.FirebaseStorageFlag == 2){
-                self.tempFirebasePost = FirebasePostModel(schoolName: self.currentDraft.schoolName, about: self.currentDraft.aboutPost, needs: self.currentDraft.needsPost, access: self.currentDraft.accessPost, address: self.currentDraft.addressPost, notes: self.currentDraft.notesPost, schoolImages: self.tempSchoolPicIds, roadImages: self.tempRoadPicIds, locationName: self.currentDraft.locationName, locationAdminArea: self.currentDraft.locationAdminArea, locationLocality: self.currentDraft.locationLocality, locationAOI: self.currentDraft.locationAOI, locationLatitude: self.currentDraft.locationLatitude, locationLongitude: self.currentDraft.locationLongitude, postUUID: self.postDateID, posterID: LoggedInUser.user.userUUID)
+                self.tempFirebasePost = FirebasePostModel(schoolName: self.currentDraft.schoolName, about: self.currentDraft.aboutPost, needs: self.currentDraft.needsPost, access: self.currentDraft.accessPost, address: self.currentDraft.addressPost, notes: self.currentDraft.notesPost, schoolImages: self.tempSchoolPicIds, roadImages: self.tempRoadPicIds, locationName: self.currentDraft.locationName, locationAdminArea: self.currentDraft.locationAdminArea, locationLocality: self.currentDraft.locationLocality, locationAOI: self.currentDraft.locationAOI, locationLatitude: self.currentDraft.locationLatitude, locationLongitude: self.currentDraft.locationLongitude, postUUID: self.postDateID, posterID: LoggedInUser.user.userUUID, timeStamp: self.dateString)
                 
                 FirebaseReferences.databaseRef.child("Posts/\(self.postDateID)").setValue(self.tempFirebasePost.dataModel)
                 
                 self.FirebaseStorageFlag = 0
+                
+                let alert = UIAlertController(title: "Success", message: "Your draft has been submitted!", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
+                    self.navigationController?.popViewController(animated: true)
+                }
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
+                
             }
         }
     }
@@ -323,8 +332,8 @@ class DraftDetailViewController: UIViewController {
         let currDate = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd-HH:mm"
-        let dateString = formatter.string(from: currDate)
-        self.postDateID = "\(dateString)-\(self.currentDraft.postUUID)"
+        self.dateString = formatter.string(from: currDate)
+        self.postDateID = "\(self.dateString)-\(self.currentDraft.postUUID)"
         
         FirebaseReferences.databaseRef.child("Users/\(LoggedInUser.user.userUUID)/posts/\(self.postDateID)").setValue("")
         
@@ -411,8 +420,7 @@ extension DraftDetailViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if (collectionView == self.schoolCollectionView){
             return self.currentDraft.schoolImages.count
-        }
-        else{
+        } else {
             return self.currentDraft.roadImages.count
         }
     }
