@@ -24,7 +24,6 @@ class DraftDetailViewController: UIViewController {
     @IBOutlet weak var myMapView: MKMapView!
     
     
-    
     var isNewDraft: Bool!
     var currentDraft: PostModel!
     var isPickingSchool: Bool = false
@@ -61,6 +60,7 @@ class DraftDetailViewController: UIViewController {
             self.setLocationOnMap(userLocation: tempLoc)
         }
     }
+    
     
     func saveNewDraftToCoreData(){
         let tempPost = DraftEntity(context: LocalServices.context)
@@ -275,7 +275,7 @@ class DraftDetailViewController: UIViewController {
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
         }
-        else if (self.tempLocLongitude == 0 || self.tempLocLatitude == 0 ){
+        else if (self.currentDraft.locationLongitude == 0 || self.currentDraft.locationLatitude == 0 ){
             let alert = UIAlertController(title: "Unable to Submit", message: "Location not set!", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
             }
@@ -301,8 +301,104 @@ class DraftDetailViewController: UIViewController {
         }
     }
     
+    var tempFirebasePost: FirebasePostModel!
+    var tempSchoolPicIds: [String:String] = [:]
+    var tempRoadPicIds: [String:String] = [:]
+    var postDateID: String = ""
+    var FirebaseStorageFlag: Int = 0{
+        didSet{
+            if (self.FirebaseStorageFlag == 2){
+                self.tempFirebasePost = FirebasePostModel(schoolName: self.currentDraft.schoolName, about: self.currentDraft.aboutPost, needs: self.currentDraft.needsPost, access: self.currentDraft.accessPost, address: self.currentDraft.addressPost, notes: self.currentDraft.notesPost, schoolImages: self.tempSchoolPicIds, roadImages: self.tempRoadPicIds, locationName: self.currentDraft.locationName, locationAdminArea: self.currentDraft.locationAdminArea, locationLocality: self.currentDraft.locationLocality, locationAOI: self.currentDraft.locationAOI, locationLatitude: self.currentDraft.locationLatitude, locationLongitude: self.currentDraft.locationLongitude, postUUID: self.postDateID, posterID: LoggedInUser.user.userUUID)
+                
+                FirebaseReferences.databaseRef.child("Posts/\(self.postDateID)").setValue(self.tempFirebasePost.dataModel)
+                
+                self.FirebaseStorageFlag = 0
+            }
+        }
+    }
+    
+    
+    
     func submitToFirebase(){
-//        FirebaseReferences.databaseRef.child("Users/\(LoggedInUser.user.userUUID)/posts/\(self.currentDraft.postUUID)").setValue("")
+        let currDate = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd-HH:mm"
+        let dateString = formatter.string(from: currDate)
+        self.postDateID = "\(dateString)-\(self.currentDraft.postUUID)"
+        
+        FirebaseReferences.databaseRef.child("Users/\(LoggedInUser.user.userUUID)/posts/\(self.postDateID)").setValue("")
+        
+        for picIndex in 0..<self.currentDraft.schoolImages.count{
+            let tempPicId = "pic-\(UUID().uuidString)"
+            
+            let data = UIImageJPEGRepresentation(self.currentDraft.schoolImages[picIndex], 0.1)
+            let tempRef = FirebaseReferences.storageRef.child("Posts/\(self.postDateID)/schoolImages/\(tempPicId).jpeg")
+            
+            let _ = tempRef.putData(data!, metadata: nil) { (metadata, error) in
+                if error != nil{
+                    print("ERROR - \(error?.localizedDescription)")
+                    return
+                }
+                print("success upload to storage")
+                            // You can also access to download URL after upload.
+                tempRef.downloadURL { (url, error) in
+                    guard let downloadURL = url else {
+                        // Uh-oh, an error occurred!
+                        return
+                    }
+                    self.tempSchoolPicIds[tempPicId] = downloadURL.absoluteString
+                    if (picIndex == self.currentDraft.schoolImages.count-1){
+                        self.FirebaseStorageFlag = self.FirebaseStorageFlag + 1
+                    }
+//                    FirebaseReferences.databaseRef.child("Posts/\(self.postDateID)/schoolImages/\(tempPicId)").setValue(downloadURL.absoluteString)
+                }
+            }
+        }
+        for picIndex in 0..<self.currentDraft.roadImages.count{
+            let tempPicId = "pic-\(UUID().uuidString)"
+            
+            let data = UIImageJPEGRepresentation(self.currentDraft.roadImages[picIndex], 0.1)
+            let tempRef = FirebaseReferences.storageRef.child("Posts/\(self.postDateID)/roadImages/\(tempPicId).jpeg")
+            
+            let _ = tempRef.putData(data!, metadata: nil) { (metadata, error) in
+                if error != nil{
+                    print("ERROR - \(error?.localizedDescription)")
+                    return
+                }
+                print("success upload to storage")
+                // You can also access to download URL after upload.
+                tempRef.downloadURL { (url, error) in
+                    guard let downloadURL = url else {
+                        // Uh-oh, an error occurred!
+                        return
+                    }
+                    self.tempRoadPicIds[tempPicId] = downloadURL.absoluteString
+                    if (picIndex == self.currentDraft.roadImages.count-1){
+                        self.FirebaseStorageFlag = self.FirebaseStorageFlag + 1
+                    }
+//                    FirebaseReferences.databaseRef.child("Posts/\(self.postDateID)/roadImages/\(tempPicId)").setValue(downloadURL.absoluteString)
+                }
+            }
+        }
+        
+        
+//        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/schoolName").setValue(self.currentDraft.schoolName)
+//        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/about").setValue(self.currentDraft.aboutPost)
+//        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/needs").setValue(self.currentDraft.needsPost)
+//        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/access").setValue(self.currentDraft.accessPost)
+//        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/address").setValue(self.currentDraft.addressPost)
+//        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/notes").setValue(self.currentDraft.notesPost)
+//        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/locationLongitude").setValue(self.currentDraft.locationLongitude)
+//        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/locationLatitude").setValue(self.currentDraft.locationLatitude)
+//        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/locationAOI").setValue(self.currentDraft.locationAOI)
+//        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/locationAdminArea").setValue(self.currentDraft.locationAdminArea)
+//        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/locationName").setValue(self.currentDraft.locationName)
+//        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/locationLocality").setValue(self.currentDraft.locationLocality)
+//        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/posterID").setValue(LoggedInUser.user.userUUID)
+        
+        
+        
+        print("submitted draft to public")
         
     }
     

@@ -27,6 +27,8 @@ class PostModel {
     var locationLongitude: Double = 0
     var postUUID: String = ""
     
+    var posterID: String = ""
+    
     init(schoolImages: [UIImage], roadImages: [UIImage], schoolName: String, aboutPost: String, needsPost: String, addressPost: String, accessPost: String, notesPost: String, locationName: String, locationAdminArea: String, locationLocality: String, locationAOI: String, locationLatitude: Double, locationLongitude: Double, postUUID: String) {
         
         self.schoolImages = schoolImages
