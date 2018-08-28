@@ -70,12 +70,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSy-hT-zdU">
+                                <rect key="frame" x="117" y="101" width="141" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="New posts available!" backgroundImage="buttonBG">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="newPostButtonClicked:" destination="Ln0-Cx-wq8" eventType="touchUpInside" id="FXm-gL-hH5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ic6-jf-uad"/>
                     </view>
                     <navigationItem key="navigationItem" title="Discover" id="tgt-CR-za1"/>
                     <connections>
+                        <outlet property="newPostButton" destination="hSy-hT-zdU" id="nO1-VN-FoQ"/>
                         <outlet property="postTableView" destination="nY5-Xn-OBb" id="lfd-j0-5kN"/>
                     </connections>
                 </viewController>
@@ -220,6 +232,7 @@
     </scenes>
     <resources>
         <image name="Discover-1" width="25" height="25"/>
+        <image name="buttonBG" width="1" height="1"/>
         <image name="locationIcon" width="244" height="308"/>
     </resources>
 </document>

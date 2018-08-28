@@ -27,6 +27,7 @@ import Firebase
 class DiscoverViewController: UIViewController {
     
     @IBOutlet weak var postTableView: UITableView!
+    @IBOutlet weak var newPostButton: UIButton!
     
     var postArray: [PostModel] = []
 
@@ -37,6 +38,10 @@ class DiscoverViewController: UIViewController {
         self.postTableView.dataSource = self
         
         self.checkIsLoggedIn()
+        self.fetchFromFirebase()
+    }
+    
+    @IBAction func newPostButtonClicked(_ sender: Any) {
         self.fetchFromFirebase()
     }
     
@@ -72,17 +77,24 @@ class DiscoverViewController: UIViewController {
         }
     }
     
+
+    
+    
     func fetchFromFirebase(){
-        FirebaseReferences.databaseRef.child("Posts").observe(.value) { (snap) in
+        
+        FirebaseReferences.databaseRef.child("Posts").queryOrderedByKey().observe(.value) { (snap) in
+            
             self.postArray.removeAll()
             
             if (snap.hasChildren() == false){
                 print("no posts")
                 return
             }
+            
             let tempData = snap.value as! [String:AnyObject]
             
             for (key, _) in tempData{
+                print(key)
                 let singlePost = tempData[key] as! [String:AnyObject]
                 
                 var tempSchoolImages: [UIImage] = []
@@ -129,7 +141,10 @@ class DiscoverViewController: UIViewController {
                 self.postArray[self.postArray.count-1].posterID = posterID
             }
             
+            self.postArray.sort { $0.postUUID > $1.postUUID }
             self.postTableView.reloadData()
+        
+            
         }
     }
     
