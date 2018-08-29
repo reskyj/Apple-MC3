@@ -161,7 +161,7 @@ class DiscoverViewController: UIViewController {
                     
                     LoggedInUser.user = UserModel(email: tempUserEmail, fullName: tempUserFullName, phone: tempUserPhone, userUUID: udUserUUID, posts: tempUserPosts)
                     
-                    print(tempUserPosts)
+//                    print(tempUserPosts)
                     LoggedInUser.isLoggedIn = true
                 }
             }

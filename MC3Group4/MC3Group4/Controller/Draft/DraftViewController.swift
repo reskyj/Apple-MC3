@@ -20,6 +20,8 @@ class DraftViewController: UIViewController {
     var draftArray: [PostModel] = []
     var tempResult: [DraftEntity] = []
     
+    var selectedDraftIndex: Int!
+    
 
     @IBOutlet weak var emptyView: UIView!
     
@@ -51,6 +53,29 @@ class DraftViewController: UIViewController {
                 self.currentDraft = PostModel(schoolImages: [], roadImages: [], schoolName: "", aboutPost: "", needsPost: "", addressPost: "", accessPost: "", notesPost: "", locationName: "", locationAdminArea: "", locationLocality: "", locationAOI: "", locationLatitude: 0, locationLongitude: 0, postUUID: tempUUID)
             }
             destination.currentDraft = self.currentDraft
+        }
+    }
+    
+//    @IBAction func didUnwindFromDraftDetailVC(_ sender: UIStoryboardSegue){
+//        guard let addVC = sender.source as? DraftDetailViewController else {return}
+//
+//        self.deleteFromCoreData(index: self.selectedDraftIndex)
+//
+//    }
+    
+    func deleteFromCoreData(index: Int){
+        self.draftArray.remove(at: index)
+        
+        let managedContext = LocalServices.persistentContainer.viewContext
+        let node = self.tempResult[index]
+        managedContext.delete(node)
+        
+        do {
+            try managedContext.save()
+            
+            self.checkDraftEmpty()
+        } catch let error as NSError {
+            print("Error While Deleting Note: \(error.userInfo)")
         }
     }
     
@@ -149,25 +174,15 @@ extension DraftViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.currentDraft = self.draftArray[indexPath.row]
+        self.selectedDraftIndex = indexPath.row
         performSegue(withIdentifier: "draftToDraftDetail", sender: self)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            self.draftArray.remove(at: indexPath.row)
             
-            let managedContext = LocalServices.persistentContainer.viewContext
-            let node = self.tempResult[indexPath.row]
-            managedContext.delete(node)
-        
-            do {
-                try managedContext.save()
-                
-                self.draftTableView.deleteRows(at: [indexPath], with: .fade)
-                self.checkDraftEmpty()
-            } catch let error as NSError {
-                print("Error While Deleting Note: \(error.userInfo)")
-            }
+            self.deleteFromCoreData(index: indexPath.row)
+            self.draftTableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     

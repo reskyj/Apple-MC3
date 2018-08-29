@@ -40,6 +40,8 @@ class DraftDetailViewController: UIViewController {
     var tempLocLocality: String = ""
     var tempLocName: String = ""
     
+    var hasSubmitted: Bool = false
+    
     
     @IBOutlet weak var openMaps: UIButton!
     @IBOutlet weak var submitToPublic: UIButton!
@@ -62,6 +64,8 @@ class DraftDetailViewController: UIViewController {
         self.accessTextView.text = self.currentDraft.accessPost
         self.addressTextView.text = self.currentDraft.addressPost
         self.notesTextView.text = self.currentDraft.notesPost
+        
+        
         
         if (self.currentDraft.locationLatitude != 0 && self.currentDraft.locationLongitude != 0){
             let tempLoc = CLLocation(latitude: self.currentDraft.locationLatitude, longitude: self.currentDraft.locationLongitude)
@@ -317,7 +321,10 @@ class DraftDetailViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
         else{
-            self.submitToFirebase()
+            if (self.hasSubmitted == false){
+                self.hasSubmitted = true
+                self.submitToFirebase()
+            }
         }
     }
     
@@ -337,6 +344,8 @@ class DraftDetailViewController: UIViewController {
                 
                 let alert = UIAlertController(title: "Success", message: "Your draft has been submitted!", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
+//                    self.performSegue(withIdentifier: "didUnwindFromDraftDetailToDraft", sender: self)
+                    self.deleteFromCoreData()
                     self.navigationController?.popViewController(animated: true)
                 }
                 alert.addAction(okAction)
@@ -344,6 +353,32 @@ class DraftDetailViewController: UIViewController {
                 
             }
         }
+    }
+    
+    func deleteFromCoreData(){
+        
+        let managedContext = LocalServices.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<DraftEntity> = DraftEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "postUUID = %@", "\(self.currentDraft.postUUID)")
+        do
+        {
+            let fetchData = try LocalServices.context.fetch(fetchRequest)
+            
+            let node = fetchData[0]
+            managedContext.delete(node)
+            
+            do {
+                try managedContext.save()
+                
+            } catch let error as NSError {
+                print("Error While Deleting Note: \(error.userInfo)")
+            }
+        }
+        catch _ {
+            print("Could not delete")
+            
+        }
+        
     }
     
     

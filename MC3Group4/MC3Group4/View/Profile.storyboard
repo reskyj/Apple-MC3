@@ -40,6 +40,10 @@
                                     <action selector="signInButtonTapped:" destination="Xpn-ER-ipE" eventType="touchUpInside" id="Fdr-zr-tLd"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="appLogo" translatesAutoresizingMaskIntoConstraints="NO" id="0xk-2a-c98">
+                                <rect key="frame" x="137" y="197" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -62,7 +66,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GaB-Ny-MTO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="983" y="869"/>
+            <point key="canvasLocation" x="981.60000000000002" y="868.9655172413793"/>
         </scene>
         <!--Masuk-->
         <scene sceneID="iZa-d3-i0Y">
@@ -89,7 +93,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="Nama anda" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IR1-tY-7Zw" customClass="DesignTextFieldExtension" customModule="MC3Group4" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IR1-tY-7Zw" customClass="DesignTextFieldExtension" customModule="MC3Group4" customModuleProvider="target">
                                 <rect key="frame" x="16" y="113" width="343" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.1764705882" green="0.47843137250000001" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -100,7 +104,7 @@
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="email"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="Profile-1"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="Email-1"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
@@ -456,7 +460,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64L-FT-6rx">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I love to help people" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64L-FT-6rx">
                                 <rect key="frame" x="16" y="379" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Yy4-Ya-vi9"/>
@@ -552,6 +556,7 @@
         <image name="Phone-1" width="25" height="25"/>
         <image name="Profile-1" width="25" height="25"/>
         <image name="Setting-1" width="25" height="25"/>
+        <image name="appLogo" width="279" height="279"/>
         <image name="user-3" width="512" height="512"/>
     </resources>
 </document>

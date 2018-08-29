@@ -52,6 +52,7 @@ class DiscoverDetailViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var myMapView: MKMapView!
     
+    @IBOutlet weak var openMapsButton: UIButton!
     
     var currentPost: PostModel!
     var slideShowImages: [ImageSource] = []
@@ -59,6 +60,7 @@ class DiscoverDetailViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.openMapsButton.buttonDesignTwo()
         self.fillDetails()
     }
     
@@ -101,6 +103,19 @@ class DiscoverDetailViewController: UIViewController, UIScrollViewDelegate {
         self.myMapView.showsUserLocation = true
     }
     
+    @IBAction func openMapsButtonClicked(_ sender: Any) {
+        let url = "http://maps.apple.com/maps?saddr=&daddr=\(self.currentPost.locationLatitude),\(self.currentPost.locationLongitude)"
+        if UIApplication.shared.canOpenURL(NSURL(string: url)! as URL) {
+            UIApplication.shared.openURL(URL(string:url)!)
+        }
+        else {
+            let alert = UIAlertController(title: "Error", message: "Please Install Apple Maps", preferredStyle: UIAlertControllerStyle.alert)
+            let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+            alert.addAction(okButton)
+            self.present(alert, animated: true, completion: nil)
+        }
+    
+    }
     
 }
 

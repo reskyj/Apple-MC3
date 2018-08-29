@@ -15,8 +15,15 @@ class OnBoardViewController: UIViewController, PaperOnboardingDelegate, PaperOnb
     @IBOutlet weak var continueButton: UIButton!
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (self.ifOnboardingDone() == true){
+            performSegue(withIdentifier: "onBoardingToDiscover", sender: self)
+        }
+        
         continueButton.buttonDesignOne()
         continueButton.layer.shadowColor = UIColor.black.cgColor
         continueButton.layer.shadowOpacity = 0.3
@@ -33,7 +40,16 @@ class OnBoardViewController: UIViewController, PaperOnboardingDelegate, PaperOnb
                                                 constant: 0)
             view.addConstraint(constraint)
         }
-
+    }
+    
+    func ifOnboardingDone() -> Bool{
+        let onboardDone: Bool = UserDefaultReference.udRef.bool(forKey: "onboardDone")
+        print("onboardDone: \(onboardDone)")
+        
+        //        if (onboardDone == true){
+        //            print("skip onboard")
+        //        }
+        return onboardDone
     }
 
     func onboardingItemsCount() -> Int {
@@ -75,6 +91,7 @@ class OnBoardViewController: UIViewController, PaperOnboardingDelegate, PaperOnb
     }
     
     @IBAction func continuePressed(_ sender: UIButton) {
+        UserDefaultReference.udRef.set(true, forKey: "onboardDone")
         performSegue(withIdentifier: "onBoardingToDiscover", sender: self)
     }
     func onboardingItem(at index: Int) -> OnboardingItemInfo {

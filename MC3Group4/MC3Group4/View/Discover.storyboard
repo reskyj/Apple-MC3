@@ -130,12 +130,10 @@
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X1i-5C-aM5" customClass="ImageSlideshow" customModule="ImageSlideshow">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="223"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="1" green="0.96236722770000005" blue="0.2446956488" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DjN-tD-9kl">
-                                                <rect key="frame" x="16" y="260" width="343" height="70"/>
+                                                <rect key="frame" x="16" y="260" width="343" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="1" green="0.96236722770000005" blue="0.2446956488" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -148,33 +146,29 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bI0-wd-izc">
-                                                <rect key="frame" x="16" y="368" width="343" height="70"/>
+                                                <rect key="frame" x="16" y="368" width="343" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="1" green="0.96236722770000005" blue="0.2446956488" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hw4-Us-6dE">
-                                                <rect key="frame" x="16" y="476" width="343" height="70"/>
+                                                <rect key="frame" x="16" y="476" width="343" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="1" green="0.96236722770000005" blue="0.2446956488" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAt-Iv-ktV">
-                                                <rect key="frame" x="16" y="716" width="343" height="70"/>
+                                                <rect key="frame" x="16" y="716" width="343" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="1" green="0.96236722770000005" blue="0.2446956488" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uih-Bn-2a6">
-                                                <rect key="frame" x="16" y="593" width="343" height="70"/>
+                                                <rect key="frame" x="16" y="593" width="343" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="1" green="0.96236722770000005" blue="0.2446956488" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -207,6 +201,15 @@
                                                     <outlet property="delegate" destination="H8Y-Jq-YkH" id="ORF-gg-ndO"/>
                                                 </connections>
                                             </mapView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsL-3j-QTi">
+                                                <rect key="frame" x="17" y="1008" width="342" height="45"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="12"/>
+                                                <state key="normal" title="BUKA MAPS"/>
+                                                <connections>
+                                                    <action selector="openMapsButtonClicked:" destination="H8Y-Jq-YkH" eventType="touchUpInside" id="wqn-UI-SV4"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -241,6 +244,7 @@
                         <outlet property="myMapView" destination="ZaZ-td-nZh" id="pnh-hr-Ewv"/>
                         <outlet property="needsLabel" destination="bI0-wd-izc" id="vsL-r8-0ap"/>
                         <outlet property="notesLabel" destination="CAt-Iv-ktV" id="sao-P9-qzv"/>
+                        <outlet property="openMapsButton" destination="lsL-3j-QTi" id="NNj-TA-lSv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XKc-8a-BaU" userLabel="First Responder" sceneMemberID="firstResponder"/>
