@@ -52,6 +52,7 @@ class DiscoverViewController: UIViewController {
         
         self.checkIsLoggedIn()
         self.getInitialChildrenNo()
+        
     }
     
     func getSeenPostFromCoreData(){
