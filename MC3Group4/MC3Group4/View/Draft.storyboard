@@ -74,7 +74,7 @@
                                 <rect key="frame" x="45" y="263" width="284" height="286"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Blank" translatesAutoresizingMaskIntoConstraints="NO" id="qt1-9e-zpS">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Notes-1" translatesAutoresizingMaskIntoConstraints="NO" id="qt1-9e-zpS">
                                         <rect key="frame" x="45" y="30" width="194" height="135"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -432,8 +432,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Blank" width="512" height="512"/>
         <image name="In Progress-1" width="25" height="25"/>
+        <image name="Notes-1" width="512" height="512"/>
         <image name="locationIcon" width="244" height="308"/>
         <image name="plusButton" width="25" height="25"/>
     </resources>

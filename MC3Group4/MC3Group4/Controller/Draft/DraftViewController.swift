@@ -68,6 +68,10 @@ class DraftViewController: UIViewController {
         
         self.fetchFromCoreData()
         
+        self.checkDraftEmpty()
+    }
+    
+    func checkDraftEmpty(){
         if (self.draftArray.count == 0){
             self.draftTableView.isHidden = true
             self.emptyView.isHidden = false
@@ -155,11 +159,12 @@ extension DraftViewController: UITableViewDelegate, UITableViewDataSource{
             let managedContext = LocalServices.persistentContainer.viewContext
             let node = self.tempResult[indexPath.row]
             managedContext.delete(node)
-            
+        
             do {
                 try managedContext.save()
                 
                 self.draftTableView.deleteRows(at: [indexPath], with: .fade)
+                self.checkDraftEmpty()
             } catch let error as NSError {
                 print("Error While Deleting Note: \(error.userInfo)")
             }
