@@ -46,9 +46,11 @@
                                     <outlet property="delegate" destination="7Aw-sP-dFe" id="pcZ-ct-Db7"/>
                                 </connections>
                             </view>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2YD-hE-vvu">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2YD-hE-vvu">
                                 <rect key="frame" x="33" y="645" width="308" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="PT0-VM-hUu"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="12"/>
                                 <state key="normal" title="LANJUTKAN"/>
                                 <connections>
@@ -57,6 +59,11 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2YD-hE-vvu" firstAttribute="leading" secondItem="p9b-oO-WYB" secondAttribute="leading" constant="33" id="BNq-Sb-OeL"/>
+                            <constraint firstItem="p9b-oO-WYB" firstAttribute="bottom" secondItem="2YD-hE-vvu" secondAttribute="bottom" constant="88" id="IAn-s4-r8S"/>
+                            <constraint firstItem="p9b-oO-WYB" firstAttribute="trailing" secondItem="2YD-hE-vvu" secondAttribute="trailing" constant="34" id="RD9-7n-onx"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="p9b-oO-WYB"/>
                     </view>
                     <connections>
