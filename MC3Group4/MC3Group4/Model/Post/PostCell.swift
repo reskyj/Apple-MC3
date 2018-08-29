@@ -16,7 +16,8 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var aboutLabel: UILabel!
     
-
+    @IBOutlet weak var unseenIndicatorImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -32,6 +33,10 @@ class PostCell: UITableViewCell {
     
     func fillLocation(desc: String){
         self.locationLabel.text = desc
+    }
+    
+    func setUnseenIcon(isSeen: Bool){
+        self.unseenIndicatorImage.isHidden = isSeen
     }
 
 }
