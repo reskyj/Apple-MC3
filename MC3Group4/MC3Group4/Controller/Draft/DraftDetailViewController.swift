@@ -41,10 +41,15 @@ class DraftDetailViewController: UIViewController {
     var tempLocName: String = ""
     
     
-    
+    @IBOutlet weak var openMaps: UIButton!
+    @IBOutlet weak var submitToPublic: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tapToShareButton.buttonDesignOne()
+        self.openMaps.buttonDesignOne()
+        self.submitToPublic.buttonDesignOne()
+        
         
         self.setInitialLoad()
         
