@@ -329,7 +329,7 @@
                                                 <rect key="frame" x="19" y="949" width="336" height="204"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </mapView>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9pb-by-e5v">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9pb-by-e5v">
                                                 <rect key="frame" x="210" y="1174" width="145" height="45"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="12"/>
@@ -340,15 +340,6 @@
                                                     <action selector="tapToShareButtonClicked:" destination="2yX-wl-Ifb" eventType="touchUpInside" id="R7R-zw-dbw"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0W-aA-rPN">
-                                                <rect key="frame" x="19" y="1227" width="336" height="45"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="12"/>
-                                                <state key="normal" title="BAGIKAN"/>
-                                                <connections>
-                                                    <action selector="submitButtonClicked:" destination="2yX-wl-Ifb" eventType="touchUpInside" id="Rz1-r9-Paa"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejF-Ug-nv8">
                                                 <rect key="frame" x="19" y="1174" width="145" height="45"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -356,6 +347,15 @@
                                                 <state key="normal" title="BUKA MAPS"/>
                                                 <connections>
                                                     <action selector="openMapsButtonClicked:" destination="2yX-wl-Ifb" eventType="touchUpInside" id="BlE-ap-zcw"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0W-aA-rPN">
+                                                <rect key="frame" x="19" y="1266" width="336" height="45"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="12"/>
+                                                <state key="normal" title="POST"/>
+                                                <connections>
+                                                    <action selector="submitButtonClicked:" destination="2yX-wl-Ifb" eventType="touchUpInside" id="Rz1-r9-Paa"/>
                                                 </connections>
                                             </button>
                                         </subviews>
