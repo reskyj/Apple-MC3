@@ -23,6 +23,7 @@ struct UserDefaultReference {
 
 import UIKit
 import Firebase
+import CoreData
 
 class DiscoverViewController: UIViewController {
     
@@ -47,10 +48,24 @@ class DiscoverViewController: UIViewController {
         self.postTableView.delegate = self
         self.postTableView.dataSource = self
         
-        print(self.seenPostDict["2"])
+        self.getSeenPostFromCoreData()
         
         self.checkIsLoggedIn()
         self.getInitialChildrenNo()
+    }
+    
+    func getSeenPostFromCoreData(){
+        let fetchRequest: NSFetchRequest<SeenPost> = SeenPost.fetchRequest()
+        do{
+            let fetchData = try LocalServices.context.fetch(fetchRequest)
+            let tempResult = fetchData
+            
+            // x as each row in entity
+            for x in tempResult{
+                self.seenPostDict[x.postUUID!] = true
+            }
+            print("fetch successful")
+        } catch {}
     }
     
     @IBAction func newPostButtonClicked(_ sender: Any) {
