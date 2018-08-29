@@ -58,7 +58,7 @@ class DraftViewController: UIViewController {
     
 //    @IBAction func didUnwindFromDraftDetailVC(_ sender: UIStoryboardSegue){
 //        guard let addVC = sender.source as? DraftDetailViewController else {return}
-//
+////
 //        self.deleteFromCoreData(index: self.selectedDraftIndex)
 //
 //    }

@@ -62,6 +62,13 @@ class DiscoverDetailViewController: UIViewController, UIScrollViewDelegate {
         
         self.openMapsButton.buttonDesignTwo()
         self.fillDetails()
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.didTap))
+        self.imageSlider.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    @objc func didTap() {
+        self.imageSlider.presentFullScreenController(from: self)
     }
     
     func fillDetails(){
@@ -94,6 +101,7 @@ class DiscoverDetailViewController: UIViewController, UIScrollViewDelegate {
         let tempLoc = CLLocation(latitude: self.currentPost.locationLatitude, longitude: self.currentPost.locationLongitude)
         self.setLocationOnMap(userLocation: tempLoc)
     }
+    
     
     func setLocationOnMap(userLocation: CLLocation){
         let span: MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)

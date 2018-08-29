@@ -505,6 +505,7 @@
                         <outlet property="addressTextView" destination="bfo-Tx-jWW" id="pq8-ia-w7L"/>
                         <outlet property="detailDraftNavBar" destination="m9V-HC-iWn" id="vtI-iy-6B0"/>
                         <outlet property="myMapView" destination="96i-Ny-1Kg" id="bAL-Dm-zX9"/>
+                        <outlet property="myScrollView" destination="07B-tH-j4c" id="xBf-MT-4m4"/>
                         <outlet property="needsTextView" destination="MD4-AR-g8S" id="RsO-Ec-jWV"/>
                         <outlet property="notesTextView" destination="9f3-Vb-EO4" id="Pt4-Uc-r6x"/>
                         <outlet property="openMaps" destination="ejF-Ug-nv8" id="LT2-kI-YhJ"/>

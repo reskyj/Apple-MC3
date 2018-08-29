@@ -32,6 +32,14 @@ class RegisterViewController: UIViewController {
         
     }
     
+    override var canBecomeFirstResponder: Bool{
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.becomeFirstResponder()
+    }
+    
     
     @IBAction func registerButtonClicked() {
         self.email = self.emailTextField.text!

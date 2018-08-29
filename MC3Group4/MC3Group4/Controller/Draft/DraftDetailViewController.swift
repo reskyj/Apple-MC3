@@ -8,6 +8,7 @@ class DraftDetailViewController: UIViewController {
     
     @IBOutlet weak var detailDraftNavBar: UINavigationItem!
     
+    @IBOutlet weak var myScrollView: UIScrollView!
     
     @IBOutlet weak var schoolCollectionView: UICollectionView!
     @IBOutlet weak var roadCollectionView: UICollectionView!
@@ -53,8 +54,18 @@ class DraftDetailViewController: UIViewController {
         self.openMaps.buttonDesignTwo()
         self.submitToPublic.buttonDesignOne()
         
-        
         self.setInitialLoad()
+    }
+    
+
+    
+    override var canBecomeFirstResponder: Bool{
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("clicked anywhere")
+        self.becomeFirstResponder()
     }
     
     func setInitialLoad(){
@@ -328,6 +339,7 @@ class DraftDetailViewController: UIViewController {
         }
     }
     
+    var submitAlert: UIAlertController!
     var tempFirebasePost: FirebasePostModel!
     var tempSchoolPicIds: [String:String] = [:]
     var tempRoadPicIds: [String:String] = [:]
@@ -336,6 +348,11 @@ class DraftDetailViewController: UIViewController {
     var FirebaseStorageFlag: Int = 0{
         didSet{
             if (self.FirebaseStorageFlag == 2){
+                print("school")
+                print(self.tempSchoolPicIds)
+                print("road")
+                print(self.tempRoadPicIds)
+                
                 self.tempFirebasePost = FirebasePostModel(schoolName: self.currentDraft.schoolName, about: self.currentDraft.aboutPost, needs: self.currentDraft.needsPost, access: self.currentDraft.accessPost, address: self.currentDraft.addressPost, notes: self.currentDraft.notesPost, schoolImages: self.tempSchoolPicIds, roadImages: self.tempRoadPicIds, locationName: self.currentDraft.locationName, locationAdminArea: self.currentDraft.locationAdminArea, locationLocality: self.currentDraft.locationLocality, locationAOI: self.currentDraft.locationAOI, locationLatitude: self.currentDraft.locationLatitude, locationLongitude: self.currentDraft.locationLongitude, postUUID: self.postDateID, posterID: LoggedInUser.user.userUUID, timeStamp: self.dateString)
                 
                 FirebaseReferences.databaseRef.child("Posts/\(self.postDateID)").setValue(self.tempFirebasePost.dataModel)

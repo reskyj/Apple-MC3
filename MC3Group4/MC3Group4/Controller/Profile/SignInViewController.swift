@@ -26,6 +26,14 @@ class SignInViewController: UIViewController {
         
     }
     
+    override var canBecomeFirstResponder: Bool{
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.becomeFirstResponder()
+    }
+    
     @IBAction func signInButtonClicked() {
         self.email = self.emailTextField.text!
         self.password = self.passwordTextField.text!
