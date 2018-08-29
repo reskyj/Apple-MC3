@@ -46,14 +46,14 @@ class DraftDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tapToShareButton.buttonDesignOne()
-        self.openMaps.buttonDesignOne()
+        self.tapToShareButton.buttonDesignTwo()
+        self.tapToShareButton.buttonDesignDisabled()
+        self.openMaps.buttonDesignTwo()
         self.submitToPublic.buttonDesignOne()
+        self.submitToPublic.buttonDesignDisabled()
         
         
         self.setInitialLoad()
-        
-        
     }
     
     func setInitialLoad(){
@@ -192,14 +192,22 @@ class DraftDetailViewController: UIViewController {
         if (self.isCurrentlyEditing == false){
             textViewBG = UIColor(cgColor: #colorLiteral(red: 0.9537883997, green: 0.9537883997, blue: 0.9537883997, alpha: 1))
             self.isCurrentlyEditing = true
-            self.tapToShareButton.isHidden = false
             self.detailDraftNavBar.rightBarButtonItem?.title = "Save"
+            
+            self.tapToShareButton.isEnabled = true
+            self.tapToShareButton.buttonDesignTwo()
+            
+            self.submitToPublic.buttonDesignDisabled()
+            self.submitToPublic.isEnabled = false
         }
         else{
             textViewBG = UIColor.white
             self.isCurrentlyEditing = false
-            self.tapToShareButton.isHidden = true
+            self.tapToShareButton.isEnabled = false
+            self.tapToShareButton.buttonDesignDisabled()
             self.detailDraftNavBar.rightBarButtonItem?.title = "Edit"
+            self.submitToPublic.buttonDesignOne()
+            self.submitToPublic.isEnabled = true
             
             self.currentDraft.schoolName = self.schoolNameTextView.text
             self.currentDraft.aboutPost = self.aboutTextView.text
