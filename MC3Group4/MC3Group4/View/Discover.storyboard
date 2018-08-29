@@ -59,6 +59,10 @@
                                                     <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="unseenIndicator" translatesAutoresizingMaskIntoConstraints="NO" id="W99-bD-mka">
+                                                    <rect key="frame" x="348" y="15" width="12" height="12"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -66,6 +70,7 @@
                                             <outlet property="locationLabel" destination="nve-Iv-loQ" id="YZa-pc-jjX"/>
                                             <outlet property="schoolNameLabel" destination="jUv-9v-Ut2" id="HMo-SI-v4e"/>
                                             <outlet property="thumbnailImage" destination="iJB-gT-KuI" id="YdW-GS-3Uu"/>
+                                            <outlet property="unseenIndicatorImage" destination="W99-bD-mka" id="CN7-ev-plx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -252,5 +257,6 @@
     <resources>
         <image name="Discover-1" width="25" height="25"/>
         <image name="locationIcon" width="244" height="308"/>
+        <image name="unseenIndicator" width="682" height="682"/>
     </resources>
 </document>

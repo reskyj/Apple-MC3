@@ -272,6 +272,12 @@ class DiscoverViewController: UIViewController {
         }
     }
     
+    func saveSeenPostToCoreData(){
+        let tempSeenPost = SeenPost(context: LocalServices.context)
+        tempSeenPost.postUUID = self.postArray[self.selectedPostIndex].postUUID
+        LocalServices.saveContext()
+    }
+    
 }
 
 
@@ -293,6 +299,7 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedPostIndex = indexPath.row
+        self.saveSeenPostToCoreData()
         performSegue(withIdentifier: "discoverToDiscoverDetail", sender: self)
     }
     
