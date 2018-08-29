@@ -41,10 +41,14 @@ class DraftDetailViewController: UIViewController {
     var tempLocName: String = ""
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setInitialLoad()
+        
+        
     }
     
     func setInitialLoad(){
@@ -58,6 +62,10 @@ class DraftDetailViewController: UIViewController {
         if (self.currentDraft.locationLatitude != 0 && self.currentDraft.locationLongitude != 0){
             let tempLoc = CLLocation(latitude: self.currentDraft.locationLatitude, longitude: self.currentDraft.locationLongitude)
             self.setLocationOnMap(userLocation: tempLoc)
+        }
+        
+        if (self.isNewDraft == true){
+            self.changeEditState()
         }
     }
     
@@ -331,7 +339,7 @@ class DraftDetailViewController: UIViewController {
     func submitToFirebase(){
         let currDate = Date()
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd-HH:mm"
+        formatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
         self.dateString = formatter.string(from: currDate)
         self.postDateID = "\(self.dateString)-\(self.currentDraft.postUUID)"
         
@@ -359,7 +367,7 @@ class DraftDetailViewController: UIViewController {
                     if (picIndex == self.currentDraft.schoolImages.count-1){
                         self.FirebaseStorageFlag = self.FirebaseStorageFlag + 1
                     }
-//                    FirebaseReferences.databaseRef.child("Posts/\(self.postDateID)/schoolImages/\(tempPicId)").setValue(downloadURL.absoluteString)
+
                 }
             }
         }
@@ -385,31 +393,28 @@ class DraftDetailViewController: UIViewController {
                     if (picIndex == self.currentDraft.roadImages.count-1){
                         self.FirebaseStorageFlag = self.FirebaseStorageFlag + 1
                     }
-//                    FirebaseReferences.databaseRef.child("Posts/\(self.postDateID)/roadImages/\(tempPicId)").setValue(downloadURL.absoluteString)
+
                 }
             }
         }
-        
-        
-//        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/schoolName").setValue(self.currentDraft.schoolName)
-//        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/about").setValue(self.currentDraft.aboutPost)
-//        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/needs").setValue(self.currentDraft.needsPost)
-//        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/access").setValue(self.currentDraft.accessPost)
-//        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/address").setValue(self.currentDraft.addressPost)
-//        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/notes").setValue(self.currentDraft.notesPost)
-//        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/locationLongitude").setValue(self.currentDraft.locationLongitude)
-//        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/locationLatitude").setValue(self.currentDraft.locationLatitude)
-//        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/locationAOI").setValue(self.currentDraft.locationAOI)
-//        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/locationAdminArea").setValue(self.currentDraft.locationAdminArea)
-//        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/locationName").setValue(self.currentDraft.locationName)
-//        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/locationLocality").setValue(self.currentDraft.locationLocality)
-//        FirebaseReferences.databaseRef.child("Posts/\(postDateID)/posterID").setValue(LoggedInUser.user.userUUID)
-        
-        
-        
         print("submitted draft to public")
-        
     }
+    
+    
+    @IBAction func openMapsButtonClicked(_ sender: Any) {
+        // Open in Apple Maps
+        let url = "http://maps.apple.com/maps?saddr=&daddr=\(self.currentDraft.locationLatitude),\(self.currentDraft.locationLongitude)"
+        if UIApplication.shared.canOpenURL(NSURL(string: url)! as URL) {
+            UIApplication.shared.openURL(URL(string:url)!)
+        }
+        else {
+            let alert = UIAlertController(title: "Error", message: "Please Install Apple Maps", preferredStyle: UIAlertControllerStyle.alert)
+            let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+            alert.addAction(okButton)
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     
 }
 
