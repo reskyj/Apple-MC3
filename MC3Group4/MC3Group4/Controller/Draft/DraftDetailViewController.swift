@@ -50,7 +50,6 @@ class DraftDetailViewController: UIViewController {
         self.tapToShareButton.buttonDesignDisabled()
         self.openMaps.buttonDesignTwo()
         self.submitToPublic.buttonDesignOne()
-        self.submitToPublic.buttonDesignDisabled()
         
         
         self.setInitialLoad()
