@@ -195,7 +195,7 @@ class DraftDetailViewController: UIViewController {
         if (self.isCurrentlyEditing == false){
             textViewBG = UIColor(cgColor: #colorLiteral(red: 0.9537883997, green: 0.9537883997, blue: 0.9537883997, alpha: 1))
             self.isCurrentlyEditing = true
-            self.detailDraftNavBar.rightBarButtonItem?.title = "Save"
+            self.detailDraftNavBar.rightBarButtonItem?.title = "Simpan"
             
             self.tapToShareButton.isEnabled = true
             self.tapToShareButton.buttonDesignTwo()
@@ -208,7 +208,7 @@ class DraftDetailViewController: UIViewController {
             self.isCurrentlyEditing = false
             self.tapToShareButton.isEnabled = false
             self.tapToShareButton.buttonDesignDisabled()
-            self.detailDraftNavBar.rightBarButtonItem?.title = "Edit"
+            self.detailDraftNavBar.rightBarButtonItem?.title = "Ubah"
             self.submitToPublic.buttonDesignOne()
             self.submitToPublic.isEnabled = true
             

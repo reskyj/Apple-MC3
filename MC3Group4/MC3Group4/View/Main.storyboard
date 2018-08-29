@@ -69,7 +69,7 @@
                     <connections>
                         <outlet property="continueButton" destination="2YD-hE-vvu" id="4rj-wV-KiX"/>
                         <outlet property="myOnBoardView" destination="qB4-DO-b8q" id="bkb-sJ-kJL"/>
-                        <segue destination="aRk-ZL-dpd" kind="show" identifier="onBoardingToDiscover" id="KIA-Cz-H91"/>
+                        <segue destination="aRk-ZL-dpd" kind="show" identifier="onBoardingToDiscover" animates="NO" id="KIA-Cz-H91"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jHI-3l-EnM" userLabel="First Responder" sceneMemberID="firstResponder"/>

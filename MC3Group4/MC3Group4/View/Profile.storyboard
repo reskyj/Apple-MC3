@@ -40,8 +40,15 @@
                                     <action selector="signInButtonTapped:" destination="Xpn-ER-ipE" eventType="touchUpInside" id="Fdr-zr-tLd"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Mari saling peduli dan membantu sesama. Gabung sekarang untuk mulai membantu!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Tk5-xk-92N">
+                                <rect key="frame" x="52" y="361" width="271" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="appLogo" translatesAutoresizingMaskIntoConstraints="NO" id="0xk-2a-c98">
-                                <rect key="frame" x="137" y="197" width="100" height="100"/>
+                                <rect key="frame" x="159" y="148" width="57" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -322,7 +329,9 @@
                                     <constraint firstAttribute="width" constant="60" id="blq-yV-SrA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
-                                <state key="normal" title="Ubah Profil"/>
+                                <state key="normal" title="Ubah Profil">
+                                    <color key="titleColor" red="0.1764705882" green="0.47843137250000001" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMV-M3-JpC">
                                 <rect key="frame" x="16" y="162" width="35" height="20"/>
@@ -331,7 +340,9 @@
                                     <constraint firstAttribute="height" constant="20" id="qS4-y4-9ms"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
-                                <state key="normal" title="Keluar"/>
+                                <state key="normal" title="Keluar">
+                                    <color key="titleColor" red="0.1764705882" green="0.47843137250000001" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                                 <connections>
                                     <action selector="signOutButtonClicked" destination="hZY-dY-z35" eventType="touchUpInside" id="VG3-Pm-ScD"/>
                                 </connections>
@@ -373,11 +384,11 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nama Lengkap" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pph-js-lEN">
-                                <rect key="frame" x="44" y="257.66666666666669" width="287" height="16.333333333333314"/>
+                                <rect key="frame" x="44" y="257.66666666666669" width="287" height="18.666666666666686"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="287" id="XLR-tN-KFe"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>

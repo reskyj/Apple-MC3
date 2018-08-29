@@ -110,7 +110,7 @@ class RegisterViewController: UIViewController {
         UserDefaultReference.udRef.set(hashedPassword, forKey: "udHashedPassword")
         UserDefaultReference.udRef.set(uuid, forKey: "udUserUUID")
         
-        let alert = UIAlertController(title: "Success", message: "You have successfully registered to _____!", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Success", message: "You have successfully registered to Bantu!", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
             self.navigationController?.popViewController(animated: false)
         }

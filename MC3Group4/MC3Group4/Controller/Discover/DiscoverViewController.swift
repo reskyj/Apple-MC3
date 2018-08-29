@@ -24,6 +24,7 @@ struct UserDefaultReference {
 import UIKit
 import Firebase
 import CoreData
+import UserNotifications
 
 class DiscoverViewController: UIViewController {
     
@@ -39,6 +40,43 @@ class DiscoverViewController: UIViewController {
     var initialChildrenCount: Int = 0
     
     var seenPostDict: [String:Bool] = [:]
+    var unseenPostNo: Int = 0{
+        didSet{
+            if (self.unseenPostNo != 0){
+                if let tabItems = self.tabBarController?.tabBar.items as NSArray!
+                {
+                    // In this case we want to modify the badge number of the third tab:
+                    let tabItem = tabItems[0] as! UITabBarItem
+                    tabItem.badgeValue = "\(self.unseenPostNo)"
+                }
+                let application = UIApplication.shared
+                let center = UNUserNotificationCenter.current()
+                center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
+                    // Enable or disable features based on authorization.
+                }
+                application.registerForRemoteNotifications()
+                application.applicationIconBadgeNumber = self.unseenPostNo
+            }
+            else{
+                if let tabItems = self.tabBarController?.tabBar.items as NSArray!
+                {
+                    // In this case we want to modify the badge number of the third tab:
+                    let tabItem = tabItems[0] as! UITabBarItem
+                    tabItem.badgeValue = nil
+                    
+                }
+                let application = UIApplication.shared
+                let center = UNUserNotificationCenter.current()
+                center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
+                    // Enable or disable features based on authorization.
+                }
+                application.registerForRemoteNotifications()
+                application.applicationIconBadgeNumber = 0
+            }
+            
+            
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +91,11 @@ class DiscoverViewController: UIViewController {
         self.checkIsLoggedIn()
         self.getInitialChildrenNo()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.unseenPostNo = 0
+        self.postTableView.reloadData()
     }
     
     func getSeenPostFromCoreData(){
@@ -128,6 +171,7 @@ class DiscoverViewController: UIViewController {
                     self.postArray[0].posterID = posterID
                     self.postArray[0].timeStamp = timeStamp
                     
+                    self.unseenPostNo = 0
                     self.postTableView.reloadData()
                     self.totalLoadedData = self.totalLoadedData + 1
                 }
@@ -190,6 +234,13 @@ class DiscoverViewController: UIViewController {
             if (snap.key != self.lastKey){
                 self.newPostButton.isHidden = false
                 print("masuk new post")
+                if let tabItems = self.tabBarController?.tabBar.items as NSArray!
+                {
+                    // In this case we want to modify the badge number of the third tab:
+                    let tabItem = tabItems[0] as! UITabBarItem
+                    tabItem.badgeValue = "baru"
+                    
+                }
             }
         }
     }
@@ -295,12 +346,28 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
         cell.fillThumbnail(thumbnail: self.postArray[indexPath.row].schoolImages[0])
         cell.selectionStyle = .none
         
+        if (self.seenPostDict[self.postArray[indexPath.row].postUUID] == nil){
+            cell.setUnseenIcon(isSeen: false)
+            self.unseenPostNo = self.unseenPostNo + 1
+            print("unseen: \(self.postArray[indexPath.row].schoolName) \(self.postArray[indexPath.row].needsPost)")
+        }
+        else{
+            cell.setUnseenIcon(isSeen: true)
+        }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedPostIndex = indexPath.row
         self.saveSeenPostToCoreData()
+        
+        if (self.seenPostDict[self.postArray[indexPath.row].postUUID] == nil){
+            self.unseenPostNo = self.unseenPostNo - 1
+            print("clicked on unseen post")
+            self.seenPostDict[self.postArray[indexPath.row].postUUID] = true
+        }
+        
         performSegue(withIdentifier: "discoverToDiscoverDetail", sender: self)
     }
     
