@@ -84,7 +84,6 @@
                     <connections>
                         <outlet property="draftTableView" destination="dlj-9l-5CN" id="vpJ-Wa-RQH"/>
                         <segue destination="2yX-wl-Ifb" kind="show" identifier="draftToDraftDetail" id="Qwq-vU-eYe"/>
-                        <segue destination="2BP-2C-dT8" kind="show" identifier="draftToEditDraft" id="HXS-JM-vbL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2un-pf-GTH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -326,6 +325,14 @@
                                                     <action selector="submitButtonClicked:" destination="2yX-wl-Ifb" eventType="touchUpInside" id="Rz1-r9-Paa"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejF-Ug-nv8">
+                                                <rect key="frame" x="80" y="1089" width="76" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="open maps"/>
+                                                <connections>
+                                                    <action selector="openMapsButtonClicked:" destination="2yX-wl-Ifb" eventType="touchUpInside" id="BlE-ap-zcw"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -371,132 +378,11 @@
                         <outlet property="schoolCollectionView" destination="8Vk-oe-at2" id="1C1-cm-iRk"/>
                         <outlet property="schoolNameTextView" destination="p9T-Rh-TVA" id="TGt-KK-dM2"/>
                         <outlet property="tapToShareButton" destination="9pb-by-e5v" id="FtY-w7-eSK"/>
-                        <segue destination="2BP-2C-dT8" kind="show" identifier="DraftDetailToEditDraft" id="S7b-Dw-a3a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbH-HT-94q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2326" y="-232"/>
-        </scene>
-        <!--Title-->
-        <scene sceneID="hEt-as-O9X">
-            <objects>
-                <viewController id="2BP-2C-dT8" customClass="EditDraftViewController" customModule="MC3Group4" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="mbz-fb-SLM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XrK-M2-Px0">
-                                <rect key="frame" x="0.0" y="88" width="375" height="829"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UwS-Cg-Kbg">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NEEDS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3u-Op-0DJ">
-                                                <rect key="frame" x="13" y="213" width="42" height="14"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
-                                                <color key="textColor" red="0.1764705882" green="0.47843137250000001" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="JWa-vz-3eM">
-                                                <rect key="frame" x="13" y="125" width="349" height="76"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="1l4-o3-Tks">
-                                                <rect key="frame" x="13" y="235" width="349" height="76"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ACCESS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXQ-UN-cXX">
-                                                <rect key="frame" x="13" y="319" width="48" height="15"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <color key="textColor" red="0.1764705882" green="0.47843137250000001" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ADDRESS NOTES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VaG-8X-Kag">
-                                                <rect key="frame" x="13" y="426" width="103" height="14"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
-                                                <color key="textColor" red="0.1764705882" green="0.47843137250000001" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSd-Mw-Lm4">
-                                                <rect key="frame" x="13" y="532" width="61" height="14"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
-                                                <color key="textColor" red="0.1764705882" green="0.47843137250000001" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="iSw-T5-1eT">
-                                                <rect key="frame" x="13" y="342" width="349" height="76"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="qmY-WI-V00">
-                                                <rect key="frame" x="13" y="448" width="349" height="76"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="School Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4B0-dH-Hqc">
-                                                <rect key="frame" x="16" y="17" width="343" height="55"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="25"/>
-                                                <color key="textColor" red="0.1764705882" green="0.47843137250000001" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ABOUT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxh-F8-ZXY">
-                                                <rect key="frame" x="13" y="103" width="42" height="14"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
-                                                <color key="textColor" red="0.1764705882" green="0.47843137250000001" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1000" id="rXq-Bm-Uek"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="UwS-Cg-Kbg" firstAttribute="leading" secondItem="XrK-M2-Px0" secondAttribute="leading" id="1xh-BV-Jeb"/>
-                                    <constraint firstAttribute="bottom" secondItem="UwS-Cg-Kbg" secondAttribute="bottom" id="F5A-DE-1Hf"/>
-                                    <constraint firstAttribute="trailing" secondItem="UwS-Cg-Kbg" secondAttribute="trailing" id="Oio-yp-zGn"/>
-                                    <constraint firstItem="UwS-Cg-Kbg" firstAttribute="top" secondItem="XrK-M2-Px0" secondAttribute="top" id="fZn-0E-YUH"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="XrK-M2-Px0" firstAttribute="trailing" secondItem="g3m-RH-La8" secondAttribute="trailing" id="40U-fd-WlN"/>
-                            <constraint firstItem="XrK-M2-Px0" firstAttribute="top" secondItem="g3m-RH-La8" secondAttribute="top" id="I1z-7k-nBm"/>
-                            <constraint firstItem="XrK-M2-Px0" firstAttribute="leading" secondItem="g3m-RH-La8" secondAttribute="leading" id="MLy-gu-IM8"/>
-                            <constraint firstItem="UwS-Cg-Kbg" firstAttribute="width" secondItem="mbz-fb-SLM" secondAttribute="width" id="tlU-GQ-gOb"/>
-                            <constraint firstItem="XrK-M2-Px0" firstAttribute="bottom" secondItem="g3m-RH-La8" secondAttribute="bottom" id="zT3-20-qlm"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="g3m-RH-La8"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Title" id="AZW-ig-Vgq">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="J6I-ld-9j8"/>
-                    </navigationItem>
-                    <size key="freeformSize" width="375" height="1000"/>
-                    <connections>
-                        <outlet property="aboutTextView" destination="JWa-vz-3eM" id="ADg-L0-SjY"/>
-                        <outlet property="accessTextView" destination="iSw-T5-1eT" id="A7T-zY-rnU"/>
-                        <outlet property="addressTextView" destination="qmY-WI-V00" id="ja1-BY-dIg"/>
-                        <outlet property="needsTextView" destination="1l4-o3-Tks" id="YTX-HX-Ijn"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qR1-Au-2kb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2284" y="864"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JHo-Nv-1mX">
@@ -524,7 +410,4 @@
         <image name="locationIcon" width="244" height="308"/>
         <image name="plusButton" width="25" height="25"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="S7b-Dw-a3a"/>
-    </inferredMetricsTieBreakers>
 </document>

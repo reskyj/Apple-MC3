@@ -33,7 +33,11 @@ class DiscoverViewController: UIViewController {
     var lastKey: String = ""
     var getLast: Int = 0
     
+    var selectedPostIndex: Int!
+    
     var initialChildrenCount: Int = 0
+    
+    var seenPostDict: [String:Bool] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +46,8 @@ class DiscoverViewController: UIViewController {
         
         self.postTableView.delegate = self
         self.postTableView.dataSource = self
+        
+        print(self.seenPostDict["2"])
         
         self.checkIsLoggedIn()
         self.getInitialChildrenNo()
@@ -242,7 +248,14 @@ class DiscoverViewController: UIViewController {
             }
         })
     }
-
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "discoverToDiscoverDetail"{
+            let destination = segue.destination as! DiscoverDetailViewController
+            destination.currentPost = self.postArray[self.selectedPostIndex]
+        }
+    }
     
 }
 
@@ -258,8 +271,14 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
         cell.fillCell(schoolName: self.postArray[indexPath.row].schoolName, about: self.postArray[indexPath.row].aboutPost)
         cell.fillLocation(desc: "\(self.postArray[indexPath.row].locationLocality), \(self.postArray[indexPath.row].locationAdminArea)")
         cell.fillThumbnail(thumbnail: self.postArray[indexPath.row].schoolImages[0])
+        cell.selectionStyle = .none
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedPostIndex = indexPath.row
+        performSegue(withIdentifier: "discoverToDiscoverDetail", sender: self)
     }
     
     

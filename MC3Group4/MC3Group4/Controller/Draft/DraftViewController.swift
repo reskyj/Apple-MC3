@@ -21,20 +21,6 @@ class DraftViewController: UIViewController {
     var tempResult: [DraftEntity] = []
     
     @IBAction func addDraftButton(_ sender: Any) {
-//        let draftAlert = UIAlertController(title: "Draft Baru", message: nil, preferredStyle: .alert)
-//        draftAlert.addTextField {
-//            $0.placeholder = "Nama sekolah"
-//            $0.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
-//        }
-//        let submitAction = UIAlertAction(title: "Tambah", style: .default) { (UIAlertAction) in
-//            self.createNewDraft()
-//        }
-//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (UIAlertAction) in
-//        }
-//        submitAction.isEnabled = false
-//        draftAlert.addAction(submitAction)
-//        draftAlert.addAction(cancelAction)
-//        present(draftAlert, animated: true, completion: nil)
         self.createNewDraft()
     }
     

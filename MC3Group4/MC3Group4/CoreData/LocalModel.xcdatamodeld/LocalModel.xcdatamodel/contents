@@ -17,7 +17,11 @@
         <attribute name="schoolImages" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="schoolName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="SeenPost" representedClassName="SeenPost" syncable="YES">
+        <attribute name="postUUID" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="DraftEntity" positionX="-54" positionY="-9" width="128" height="270"/>
+        <element name="SeenPost" positionX="-54" positionY="108" width="128" height="60"/>
     </elements>
 </model>
