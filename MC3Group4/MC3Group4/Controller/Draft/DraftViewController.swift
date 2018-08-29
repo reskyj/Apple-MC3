@@ -20,6 +20,9 @@ class DraftViewController: UIViewController {
     var draftArray: [PostModel] = []
     var tempResult: [DraftEntity] = []
     
+
+    @IBOutlet weak var emptyView: UIView!
+    
     @IBAction func addDraftButton(_ sender: Any) {
         self.createNewDraft()
     }
@@ -64,6 +67,15 @@ class DraftViewController: UIViewController {
         self.draftArray.removeAll()
         
         self.fetchFromCoreData()
+        
+        if (self.draftArray.count == 0){
+            self.draftTableView.isHidden = true
+            self.emptyView.isHidden = false
+        }
+        else{
+            self.draftTableView.isHidden = false
+            self.emptyView.isHidden = true
+        }
     }
     
     func fetchFromCoreData(){
