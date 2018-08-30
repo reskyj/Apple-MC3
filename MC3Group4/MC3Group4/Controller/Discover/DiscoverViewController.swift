@@ -81,10 +81,16 @@ class DiscoverViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        newPostButton.buttonDesignOne()
+        self.newPostButton.buttonDesignOne()
+        self.newPostButton.layer.shadowColor = UIColor.black.cgColor
+        self.newPostButton.layer.shadowOpacity = 0.3
+        self.newPostButton.layer.shadowRadius = 5
+        self.newPostButton.layer.shadowOffset = CGSize(width: 0, height: 0)
         
         self.postTableView.delegate = self
         self.postTableView.dataSource = self
+        
+        
         
         self.getSeenPostFromCoreData()
         

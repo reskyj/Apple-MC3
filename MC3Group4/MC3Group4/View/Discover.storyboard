@@ -76,7 +76,7 @@
                                 </prototypes>
                             </tableView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSy-hT-zdU">
-                                <rect key="frame" x="125" y="97" width="124" height="30"/>
+                                <rect key="frame" x="125" y="107" width="124" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="12"/>
                                 <state key="normal" title="KONTEN BARU"/>
@@ -219,7 +219,7 @@
                                                 </connections>
                                             </mapView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsL-3j-QTi">
-                                                <rect key="frame" x="16" y="1085" width="343" height="45"/>
+                                                <rect key="frame" x="16" y="1060" width="343" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="5QU-Ma-njv"/>
                                                 </constraints>
@@ -268,7 +268,7 @@
                                             <constraint firstAttribute="trailing" secondItem="B2O-tj-9o7" secondAttribute="trailing" constant="311" id="ZM0-y5-S3d"/>
                                             <constraint firstAttribute="trailing" secondItem="hw4-Us-6dE" secondAttribute="trailing" constant="16" id="aco-E5-Lqa"/>
                                             <constraint firstItem="sm2-El-wXo" firstAttribute="leading" secondItem="UNj-kj-V0f" secondAttribute="leading" constant="16" id="b8p-IA-8zS"/>
-                                            <constraint firstItem="lsL-3j-QTi" firstAttribute="top" secondItem="ZaZ-td-nZh" secondAttribute="bottom" constant="75" id="dx4-cH-uy7"/>
+                                            <constraint firstItem="lsL-3j-QTi" firstAttribute="top" secondItem="ZaZ-td-nZh" secondAttribute="bottom" constant="50" id="dx4-cH-uy7"/>
                                             <constraint firstItem="LNd-pS-zSs" firstAttribute="top" secondItem="DjN-tD-9kl" secondAttribute="bottom" constant="60" id="ftW-pv-oi7"/>
                                             <constraint firstItem="Uih-Bn-2a6" firstAttribute="top" secondItem="B2O-tj-9o7" secondAttribute="bottom" constant="8" id="hMm-bf-Qfr"/>
                                             <constraint firstAttribute="height" constant="1500" id="id0-Cd-cu2"/>

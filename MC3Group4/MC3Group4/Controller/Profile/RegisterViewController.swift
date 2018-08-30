@@ -48,16 +48,16 @@ class RegisterViewController: UIViewController {
         self.password = self.passwordTextField.text!
         self.confirmPassword = self.confirmPasswordTextField.text!
         
-        let alert = UIAlertController(title: "Failed", message:nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Gagal", message:nil, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
         }
         alert.addAction(okAction)
         
         if (self.email == "" || self.fullName == "" || self.phone == "" || self.password == "" || self.confirmPassword == ""){
-            alert.message = "Please fill in the fields!"
+            alert.message = "Mohon mengisi semua field!"
         }
         else if (self.password != self.confirmPassword){
-            alert.message = "Password do not match!"
+            alert.message = "Konfirmasi kata sandi tidak sesuai!"
         }
         else{
             self.checkEmailExist()
@@ -82,7 +82,7 @@ class RegisterViewController: UIViewController {
                         if (tempUserEmail == self.email){
                             print("exists")
                             
-                            let alert = UIAlertController(title: "Failed", message: "E-mail already exists!", preferredStyle: .alert)
+                            let alert = UIAlertController(title: "Gagal", message: "E-mail sudah pernah terdaftar!", preferredStyle: .alert)
                             let okAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
                             }
                             alert.addAction(okAction)
@@ -118,7 +118,7 @@ class RegisterViewController: UIViewController {
         UserDefaultReference.udRef.set(hashedPassword, forKey: "udHashedPassword")
         UserDefaultReference.udRef.set(uuid, forKey: "udUserUUID")
         
-        let alert = UIAlertController(title: "Success", message: "You have successfully registered to Bantu!", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Berhasil", message: "Anda telah terdaftar di aplikasi Bantu!", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
             self.navigationController?.popViewController(animated: false)
         }

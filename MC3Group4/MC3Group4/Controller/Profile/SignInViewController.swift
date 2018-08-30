@@ -39,7 +39,7 @@ class SignInViewController: UIViewController {
         self.password = self.passwordTextField.text!
         
         if (self.email == "" || self.password == ""){
-            self.callAlert(title: "Failed", message: "Please fill in the fields!")
+            self.callAlert(title: "Gagal", message: "Mohon mengisi semua field!")
             return
         }
         else{
@@ -50,7 +50,7 @@ class SignInViewController: UIViewController {
     func checkLoginCredentials(){
         FirebaseReferences.databaseRef.observeSingleEvent(of: .value) { (snap) in
             if (snap.hasChildren() == false){
-                self.callAlert(title: "Failed", message: "E-mail not registered!")
+                self.callAlert(title: "Gagal", message: "E-mail belum terdaftar!")
                 return
             }
             else{
@@ -61,7 +61,7 @@ class SignInViewController: UIViewController {
                         if (tempUser!["email"] as! String == self.email){
                             let hashedPassword = SHA1.hexString(from: self.password)!
                             if (tempUser!["password"] as! String != hashedPassword){
-                                self.callAlert(title: "Failed", message: "Wrong password!")
+                                self.callAlert(title: "Gagal", message: "Kata sandi salah!")
                                 return
                             }
                             else{
@@ -85,13 +85,13 @@ class SignInViewController: UIViewController {
                                 UserDefaultReference.udRef.set(hashedPassword, forKey: "udHashedPassword")
                                 UserDefaultReference.udRef.set(key, forKey: "udUserUUID")
                                 
-                                self.callAlert(title: "Success", message: "You are now logged in!")
+                                self.callAlert(title: "Berhasil", message: "Anda sudah masuk!")
                                 return
                             }
                         }
                     }
                     
-                    self.callAlert(title: "Failed", message: "E-mail not registered!")
+                    self.callAlert(title: "Gagal", message: "E-mail belum terdaftar!")
                     return
                 })
             }

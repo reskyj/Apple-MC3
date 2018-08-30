@@ -76,8 +76,6 @@ class DraftDetailViewController: UIViewController {
         self.addressTextView.text = self.currentDraft.addressPost
         self.notesTextView.text = self.currentDraft.notesPost
         
-        
-        
         if (self.currentDraft.locationLatitude != 0 && self.currentDraft.locationLongitude != 0){
             let tempLoc = CLLocation(latitude: self.currentDraft.locationLatitude, longitude: self.currentDraft.locationLongitude)
             self.setLocationOnMap(userLocation: tempLoc)
@@ -304,28 +302,28 @@ class DraftDetailViewController: UIViewController {
     @IBAction func submitButtonClicked(_ sender: Any) {
         if (self.schoolNameTextView.text == "" || self.aboutTextView.text == "" || self.needsTextView.text == "" || self.accessTextView.text == "" || self.addressTextView.text == "" || self.notesTextView.text == ""){
             
-            let alert = UIAlertController(title: "Unable to Submit", message: "Please fill in the fields!", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Gagal", message: "Mohon mengisi semua bagian!", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
             }
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
         }
         else if (self.currentDraft.locationLongitude == 0 || self.currentDraft.locationLatitude == 0 ){
-            let alert = UIAlertController(title: "Unable to Submit", message: "Location not set!", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Gagal", message: "Lokasi belum dimasukkan!", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
             }
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
         }
-        else if (self.currentDraft.schoolImages.count < 1){
-            let alert = UIAlertController(title: "Unable to Submit", message: "Please include at least 1 school and road image!", preferredStyle: .alert)
+        else if (self.currentDraft.schoolImages.count < 1 || self.currentDraft.roadImages.count < 1){
+            let alert = UIAlertController(title: "Gagal", message: "Mohon masukkan minimal 1 gambar untuk sekolah dan jalan!", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
             }
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
         }
         else if (LoggedInUser.isLoggedIn == false){
-            let alert = UIAlertController(title: "Unable to Submit", message: "You must be logged in to submit!", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Gagal", message: "Anda harus masuk untuk mengunggah draft!", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
             }
             alert.addAction(okAction)
@@ -334,6 +332,10 @@ class DraftDetailViewController: UIViewController {
         else{
             if (self.hasSubmitted == false){
                 self.hasSubmitted = true
+                
+                self.submitAlert = UIAlertController(title: "Mohon tunggu", message: "Sedang mengunggah draft!", preferredStyle: .alert)
+                self.present(self.submitAlert, animated: true, completion: nil)
+                
                 self.submitToFirebase()
             }
         }
@@ -359,7 +361,12 @@ class DraftDetailViewController: UIViewController {
                 
                 self.FirebaseStorageFlag = 0
                 
-                let alert = UIAlertController(title: "Success", message: "Your draft has been submitted!", preferredStyle: .alert)
+                self.submitAlert.dismiss(animated: false) {
+                    
+                }
+
+                
+                let alert = UIAlertController(title: "Berhasil", message: "Draft anda sudah terunggah!", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
 //                    self.performSegue(withIdentifier: "didUnwindFromDraftDetailToDraft", sender: self)
                     self.deleteFromCoreData()
