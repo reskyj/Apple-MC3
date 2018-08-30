@@ -526,7 +526,7 @@
         <scene sceneID="JHo-Nv-1mX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AaV-v6-i0y" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="compose" id="Rrf-MT-qm8"/>
+                    <tabBarItem key="tabBarItem" title="" image="draft-2" id="Rrf-MT-qm8"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IWw-JF-oLm">
@@ -545,7 +545,7 @@
     </scenes>
     <resources>
         <image name="Location-1" width="25" height="25"/>
-        <image name="compose" width="25" height="25"/>
+        <image name="draft-2" width="25" height="25"/>
         <image name="kertttas" width="493" height="512"/>
         <image name="plusButton" width="25" height="25"/>
     </resources>
