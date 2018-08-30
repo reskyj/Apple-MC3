@@ -30,6 +30,7 @@ class DiscoverViewController: UIViewController {
     
     @IBOutlet weak var postTableView: UITableView!
     @IBOutlet weak var newPostButton: UIButton!
+    @IBOutlet weak var myShimmerView: UIView!
     
     var postArray: [PostModel] = []
     var lastKey: String = ""
@@ -90,18 +91,47 @@ class DiscoverViewController: UIViewController {
         self.postTableView.delegate = self
         self.postTableView.dataSource = self
         
-        
-        
         self.getSeenPostFromCoreData()
         
         self.checkIsLoggedIn()
         self.getInitialChildrenNo()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.unseenPostNo = 0
         self.postTableView.reloadData()
+    }
+    
+    func setAnimation()
+    {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [
+            UIColor.clear.cgColor, UIColor.clear.cgColor,
+            UIColor.lightGray.cgColor, UIColor.lightGray.cgColor,
+            UIColor.clear.cgColor, UIColor.clear.cgColor
+        ]
+        
+        gradientLayer.locations = [0, 0.2, 0.4, 0.6, 0.8, 1]
+        
+        let angle = -60 * CGFloat.pi / 180
+        let rotationTransform = CATransform3DMakeRotation(angle, 0, 0, 1)
+        gradientLayer.transform = rotationTransform
+        view.layer.addSublayer(gradientLayer)
+        gradientLayer.frame = self.myShimmerView.frame
+        
+        self.myShimmerView.layer.mask = gradientLayer
+        
+        gradientLayer.transform = CATransform3DConcat(gradientLayer.transform, CATransform3DMakeScale(3, 3, 0))
+        
+        let animation = CABasicAnimation(keyPath: "transform.translation.x")
+        animation.duration = 3
+        animation.repeatCount = Float.infinity
+        animation.autoreverses = false
+        animation.fromValue = -3.0 * view.frame.width
+        animation.toValue = 3.0 * view.frame.width
+        animation.isRemovedOnCompletion = false
+        animation.fillMode = kCAFillModeForwards
+        gradientLayer.add(animation, forKey: "")
     }
     
     func getSeenPostFromCoreData(){
@@ -121,6 +151,9 @@ class DiscoverViewController: UIViewController {
     @IBAction func newPostButtonClicked(_ sender: Any) {
         
         self.newPostButton.isHidden = true
+        
+        let newPostAlert = UIAlertController(title: "Mohon tunggu", message: "Sedang memuat konten", preferredStyle: .alert)
+        self.present(newPostAlert, animated: true, completion: nil)
         FirebaseReferences.databaseRef.child("Posts").queryOrderedByKey().queryStarting(atValue: self.lastKey).observeSingleEvent(of: .value, with: { (snap) in
             
             for x in snap.children{
@@ -176,8 +209,10 @@ class DiscoverViewController: UIViewController {
                     self.postArray.insert(PostModel(schoolImages: tempSchoolImages, roadImages: tempRoadImages, schoolName: schoolName, aboutPost: about, needsPost: needs, addressPost: address, accessPost: access, notesPost: notes, locationName: locationName, locationAdminArea: locationAdminArea, locationLocality: locationLocality, locationAOI: locationAOI, locationLatitude: locationLatitude, locationLongitude: locationLongitude, postUUID: postUUID), at: 0)
                     self.postArray[0].posterID = posterID
                     self.postArray[0].timeStamp = timeStamp
-                    
                     self.unseenPostNo = 0
+                    newPostAlert.dismiss(animated: true, completion: {
+                        
+                    })
                     self.postTableView.reloadData()
                     self.totalLoadedData = self.totalLoadedData + 1
                 }
@@ -227,6 +262,10 @@ class DiscoverViewController: UIViewController {
                 return
             }
             else{
+                self.postTableView.isHidden = true
+                self.myShimmerView.isHidden = false
+                self.setAnimation()
+                print("has set animation")
                 self.initialChildrenCount = Int(snap.childrenCount)
                 self.fetchFromFirebase()
             }
@@ -255,6 +294,8 @@ class DiscoverViewController: UIViewController {
         didSet{
             if (self.totalLoadedData == self.initialChildrenCount){
                 print("has loaded all initial posts")
+                self.myShimmerView.removeFromSuperview()
+                self.postTableView.isHidden = false
                 self.startObservingFirebase()
             }
         }
